@@ -1,0 +1,149 @@
+{
+  "runs": [
+    {
+      "run_number": 1,
+      "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/25982055974",
+      "timestamp": "2026-05-17T05:56:21.743373Z",
+      "passed": 63,
+      "failed": 108,
+      "total": 171,
+      "bugs": 108,
+      "pass_rate": "36.8%"
+    }
+  ],
+  "fingerprints": {
+    "d89a19962de5": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "a7f290e2b3be": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "402ed3352a6a": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "48661fc6824b": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "d81d51b6ee63": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "c0c999130a00": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "3fb581456488": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "8ca35425dc86": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "8cbec1665c69": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "a7bfd7d38d07": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "770fb9e7e1f4": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "61bdca766f4e": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "318b5b7cebe6": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "5d3e2f096fed": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "9252bcf5ad3d": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "c0325d900192": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "01cd6b2d1b53": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "69c69b461be4": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    },
+    "046ef2e7920e": {
+      "first_seen_run": 1,
+      "last_seen_run": 1,
+      "runs_seen": [
+        1
+      ]
+    }
+  }
+}

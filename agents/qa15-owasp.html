@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Mehad QA Bug Report — 2026-05-17 05:56:21</title>
+<style>
+/* ── Reset & base ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;
+  --muted:#8b949e;--c-critical:#f85149;--c-high:#f0883e;
+  --c-medium:#e3b341;--c-low:#58a6ff;--c-pass:#3fb950;
+  --c-critical-bg:#3d0e0e;--c-high-bg:#3d1e0e;
+  --c-medium-bg:#3d2e0e;--c-low-bg:#0e1e3d;
+  --c-pass-bg:#0e2d1a;--radius:10px;--font:'Inter',system-ui,sans-serif
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);
+     font-size:14px;line-height:1.6;padding:0}
+a{color:var(--c-low);text-decoration:none}
+a:hover{text-decoration:underline}
+code,pre{font-family:'JetBrains Mono','Fira Code',monospace;font-size:12px}
+pre{background:#0d1117;border:1px solid var(--border);border-radius:6px;
+    padding:12px;overflow-x:auto;white-space:pre-wrap;word-break:break-word}
+
+/* ── Layout ── */
+.wrap{max-width:1100px;margin:0 auto;padding:24px 20px}
+
+/* ── Header ── */
+.hdr{background:linear-gradient(135deg,#1c2333 0%,#161b22 100%);
+     border-bottom:1px solid var(--border);padding:28px 0;margin-bottom:32px}
+.hdr-inner{max-width:1100px;margin:0 auto;padding:0 20px;
+           display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.hdr-left h1{font-size:22px;font-weight:700;letter-spacing:-0.3px}
+.hdr-left h1 span{color:var(--c-critical);}
+.hdr-meta{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted);text-align:right}
+.hdr-meta b{color:var(--text)}
+.print-btn{background:#21262d;border:1px solid var(--border);color:var(--text);
+           padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;
+           transition:background .15s}
+.print-btn:hover{background:#30363d}
+
+/* ── Stats bar ── */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;
+       margin-bottom:36px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+      padding:18px 16px;
+      /* clickable stat cards */
+      text-decoration:none;color:inherit;display:block;cursor:pointer;
+      transition:transform .12s,border-color .12s,background .12s,box-shadow .12s}
+.stat:hover{border-color:#58a6ff;background:#1c2333;
+            transform:translateY(-2px);box-shadow:0 4px 16px rgba(88,166,255,.12)}
+.stat::after{content:"→";position:absolute;opacity:0;transition:opacity .15s,transform .15s;
+             right:14px;top:14px;color:#58a6ff;font-size:14px;font-weight:700}
+.stat{position:relative}
+.stat:hover::after{opacity:1;transform:translateX(2px)}
+.stat .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px}
+.stat .val{font-size:34px;font-weight:700;line-height:1}
+.stat.critical .val{color:var(--c-critical)}
+.stat.high     .val{color:var(--c-high)}
+.stat.medium   .val{color:var(--c-medium)}
+.stat.low      .val{color:var(--c-low)}
+.stat.pass     .val{color:var(--c-pass)}
+.stat.fail     .val{color:var(--c-critical)}
+.stat.total    .val{color:#a371f7}
+
+/* ── Filter bar (used above bug list and test list) ── */
+.filter-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;
+            background:var(--surface);border:1px solid var(--border);
+            border-radius:var(--radius);padding:10px 14px;margin-bottom:14px}
+.filter-lbl{font-size:11px;text-transform:uppercase;letter-spacing:.6px;
+            color:var(--muted);font-weight:600;margin-right:6px}
+.fbtn{background:#0d1117;color:var(--muted);border:1px solid var(--border);
+      border-radius:6px;padding:6px 12px;font-size:12px;font-weight:600;
+      cursor:pointer;transition:background .12s,border-color .12s,color .12s}
+.fbtn:hover{background:#1c2333;color:var(--text);border-color:#58a6ff}
+.fbtn.active{background:#1f6feb;color:#fff;border-color:#1f6feb}
+.fbtn-pass.active{background:var(--c-pass);border-color:var(--c-pass)}
+.fbtn-fail.active{background:var(--c-critical);border-color:var(--c-critical)}
+.fbtn-critical.active{background:var(--c-critical);border-color:var(--c-critical)}
+.fbtn-high.active{background:var(--c-high);border-color:var(--c-high)}
+.fbtn-medium.active{background:var(--c-medium);border-color:var(--c-medium);color:#000}
+.fbtn-low.active{background:var(--c-low);border-color:var(--c-low);color:#000}
+.fbtn-search{flex:1;min-width:180px;background:#0d1117;color:var(--text);
+             border:1px solid var(--border);border-radius:6px;padding:6px 12px;
+             font-size:12px;font-family:inherit;outline:none}
+.fbtn-search:focus{border-color:#58a6ff}
+.fbtn-action{background:#0d1117;color:var(--c-low);border:1px solid var(--border);
+             border-radius:6px;padding:6px 10px;font-size:11px;font-weight:600;
+             cursor:pointer;transition:background .12s,color .12s}
+.fbtn-action:hover{background:#1c2333;color:var(--text)}
+
+/* When filter is active, hide non-matching items via attribute selectors */
+.bug-card[data-hidden="1"]{display:none}
+.spec-blk[data-hidden="1"]{display:none}
+.trow[data-hidden="1"]{display:none}
+
+/* ── Root-cause cluster summary banner ──────────────────────────────────── */
+.cluster-summary{margin:24px 0 16px}
+.cluster-headline{font-size:14px;color:var(--muted);margin-bottom:14px}
+.cluster-headline strong{color:#a371f7}
+.cluster-list{display:flex;flex-direction:column;gap:8px}
+.cluster-row{background:var(--surface);border:1px solid var(--border);
+             border-radius:8px;padding:14px 18px;
+             display:grid;grid-template-columns:auto 1fr auto;
+             gap:14px;align-items:center}
+.cluster-row:hover{border-color:#58a6ff}
+.cluster-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.cluster-count{font-size:11px;color:var(--muted);background:#0d1117;
+               border:1px solid var(--border);border-radius:4px;
+               padding:3px 8px;font-weight:600}
+.cluster-title{font-size:13px;color:var(--text);font-weight:600}
+.cluster-tickets{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;
+                 max-width:300px}
+.cluster-bug-link{font-size:10px;font-family:'SF Mono',monospace;color:#58a6ff;
+                  text-decoration:none;background:#0d1117;border:1px solid var(--border);
+                  padding:2px 6px;border-radius:4px}
+.cluster-bug-link:hover{border-color:#58a6ff;background:#1c2333}
+.recurrence-badge{background:#2d1b1b;color:#f85149;border:1px solid #f85149;
+                  border-radius:4px;padding:2px 8px;font-size:10px;
+                  font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+.cluster-help{font-size:11px;color:var(--muted);margin-top:12px;
+              padding:8px 12px;background:#0d1117;border-radius:6px;
+              border-left:3px solid #a371f7}
+
+/* ── Cross-spec inconsistency section ──────────────────────────────────── */
+.ci-summary{margin:24px 0 16px}
+.ci-headline{font-size:13px;color:var(--muted);margin-bottom:14px}
+.ci-headline strong{color:var(--c-medium)}
+.ci-list{display:flex;flex-direction:column;gap:10px}
+.ci-row{background:var(--surface);border:1px solid var(--border);
+        border-radius:8px;padding:12px 16px}
+.ci-cat{font-weight:600;color:var(--text);font-size:13px;margin-bottom:8px}
+.ci-table{width:100%;border-collapse:collapse;font-size:12px}
+.ci-table th{background:#0d1117;color:var(--muted);font-size:10px;
+             text-transform:uppercase;letter-spacing:.5px;
+             padding:6px 12px;text-align:left;border:1px solid var(--border)}
+.ci-table td{padding:6px 12px;border:1px solid var(--border)}
+.ci-value code{color:var(--c-medium);font-weight:600}
+.ci-spec-chip{display:inline-block;font-size:10px;font-family:'SF Mono',monospace;
+              background:#0d1117;color:#a371f7;border:1px solid var(--border);
+              border-radius:4px;padding:2px 6px;margin:2px 3px}
+
+/* ── Test quality audit section ─────────────────────────────────────────── */
+.tq-summary{margin:24px 0 16px}
+.tq-headline{font-size:13px;color:var(--muted);margin-bottom:14px}
+.tq-headline strong{color:var(--c-medium)}
+.tq-table{width:100%;border-collapse:collapse;font-size:12px;
+          background:var(--surface);border:1px solid var(--border);
+          border-radius:8px;overflow:hidden}
+.tq-table th{background:#0d1117;color:var(--muted);font-size:10px;
+             text-transform:uppercase;letter-spacing:.5px;
+             padding:10px 14px;text-align:left}
+.tq-table td{padding:9px 14px;border-top:1px solid var(--border)}
+.tq-table tr:hover td{background:#1c2333}
+.tq-help{font-size:11px;color:var(--muted);margin-top:12px;
+         padding:8px 12px;background:#0d1117;border-radius:6px;
+         border-left:3px solid var(--c-medium)}
+
+/* ── Test data viewer (expandable) ──────────────────────────────────────── */
+.td-summary{margin:24px 0 16px}
+.td-headline{font-size:13px;color:var(--muted);margin-bottom:14px}
+.td-list{display:flex;flex-direction:column;gap:8px}
+.td-spec-row, .td-type-row{
+  background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  overflow:hidden
+}
+.td-type-row{margin-top:6px;background:#0d1117}
+.td-spec-row > summary, .td-type-row > summary{
+  list-style:none;cursor:pointer;padding:11px 16px;
+  display:flex;align-items:center;gap:14px;font-size:13px;
+  user-select:none;transition:background .12s
+}
+.td-spec-row > summary::-webkit-details-marker,
+.td-type-row > summary::-webkit-details-marker{display:none}
+.td-spec-row > summary::before, .td-type-row > summary::before{
+  content:"▶";color:var(--muted);font-size:9px;width:12px;flex-shrink:0
+}
+.td-spec-row[open] > summary::before, .td-type-row[open] > summary::before{
+  content:"▼"
+}
+.td-spec-row > summary:hover, .td-type-row > summary:hover{background:#1c2333}
+.td-spec-name{font-weight:600;color:var(--text);flex:1}
+.td-type-name{font-family:'SF Mono',monospace;color:var(--c-low);
+              font-size:12px;flex:1}
+.td-count{font-size:11px;color:var(--muted);background:#0d1117;
+          border:1px solid var(--border);border-radius:4px;padding:2px 8px}
+.td-data-count{font-size:11px;color:#a371f7;background:rgba(163,113,247,.10);
+               border-radius:4px;padding:2px 8px;font-weight:600}
+.td-spec-body, .td-type-body{
+  padding:12px 18px;border-top:1px solid var(--border)
+}
+.td-help{font-size:11px;color:var(--muted);margin-bottom:10px;
+         padding:6px 10px;background:#0d1117;border-radius:5px;
+         border-left:3px solid #a371f7}
+.td-data-list{margin:8px 0;padding-left:20px;color:var(--text);font-size:12px}
+.td-data-list li{padding:3px 0;line-height:1.5}
+.td-data-list code{background:#0d1117;border:1px solid var(--border);
+                    border-radius:3px;padding:1px 6px;font-size:11px;
+                    color:#a371f7}
+.td-src{color:#58a6ff;font-family:'SF Mono',monospace;font-size:11px}
+.td-empty{color:var(--muted);font-style:italic;font-size:12px;padding:8px 0}
+.td-truncated{font-size:11px;color:var(--muted);margin-top:6px;
+              padding:6px 10px;background:#0d1117;border-radius:4px}
+
+/* ── Section titles ── */
+.sec-title{font-size:16px;font-weight:600;border-bottom:1px solid var(--border);
+           padding-bottom:10px;margin:40px 0 20px}
+.sec-title .count{background:var(--border);color:var(--muted);
+                  font-size:11px;padding:2px 8px;border-radius:99px;margin-left:8px;font-weight:400}
+
+/* ── Severity badge ── */
+.badge{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11px;
+       font-weight:600;letter-spacing:.4px;text-transform:uppercase}
+.badge.CRITICAL{background:var(--c-critical-bg);color:var(--c-critical);border:1px solid var(--c-critical)}
+.badge.HIGH    {background:var(--c-high-bg);    color:var(--c-high);    border:1px solid var(--c-high)}
+.badge.MEDIUM  {background:var(--c-medium-bg);  color:var(--c-medium);  border:1px solid var(--c-medium)}
+.badge.LOW     {background:var(--c-low-bg);     color:var(--c-low);     border:1px solid var(--c-low)}
+.badge.PASS    {background:var(--c-pass-bg);    color:var(--c-pass);    border:1px solid var(--c-pass)}
+.badge.FAIL    {background:var(--c-critical-bg);color:var(--c-critical);border:1px solid var(--c-critical)}
+.badge.gen-fail{background:#3d2000;color:#fb923c;border:1px solid #fb923c}
+.badge.P0{background:#450a0a;color:#fca5a5;border:1px solid #f85149}
+.badge.P1{background:#3d1a0a;color:#fdba74;border:1px solid #f0883e}
+.badge.P2{background:#1a2e0a;color:#86efac;border:1px solid #3fb950}
+.badge.P3{background:#0a1a2e;color:#93c5fd;border:1px solid #58a6ff}
+
+/* ── Priority framework strip ── */
+.priority-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px}
+.pstrip-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+            padding:14px 16px;cursor:pointer;transition:transform .12s,border-color .12s,background .12s;
+            text-align:center}
+.pstrip-item:hover{background:#1c2333;transform:translateY(-2px)}
+.pstrip-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px}
+.pstrip-val{font-size:28px;font-weight:700;line-height:1;margin-bottom:4px}
+.pstrip-sla{font-size:10px;color:var(--muted);margin-top:4px}
+.pstrip-item.p0{border-top:3px solid var(--c-critical)}
+.pstrip-item.p0 .pstrip-label,.pstrip-item.p0 .pstrip-val{color:var(--c-critical)}
+.pstrip-item.p1{border-top:3px solid var(--c-high)}
+.pstrip-item.p1 .pstrip-label,.pstrip-item.p1 .pstrip-val{color:var(--c-high)}
+.pstrip-item.p2{border-top:3px solid var(--c-medium)}
+.pstrip-item.p2 .pstrip-label,.pstrip-item.p2 .pstrip-val{color:var(--c-medium)}
+.pstrip-item.p3{border-top:3px solid var(--c-low)}
+.pstrip-item.p3 .pstrip-label,.pstrip-item.p3 .pstrip-val{color:var(--c-low)}
+@media(max-width:768px){.priority-strip{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.priority-strip{grid-template-columns:1fr 1fr}}
+
+/* ── Board section chip ── */
+.board-chip{font-size:10px;font-weight:700;letter-spacing:.4px;padding:2px 8px;
+           border-radius:4px;text-transform:uppercase;display:inline-block}
+.board-chip.expedite{background:#450a0a;color:#fca5a5;border:1px solid #f85149}
+.board-chip.else{background:#0a1628;color:#93c5fd;border:1px solid #3b82f6}
+
+/* ── BIZ-ESCALATE badge ── */
+.biz-badge{font-size:10px;font-weight:700;letter-spacing:.4px;padding:2px 8px;
+          border-radius:4px;background:#2d1b55;color:#d8b4fe;border:1px solid #7c3aed;
+          display:inline-block;animation:biz-pulse 2s ease-in-out infinite}
+@keyframes biz-pulse{0%,100%{opacity:1} 50%{opacity:.7}}
+
+/* ── SLA chip ── */
+.sla-chip{font-size:10px;color:var(--muted);background:#0d1117;border:1px solid var(--border);
+         border-radius:4px;padding:2px 8px;display:inline-block}
+
+/* ── Priority rationale info block ── */
+.info-block.priority{background:#0a1822;border-left:3px solid #60a5fa}
+.info-block.priority .ib-label{color:#60a5fa}
+
+/* ── Bug ticket card ── */
+.bug-card{background:var(--surface);border:1px solid var(--border);
+          border-radius:var(--radius);margin-bottom:28px;overflow:hidden}
+.bug-card-hdr{padding:16px 20px;display:flex;align-items:flex-start;
+              justify-content:space-between;flex-wrap:wrap;gap:8px;
+              border-bottom:1px solid var(--border)}
+.bug-card-hdr .left{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bug-id{font-size:12px;font-weight:700;color:var(--muted);
+        font-family:monospace;background:#0d1117;border:1px solid var(--border);
+        padding:2px 8px;border-radius:4px}
+.bug-title{font-size:15px;font-weight:600;color:var(--text);margin-top:2px}
+.bug-meta{font-size:12px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap;margin-top:6px}
+.bug-meta span{display:flex;align-items:center;gap:4px}
+.bug-body{padding:20px}
+
+/* ── Two-col grid ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:640px){.two-col{grid-template-columns:1fr}}
+
+/* ── Info blocks ── */
+.info-block{border-radius:8px;padding:14px 16px}
+.info-block .ib-label{font-size:11px;font-weight:600;text-transform:uppercase;
+                      letter-spacing:.6px;margin-bottom:8px}
+.info-block.expected{background:#0d2818;border-left:3px solid var(--c-pass)}
+.info-block.expected .ib-label{color:var(--c-pass)}
+.info-block.actual  {background:var(--c-critical-bg);border-left:3px solid var(--c-critical)}
+.info-block.actual .ib-label{color:var(--c-critical)}
+.info-block.analysis{background:#1c1a2e;border-left:3px solid #a371f7}
+.info-block.analysis .ib-label{color:#a371f7}
+.info-block.fix     {background:#0a2218;border-left:3px solid var(--c-pass)}
+.info-block.fix .ib-label{color:var(--c-pass)}
+.info-block.rootcause{background:#1c1200;border-left:3px solid var(--c-medium)}
+.info-block.rootcause .ib-label{color:var(--c-medium)}
+
+/* ── Steps list ── */
+ol.steps{padding-left:20px;color:var(--text)}
+ol.steps li{margin-bottom:5px}
+
+/* ── Screenshot ── */
+.shot-wrap{margin-top:16px}
+.shot-label{font-size:11px;font-weight:600;text-transform:uppercase;
+            letter-spacing:.6px;color:var(--muted);margin-bottom:8px;
+            display:flex;align-items:center;gap:6px}
+.shot-label::before{content:"📸"}
+.screenshot{width:100%;border:1px solid var(--border);border-radius:8px;
+            cursor:zoom-in;transition:opacity .2s}
+.screenshot:hover{opacity:.9}
+.no-shot{background:#0d1117;border:1px dashed var(--border);border-radius:8px;
+         padding:20px;text-align:center;color:var(--muted);font-size:12px}
+
+/* ── Video PoC ── */
+.video-wrap{margin-top:16px}
+.video-label{font-size:11px;font-weight:600;text-transform:uppercase;
+             letter-spacing:.6px;color:var(--muted);margin-bottom:8px;
+             display:flex;align-items:center;gap:6px}
+.video-label::before{content:"🎬"}
+.poc-video{width:100%;max-height:540px;border:1px solid var(--border);
+           border-radius:8px;background:#000}
+.video-cta{display:inline-block;margin-top:6px;font-size:11px;color:#58a6ff;
+           text-decoration:none}
+.video-cta:hover{text-decoration:underline}
+
+/* ── Sticky back button (top of report) ── */
+.back-bar{position:sticky;top:0;z-index:50;background:#0d1117ee;
+          border-bottom:1px solid var(--border);padding:8px 0;
+          backdrop-filter:blur(8px)}
+.back-bar-inner{max-width:1100px;margin:0 auto;padding:0 20px;
+                 display:flex;align-items:center;gap:14px;font-size:12px}
+.back-link{color:#58a6ff;text-decoration:none;display:inline-flex;
+            align-items:center;gap:6px;font-weight:600;
+            padding:6px 12px;border:1px solid var(--border);border-radius:6px;
+            background:#161b22;transition:background .15s,border-color .15s}
+.back-link:hover{background:#1c2333;border-color:#58a6ff}
+.back-bar-spacer{flex:1}
+.back-bar-quick{color:var(--muted);font-size:11px}
+.back-bar-quick a{color:#58a6ff;text-decoration:none;margin-left:8px}
+.back-bar-quick a:hover{text-decoration:underline}
+
+/* ── Footer + contact card ── */
+.footer-wrap{margin-top:60px;padding:24px 20px;border-top:1px solid var(--border);
+             text-align:center}
+.contact-card{display:inline-flex;flex-direction:column;align-items:center;
+              gap:6px;padding:18px 28px;background:var(--surface);
+              border:1px solid var(--border);border-radius:10px;
+              margin:14px auto 18px}
+.contact-card .name{font-weight:700;font-size:15px;color:var(--text)}
+.contact-card .title{font-size:12px;color:var(--muted)}
+.contact-card .links{display:flex;gap:14px;margin-top:8px;flex-wrap:wrap;
+                     justify-content:center}
+.contact-card .links a{color:#58a6ff;text-decoration:none;font-size:12px;
+                       padding:5px 10px;border:1px solid var(--border);
+                       border-radius:6px;background:#0d1117;
+                       transition:background .15s,border-color .15s}
+.contact-card .links a:hover{background:#1c2333;border-color:#58a6ff}
+
+/* ── Error/traceback collapsible ── */
+.err-toggle{width:100%;background:#0d1117;border:1px solid var(--border);
+            border-radius:6px;padding:10px 14px;color:var(--c-critical);
+            font-family:monospace;font-size:12px;cursor:pointer;text-align:left;
+            display:flex;justify-content:space-between;align-items:center;
+            margin-top:14px}
+.err-toggle:hover{background:#161b22}
+.err-body{display:none;margin-top:1px}
+.err-body.open{display:block}
+
+/* ── Env strip ── */
+.env-strip{font-size:11px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap;
+           margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.env-strip span{display:flex;gap:4px}
+.env-strip b{color:var(--text)}
+
+/* ── Results table ── */
+table{width:100%;border-collapse:collapse;background:var(--surface);
+      border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+th{background:#0d1117;color:var(--muted);font-size:11px;text-transform:uppercase;
+   letter-spacing:.5px;padding:10px 16px;text-align:left}
+td{padding:10px 16px;border-top:1px solid var(--border);font-size:13px}
+tr:hover td{background:#1c2333}
+
+/* ── Gaps block ── */
+.gap-block{background:var(--surface);border:1px solid var(--border);
+           border-radius:var(--radius);padding:20px;margin-bottom:20px}
+.gap-block h3{color:#a371f7;font-size:14px;margin-bottom:12px}
+.gap-block p,.gap-block li{color:var(--muted);font-size:13px;margin-bottom:4px}
+
+/* ── Evidence panels ── */
+.ev-toggle{width:100%;background:#0a1628;border:1px solid var(--border);border-radius:6px;
+           padding:9px 14px;color:var(--c-low);font-family:monospace;font-size:12px;
+           cursor:pointer;text-align:left;display:flex;justify-content:space-between;
+           align-items:center;margin-top:10px}
+.ev-toggle:hover{background:#0e1e38}
+.ev-body{display:none;margin-top:1px}
+.ev-body.open{display:block}
+.ev-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:4px}
+.ev-table th{background:#0d1117;color:var(--muted);padding:5px 10px;text-align:left;font-weight:600}
+.ev-table td{padding:4px 10px;border-top:1px solid #21262d;color:var(--text);
+             word-break:break-all;max-width:400px}
+.ev-table tr:nth-child(even) td{background:#0d1117}
+.perf-grid{display:flex;gap:16px;flex-wrap:wrap;margin-top:4px}
+.perf-stat{background:#0d1117;border:1px solid var(--border);border-radius:6px;
+           padding:10px 16px;min-width:120px;text-align:center}
+.perf-stat .pval{font-size:22px;font-weight:700;color:var(--c-low)}
+.perf-stat .plbl{font-size:10px;color:var(--muted);text-transform:uppercase;
+                 letter-spacing:.5px;margin-top:4px}
+.pval.warn{color:var(--c-medium)}
+.pval.bad{color:var(--c-critical)}
+
+/* ── Per-spec test detail blocks ── */
+.spec-blk{background:var(--surface);border:1px solid var(--border);
+          border-radius:var(--radius);margin-bottom:16px;overflow:hidden}
+.spec-blk-hdr{padding:14px 20px;display:flex;align-items:center;
+              justify-content:space-between;cursor:pointer;user-select:none}
+.spec-blk-hdr:hover{background:#1c2333}
+.spec-blk-title{font-size:14px;font-weight:600;display:flex;align-items:center;gap:10px}
+.spec-blk-toggle{font-size:12px;color:var(--muted)}
+.spec-blk-body{display:none}
+.spec-blk-body.open{display:block}
+.test-table{width:100%;border-collapse:collapse;font-size:12px}
+.test-table th{background:#0d1117;color:var(--muted);font-size:10px;
+               text-transform:uppercase;letter-spacing:.5px;padding:8px 14px;text-align:left}
+.test-table td{padding:9px 14px;border-top:1px solid var(--border);vertical-align:top}
+.test-table tr:hover td{background:#1c2333}
+.test-row-pass td:first-child{border-left:3px solid var(--c-pass)}
+.test-row-fail td:first-child{border-left:3px solid var(--c-critical)}
+.test-row-skip td:first-child{border-left:3px solid var(--muted)}
+.tname{font-family:monospace;color:var(--c-low);font-size:12px}
+.tname-title{color:var(--text);font-weight:500;margin-bottom:2px}
+.twhat{color:var(--muted);font-size:12px}
+.tdata{font-family:monospace;color:#a371f7;font-size:11px}
+.tdata-empty{color:var(--muted);font-size:11px;font-style:italic}
+
+/* ── Expandable per-test rows (uses native <details>) ───────────────────── */
+.trow-help{padding:10px 16px;font-size:11px;color:var(--muted);
+           border-bottom:1px solid var(--border);background:#0d1117}
+.trow{border-bottom:1px solid var(--border)}
+.trow:last-child{border-bottom:none}
+.trow > summary{
+  list-style:none;cursor:pointer;padding:11px 16px;display:flex;
+  align-items:center;gap:14px;font-size:13px;user-select:none;
+  transition:background .12s
+}
+.trow > summary::-webkit-details-marker{display:none}
+.trow > summary::before{
+  content:"▶";color:var(--muted);font-size:9px;width:12px;flex-shrink:0
+}
+.trow[open] > summary::before{content:"▼"}
+.trow > summary:hover{background:#1c2333}
+.trow.pass{border-left:3px solid var(--c-pass)}
+.trow.fail{border-left:3px solid var(--c-critical);background:#1f1414}
+.trow.skip{border-left:3px solid var(--muted)}
+.trow.fail > summary{background:#1f1414}
+.trow.fail > summary:hover{background:#2a1a1a}
+
+.t-chip{font-size:10px;font-weight:700;letter-spacing:.5px;padding:3px 8px;
+        border-radius:4px;font-family:'SF Mono',monospace;flex-shrink:0;
+        min-width:88px;text-align:center}
+.t-chip.pass{background:rgba(63,185,80,.16);color:var(--c-pass);border:1px solid var(--c-pass)}
+.t-chip.fail{background:rgba(248,81,73,.16);color:var(--c-critical);border:1px solid var(--c-critical)}
+.t-chip.skip{background:rgba(139,148,158,.16);color:var(--muted);border:1px solid var(--muted)}
+.t-chip.unknown{background:#1c2333;color:var(--muted);border:1px solid var(--border)}
+.trow-name{font-family:'SF Mono',monospace;color:var(--text);font-size:12px;
+           overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.trow-params{font-family:'SF Mono',monospace;color:#a371f7;font-size:11px;
+             padding:2px 8px;background:rgba(163,113,247,.10);
+             border-radius:4px;flex-shrink:0;max-width:240px;
+             overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trow-dur{color:var(--muted);font-size:11px;flex-shrink:0;min-width:48px;text-align:right}
+
+.trow-details{padding:14px 18px 18px 42px;background:#0d1117;
+              border-top:1px solid var(--border)}
+.td-row{display:flex;gap:12px;align-items:flex-start;padding:5px 0;
+        font-size:13px;line-height:1.6}
+.td-lbl{font-weight:600;color:var(--muted);min-width:160px;flex-shrink:0;
+       font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+.td-lbl.exp{color:var(--c-pass)}
+.td-lbl.act{color:var(--c-critical)}
+.td-val{color:var(--text);flex:1}
+.td-val.td-data{font-family:'SF Mono',monospace;color:#a371f7;font-size:12px}
+.td-val.td-empty{color:var(--muted);font-style:italic}
+.td-val a{color:#58a6ff;text-decoration:none}
+.td-val a:hover{text-decoration:underline}
+
+.console-err{background:var(--c-critical-bg);border-left:3px solid var(--c-critical);
+             padding:6px 10px;border-radius:4px;margin-bottom:4px;font-size:11px;
+             font-family:monospace;color:var(--c-critical)}
+.console-warn{background:var(--c-medium-bg);border-left:3px solid var(--c-medium);
+              padding:6px 10px;border-radius:4px;margin-bottom:4px;font-size:11px;
+              font-family:monospace;color:var(--c-medium)}
+
+/* ── Lightbox ── */
+#lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);
+    z-index:1000;cursor:zoom-out;justify-content:center;align-items:center}
+#lb.show{display:flex}
+#lb img{max-width:95vw;max-height:92vh;border-radius:8px;border:2px solid var(--border)}
+
+/* ── Responsive — tablet + mobile breakpoints ─────────────────────────── */
+@media (max-width:1024px) {
+  .wrap{padding:16px 14px}
+  .hdr-inner{flex-direction:column;align-items:flex-start;gap:12px}
+  .hdr-meta{flex-direction:row;flex-wrap:wrap;gap:10px}
+  .stats{grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+  .stat .val{font-size:26px}
+  .two-col{grid-template-columns:1fr}
+}
+@media (max-width:768px) {
+  .wrap{padding:12px 10px}
+  .hdr h1{font-size:22px}
+  .hdr-meta{font-size:12px}
+  .stats{grid-template-columns:repeat(2,1fr);gap:8px}
+  .stat{padding:14px 12px}
+  .stat .val{font-size:22px}
+  .stat .label{font-size:10px}
+  .filter-bar{flex-direction:column;align-items:stretch}
+  .filter-bar .fbtn,.filter-bar .fbtn-action,.filter-bar .fbtn-search{width:100%}
+  .trow > summary{flex-wrap:wrap;gap:8px}
+  .trow-name{font-size:11px}
+  .trow-params{max-width:100%;font-size:10px}
+  .trow-details{padding:12px 12px 14px 28px}
+  .td-row{flex-direction:column;gap:2px}
+  .td-lbl{min-width:auto}
+  table,.test-table{font-size:11px;display:block;overflow-x:auto}
+  .bug-card-hdr{padding:14px}
+  .bug-title{font-size:14px}
+  .bug-body{padding:14px}
+  .cluster-row{grid-template-columns:1fr;gap:8px}
+  .cluster-tickets{justify-content:flex-start;max-width:100%}
+  .ci-table{font-size:10px}
+  .tq-table{font-size:10px}
+  .ev-table{display:block;overflow-x:auto}
+  .perf-grid{flex-wrap:wrap}
+  .perf-stat{min-width:90px;flex:1}
+  .back-bar-inner{flex-direction:column;align-items:flex-start;gap:6px;padding:0 12px}
+  .back-bar-quick{font-size:10px}
+}
+@media (max-width:480px) {
+  .stats{grid-template-columns:1fr 1fr;gap:6px}
+  .hdr h1{font-size:18px}
+  .sec-title{font-size:14px}
+  .footer-wrap{padding:18px 12px}
+  .contact-card{padding:14px 18px}
+  .contact-card .links{flex-direction:column;gap:6px}
+}
+
+/* ── Print ── */
+@media print{
+  .hdr-meta .print-btn,.err-toggle{display:none}
+  .err-body{display:block!important}
+  body{background:#fff;color:#000}
+  .bug-card{border:1px solid #ccc;break-inside:avoid}
+  .back-bar{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Sticky back-button bar — visible on all reports so users can return
+     to the dashboard regardless of which #anchor they opened. -->
+<div class="back-bar">
+  <div class="back-bar-inner">
+    <a href="../index.html" class="back-link">← Back to Dashboard</a>
+    <span class="back-bar-spacer"></span>
+    <span class="back-bar-quick">
+      Jump:
+      <a href="#bugs">🐛 Bugs</a>
+      <a href="#tests">🧪 Tests</a>
+      <a href="#summary-table">📊 Summary</a>
+    </span>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div id="lb" onclick="this.classList.remove('show')">
+  <img id="lb-img" src="" alt="Screenshot"/>
+</div>
+
+<!-- Header -->
+<div class="hdr">
+  <div class="hdr-inner">
+    <div class="hdr-left">
+      <h1>Mehad <span>QA</span> Bug Report</h1>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px">
+        AI-generated · autonomous · intent-based testing
+      </div>
+    </div>
+    <div class="hdr-meta">
+      <div><b>Date:</b> 2026-05-17 05:56:21</div>
+      <div><b>Target:</b> https://dev.prowhats.com/en</div>
+      <div><b>AI Model:</b> unknown (local · no API key)</div>
+      <div><b>Browser:</b> Chromium (headless)</div>
+      <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- Stats — every card is clickable; jumps to a filtered section -->
+<div class="stats">
+  <a href="#bugs"        class="stat critical" data-filter="bugs"     title="Show CRITICAL bug tickets"><div class="label">Critical</div><div class="val">0</div></a>
+  <a href="#bugs"        class="stat high"     data-filter="bugs"     title="Show HIGH bug tickets"><div class="label">High</div>    <div class="val">0</div></a>
+  <a href="#bugs"        class="stat medium"   data-filter="bugs"     title="Show MEDIUM bug tickets"><div class="label">Medium</div>  <div class="val">0</div></a>
+  <a href="#bugs"        class="stat low"      data-filter="bugs"     title="Show LOW bug tickets"><div class="label">Low</div>     <div class="val">0</div></a>
+  <a href="#tests"       class="stat pass"     data-filter="passed"   title="Show only PASSED tests"><div class="label">Passed</div>  <div class="val">18</div></a>
+  <a href="#tests"       class="stat fail"     data-filter="failed"   title="Show only FAILED tests"><div class="label">Failed</div>  <div class="val">0</div></a>
+  <a href="#tests"       class="stat total"    data-filter="all"      title="Show all tests"><div class="label">Total Tests</div><div class="val">18</div></a>
+</div>
+
+<!-- Priority breakdown — click to filter bug list by priority level -->
+<div class="priority-strip">
+  <div class="pstrip-item p0" onclick="applyBugFilter('P0')"
+       title="P0 Highest · 24h SLA · Expedite section — hotfix immediately">
+    <div class="pstrip-label">P0 · Highest</div>
+    <div class="pstrip-val">0</div>
+    <div class="pstrip-sla">⏱ 24h SLA &nbsp;·&nbsp; 🎯 Expedite</div>
+  </div>
+  <div class="pstrip-item p1" onclick="applyBugFilter('P1')"
+       title="P1 High · 2–3 working days · Expedite section">
+    <div class="pstrip-label">P1 · High</div>
+    <div class="pstrip-val">0</div>
+    <div class="pstrip-sla">⏱ 2–3 working days &nbsp;·&nbsp; 🎯 Expedite</div>
+  </div>
+  <div class="pstrip-item p2" onclick="applyBugFilter('P2')"
+       title="P2 Medium · Current or next sprint · Everything Else">
+    <div class="pstrip-label">P2 · Medium</div>
+    <div class="pstrip-val">0</div>
+    <div class="pstrip-sla">⏱ Current sprint &nbsp;·&nbsp; 📋 Everything Else</div>
+  </div>
+  <div class="pstrip-item p3" onclick="applyBugFilter('P3')"
+       title="P3 Low · Backlog · Everything Else">
+    <div class="pstrip-label">P3 · Low</div>
+    <div class="pstrip-val">0</div>
+    <div class="pstrip-sla">⏱ Backlog &nbsp;·&nbsp; 📋 Everything Else</div>
+  </div>
+</div>
+
+<!-- Cluster summary — groups bugs by root cause (e.g. 6 missing-headers
+     finding share '1 root cause: security headers') -->
+
+
+<!-- Extra section: cross-spec inconsistencies, etc. -->
+
+
+<!-- Bug Tickets -->
+<div class="sec-title" id="bugs">
+  Bug Tickets <span class="count">0</span>
+</div>
+
+<!-- Bug-tickets filters — by severity or by priority level -->
+<div class="filter-bar bug-filter-bar" id="bug-filter-bar">
+  <span class="filter-lbl">Severity:</span>
+  <button class="fbtn active" data-bug-filter="all">All (0)</button>
+  <button class="fbtn fbtn-critical" data-bug-filter="CRITICAL">Critical (0)</button>
+  <button class="fbtn fbtn-high"     data-bug-filter="HIGH">High (0)</button>
+  <button class="fbtn fbtn-medium"   data-bug-filter="MEDIUM">Medium (0)</button>
+  <button class="fbtn fbtn-low"      data-bug-filter="LOW">Low (0)</button>
+</div>
+<div class="filter-bar" style="margin-top:6px">
+  <span class="filter-lbl">Priority:</span>
+  <button class="fbtn" data-bug-filter="P0" title="P0 Highest — 24h SLA — Expedite">P0 Highest (0)</button>
+  <button class="fbtn" data-bug-filter="P1" title="P1 High — 2-3 days — Expedite">P1 High (0)</button>
+  <button class="fbtn" data-bug-filter="P2" title="P2 Medium — This sprint">P2 Medium (0)</button>
+  <button class="fbtn" data-bug-filter="P3" title="P3 Low — Backlog">P3 Low (0)</button>
+</div>
+
+<div id="bug-list">
+<p style="color:var(--muted);text-align:center;padding:24px">No bugs detected — all tests passed.</p>
+</div>
+
+<!-- Summary Table -->
+<div class="sec-title" id="summary-table">All Test Results</div>
+<table>
+  <thead>
+    <tr>
+      <th>Page</th><th>Status</th><th>Passed</th><th>Failed</th><th>Total</th><th>Bugs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>qa15_owasp</strong></td>
+      <td><span class="badge PASS">PASSED</span></td>
+      <td style="color:var(--c-pass)">18</td>
+      <td style="color:var(--c-critical)">0</td>
+      <td>18</td>
+      <td><span style="color:var(--muted)">—</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Per-Spec Test Details — pass/fail filter -->
+<div class="sec-title" id="tests" style="margin-top:40px">
+  Per-Test Breakdown
+  <span class="count">click any row to expand · test data + duration shown</span>
+</div>
+<div class="filter-bar test-filter-bar">
+  <span class="filter-lbl">Show:</span>
+  <button class="fbtn active" data-test-filter="all">All (18)</button>
+  <button class="fbtn fbtn-pass" data-test-filter="passed">✅ Passed (18)</button>
+  <button class="fbtn fbtn-fail" data-test-filter="failed">❌ Failed (0)</button>
+  <input type="text" class="fbtn-search" placeholder="🔍 Search by test name..." data-search="">
+  <button class="fbtn-action" data-action="expand-all">⬇ Expand all</button>
+  <button class="fbtn-action" data-action="collapse-all">⬆ Collapse all</button>
+</div>
+<div id="spec-details">
+
+<div class="spec-blk">
+  <div class="spec-blk-hdr" onclick="toggleSpec('spec-detail-0')">
+    <span class="spec-blk-title">✅ <code>qa15_owasp</code> — <span style='color:var(--c-pass)'>18 passed</span> · <span style='color:var(--c-critical)'>0 failed</span> · 18 total</span>
+    <span class="spec-blk-toggle">▶ Show tests</span>
+  </div>
+  <div class="spec-blk-body" id="spec-detail-0">
+    <div class="trow-help">
+      Click any test row below to expand and see what was verified, the test
+      data used, and (for failures) what went wrong in plain English.
+    </div>
+    
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_https_enforced</span>
+    <span class="trow-params">BASE_URL</span>
+    <span class="trow-dur">1.29s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">The HTTP version of BASE_URL must redirect to HTTPS.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">1.29s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_https_enforced</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_no_sensitive_endpoint_exposed</span>
+    <span class="trow-params">[/.env, env file] · BASE_URL</span>
+    <span class="trow-dur">0.22s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Sensitive endpoints must NOT return 2xx with their content.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">[/.env, env file] · BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.22s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_no_sensitive_endpoint_exposed</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_404_does_not_leak_stacktrace</span>
+    <span class="trow-params">BASE_URL</span>
+    <span class="trow-dur">0.22s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">A 404 page must not contain Python/Java/Node stacktraces or
+framework debug info.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.22s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_404_does_not_leak_stacktrace</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_sequential_id_probe_no_oracle</span>
+    <span class="trow-params">[1] · BASE_URL</span>
+    <span class="trow-dur">0.65s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Probing common /users/{id} or /api/users/{id} paths must NOT
+return a different response shape for valid vs invalid IDs (which
+would be a username-enumeration oracle).</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">[1] · BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.65s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_sequential_id_probe_no_oracle</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_options_method_does_not_leak_methods</span>
+    <span class="trow-params">BASE_URL</span>
+    <span class="trow-dur">0.22s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">An OPTIONS preflight must not return wildcard methods like
+TRACE, DELETE on the root that could enable cross-site tracing.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.22s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_options_method_does_not_leak_methods</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_no_sensitive_endpoint_exposed</span>
+    <span class="trow-params">[/.git/config, git config] · BASE_URL</span>
+    <span class="trow-dur">0.22s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Sensitive endpoints must NOT return 2xx with their content.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">[/.git/config, git config] · BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.22s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_no_sensitive_endpoint_exposed</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_sequential_id_probe_no_oracle</span>
+    <span class="trow-params">[2] · BASE_URL</span>
+    <span class="trow-dur">0.65s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Probing common /users/{id} or /api/users/{id} paths must NOT
+return a different response shape for valid vs invalid IDs (which
+would be a username-enumeration oracle).</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">[2] · BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.65s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_sequential_id_probe_no_oracle</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_no_sensitive_endpoint_exposed</span>
+    <span class="trow-params">[/admin, admin panel] · BASE_URL</span>
+    <span class="trow-dur">0.22s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Sensitive endpoints must NOT return 2xx with their content.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">[/admin, admin panel] · BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.22s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_no_sensitive_endpoint_exposed</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_sequential_id_probe_no_oracle</span>
+    <span class="trow-params">[999999] · BASE_URL</span>
+    <span class="trow-dur">0.65s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Probing common /users/{id} or /api/users/{id} paths must NOT
+return a different response shape for valid vs invalid IDs (which
+would be a username-enumeration oracle).</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">[999999] · BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.65s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_sequential_id_probe_no_oracle</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_no_sensitive_endpoint_exposed</span>
+    <span class="trow-params">[/wp, admin, WordPress admin] · BASE_URL</span>
+    <span class="trow-dur">0.22s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Sensitive endpoints must NOT return 2xx with their content.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">[/wp, admin, WordPress admin] · BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.22s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_no_sensitive_endpoint_exposed</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_sequential_id_probe_no_oracle</span>
+    <span class="trow-params">[00000000, 0000, 0000, 0000, 000000000001] · BASE_URL</span>
+    <span class="trow-dur">0.65s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Probing common /users/{id} or /api/users/{id} paths must NOT
+return a different response shape for valid vs invalid IDs (which
+would be a username-enumeration oracle).</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">[00000000, 0000, 0000, 0000, 000000000001] · BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.65s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_sequential_id_probe_no_oracle</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_no_sensitive_endpoint_exposed</span>
+    <span class="trow-params">[/phpinfo.php, phpinfo] · BASE_URL</span>
+    <span class="trow-dur">0.22s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Sensitive endpoints must NOT return 2xx with their content.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">[/phpinfo.php, phpinfo] · BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.22s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_no_sensitive_endpoint_exposed</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_no_sensitive_endpoint_exposed</span>
+    <span class="trow-params">[/server, status, Apache server, status] · BASE_URL</span>
+    <span class="trow-dur">0.22s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Sensitive endpoints must NOT return 2xx with their content.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">[/server, status, Apache server, status] · BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.22s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_no_sensitive_endpoint_exposed</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_no_sensitive_endpoint_exposed</span>
+    <span class="trow-params">[/.aws/credentials, AWS credentials] · BASE_URL</span>
+    <span class="trow-dur">0.22s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Sensitive endpoints must NOT return 2xx with their content.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">[/.aws/credentials, AWS credentials] · BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.22s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_no_sensitive_endpoint_exposed</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_no_sensitive_endpoint_exposed</span>
+    <span class="trow-params">[/config.json, config json] · BASE_URL</span>
+    <span class="trow-dur">0.22s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Sensitive endpoints must NOT return 2xx with their content.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">[/config.json, config json] · BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.22s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_no_sensitive_endpoint_exposed</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_no_sensitive_endpoint_exposed</span>
+    <span class="trow-params">[/swagger.json, swagger spec] · BASE_URL</span>
+    <span class="trow-dur">0.22s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Sensitive endpoints must NOT return 2xx with their content.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">[/swagger.json, swagger spec] · BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.22s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_no_sensitive_endpoint_exposed</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_no_sensitive_endpoint_exposed</span>
+    <span class="trow-params">[/api, docs, API docs index] · BASE_URL</span>
+    <span class="trow-dur">0.22s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Sensitive endpoints must NOT return 2xx with their content.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">[/api, docs, API docs index] · BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.22s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_no_sensitive_endpoint_exposed</code></span></div>
+  </div>
+</details>
+
+<details class="trow pass">
+  <summary>
+    <span class="t-chip pass">✅ PASSED</span>
+    <span class="trow-name">test_qa15_no_sensitive_endpoint_exposed</span>
+    <span class="trow-params">[/.DS_Store, macOS metadata] · BASE_URL</span>
+    <span class="trow-dur">0.22s</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Sensitive endpoints must NOT return 2xx with their content.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">[/.DS_Store, macOS metadata] · BASE_URL</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">0.22s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_qa15_no_sensitive_endpoint_exposed</code></span></div>
+  </div>
+</details>
+  </div>
+</div>
+</div>
+
+<!-- Coverage Gaps -->
+<div class="sec-title" style="margin-top:40px">Coverage Gaps <span class="count">AI Analysis</span></div>
+<p style="color:var(--muted)">No gap analysis available.</p>
+
+<!-- Footer with author/contact card -->
+<div class="footer-wrap">
+  <div style="color:var(--muted);font-size:12px;margin-bottom:6px">
+    Built by Mejbaur Bahar Fagun
+  </div>
+  <div class="contact-card">
+    <div class="name">Mejbaur Bahar Fagun</div>
+    <div class="title">Senior Software Engineer QA (IV) · Markopolo.ai</div>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/mejbaur/" target="_blank" rel="noopener">💼 LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+function toggleSpec(id){
+  var body=document.getElementById(id);
+  var btn=body.previousElementSibling;
+  var arrow=btn.querySelector('.spec-blk-toggle');
+  if(body.classList.contains('open')){
+    body.classList.remove('open');arrow.textContent='▶ Show tests';
+  }else{
+    body.classList.add('open');arrow.textContent='▼ Hide tests';
+  }
+}
+function toggleErr(id){
+  var el=document.getElementById(id);
+  var btn=el.previousElementSibling;
+  if(el.classList.contains('open')){el.classList.remove('open');btn.querySelector('span').textContent='▶ Show error details';}
+  else{el.classList.add('open');btn.querySelector('span').textContent='▼ Hide error details';}
+}
+function toggleEv(id){
+  var el=document.getElementById(id);
+  var btn=el.previousElementSibling;
+  var arrow=btn.querySelectorAll('span')[1];
+  if(el.classList.contains('open')){el.classList.remove('open');arrow.textContent='▶ Show';}
+  else{el.classList.add('open');arrow.textContent='▼ Hide';}
+}
+function openShot(src){document.getElementById('lb-img').src=src;document.getElementById('lb').classList.add('show');}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lb').classList.remove('show');});
+
+// ── Filter state & DOM wiring ─────────────────────────────────────────────
+function applyTestFilter(mode){
+  // mode = "all" | "passed" | "failed"
+  var rows = document.querySelectorAll('#spec-details .trow');
+  rows.forEach(function(r){
+    var isPass = r.classList.contains('pass');
+    var isFail = r.classList.contains('fail');
+    var match  = (mode === 'all') ||
+                 (mode === 'passed' && isPass) ||
+                 (mode === 'failed' && isFail);
+    r.dataset.hidden = match ? '0' : '1';
+  });
+  // Also hide spec-blk wrappers that have no visible rows
+  document.querySelectorAll('.spec-blk').forEach(function(blk){
+    var visible = blk.querySelectorAll('.trow:not([data-hidden="1"])').length;
+    blk.dataset.hidden = visible === 0 ? '1' : '0';
+    if(visible > 0 && blk.querySelector('.spec-blk-body')){
+      blk.querySelector('.spec-blk-body').classList.add('open');
+      var t = blk.querySelector('.spec-blk-toggle');
+      if(t) t.textContent = '▼ Hide tests';
+    }
+  });
+  // Update active button
+  document.querySelectorAll('[data-test-filter]').forEach(function(b){
+    b.classList.toggle('active', b.dataset.testFilter === mode);
+  });
+}
+
+function applyTestSearch(q){
+  q = (q || '').toLowerCase().trim();
+  document.querySelectorAll('#spec-details .trow').forEach(function(r){
+    if(!q){ r.dataset.hidden = '0'; return; }
+    var nm = (r.querySelector('.trow-name') || {}).textContent || '';
+    var match = nm.toLowerCase().indexOf(q) !== -1;
+    r.dataset.hidden = match ? '0' : '1';
+  });
+  document.querySelectorAll('.spec-blk').forEach(function(blk){
+    var visible = blk.querySelectorAll('.trow:not([data-hidden="1"])').length;
+    blk.dataset.hidden = visible === 0 ? '1' : '0';
+    if(q && visible > 0 && blk.querySelector('.spec-blk-body')){
+      blk.querySelector('.spec-blk-body').classList.add('open');
+    }
+  });
+}
+
+function applyBugFilter(sev){
+  // sev = "all" | "CRITICAL"|"HIGH"|"MEDIUM"|"LOW" (severity)
+  //       | "P0"|"P1"|"P2"|"P3" (priority)
+  document.querySelectorAll('#bug-list .bug-card').forEach(function(c){
+    if(sev === 'all'){ c.dataset.hidden = '0'; return; }
+    var match;
+    if(/^P[0-3]$/.test(sev)){
+      // Priority filter — uses data-priority attribute on the card
+      match = c.dataset.priority === sev;
+    } else {
+      // Severity filter — looks for a matching badge class
+      match = c.querySelector('.badge.' + sev) !== null;
+    }
+    c.dataset.hidden = match ? '0' : '1';
+  });
+  document.querySelectorAll('[data-bug-filter]').forEach(function(b){
+    b.classList.toggle('active', b.dataset.bugFilter === sev);
+  });
+}
+
+function expandAllTests(open){
+  document.querySelectorAll('#spec-details .trow').forEach(function(d){
+    if(open) d.setAttribute('open',''); else d.removeAttribute('open');
+  });
+  document.querySelectorAll('#spec-details .spec-blk-body').forEach(function(b){
+    b.classList.toggle('open', !!open);
+    var arrow = b.previousElementSibling && b.previousElementSibling.querySelector('.spec-blk-toggle');
+    if(arrow) arrow.textContent = open ? '▼ Hide tests' : '▶ Show tests';
+  });
+}
+
+function handleHash(){
+  var h = (location.hash || '').toLowerCase();
+  if(h === '#passed') applyTestFilter('passed');
+  else if(h === '#failed') applyTestFilter('failed');
+  else if(h === '#all-tests' || h === '#tests') applyTestFilter('all');
+  else if(h === '#bugs') applyBugFilter('all');
+  else if(h.startsWith('#bug-')){
+    var sev = h.replace('#bug-','').toUpperCase();
+    applyBugFilter(sev);
+  }
+}
+
+// Wire up clicks on any `.stat[data-filter]` card to set the appropriate filter
+document.addEventListener('click', function(e){
+  var stat = e.target.closest('.stat[data-filter]');
+  if(stat){
+    var f = stat.dataset.filter;
+    if(f === 'passed' || f === 'failed' || f === 'all'){
+      applyTestFilter(f);
+      // Open spec blocks so the filtered tests are visible
+      document.querySelectorAll('.spec-blk-body').forEach(function(b){
+        b.classList.add('open');
+        var ar=b.previousElementSibling && b.previousElementSibling.querySelector('.spec-blk-toggle');
+        if(ar) ar.textContent='▼ Hide tests';
+      });
+    }
+    if(f === 'bugs') applyBugFilter('all');
+  }
+  var fbtn = e.target.closest('[data-test-filter]');
+  if(fbtn){ applyTestFilter(fbtn.dataset.testFilter); }
+  var bbtn = e.target.closest('[data-bug-filter]');
+  if(bbtn){ applyBugFilter(bbtn.dataset.bugFilter); }
+  var act = e.target.closest('[data-action]');
+  if(act){
+    if(act.dataset.action === 'expand-all')   expandAllTests(true);
+    if(act.dataset.action === 'collapse-all') expandAllTests(false);
+  }
+});
+
+document.addEventListener('input', function(e){
+  var s = e.target.closest('[data-search]');
+  if(s){ applyTestSearch(s.value); }
+});
+
+window.addEventListener('hashchange', handleHash);
+window.addEventListener('DOMContentLoaded', handleHash);
+</script>
+</body>
+</html>

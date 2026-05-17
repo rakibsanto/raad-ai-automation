@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Mehad QA — Run #1</title>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48dGV4dCB5PSIuOWVtIiBmb250LXNpemU9IjkwIj7wn6SWPC90ZXh0Pjwvc3ZnPg=="/>
+<style>
+  * { box-sizing:border-box }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:#0d1117; color:#e6edf3; margin:0; padding:0; line-height:1.5;
+  }
+  .hero {
+    background:linear-gradient(135deg,#1f6feb 0%,#7c3aed 100%);
+    padding:48px 32px; border-bottom:1px solid #30363d;
+  }
+  .hero-inner { max-width:1100px; margin:0 auto }
+  .hero h1 { margin:0 0 8px; font-size:32px; font-weight:700; letter-spacing:-.5px }
+  .hero .sub { color:#cdd9e5; font-size:15px; margin-top:6px }
+  .hero .meta { color:rgba(255,255,255,.85); font-size:13px; margin-top:18px;
+                 display:flex; flex-wrap:wrap; gap:18px }
+  .hero .meta a { color:#fff; text-decoration:underline }
+  .wrap { max-width:1100px; margin:0 auto; padding:32px }
+  .stats {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:14px; margin-bottom:36px;
+  }
+  .stat {
+    background:#161b22; border:1px solid #30363d; border-radius:8px;
+    padding:18px 20px; position:relative;
+    /* clickable card (when rendered as <a>) */
+    text-decoration:none; color:inherit; display:block; cursor:pointer;
+    transition:transform .12s, border-color .12s, background .12s, box-shadow .12s;
+  }
+  a.stat:hover { border-color:#58a6ff; background:#1c2333;
+                  transform:translateY(-2px);
+                  box-shadow:0 4px 16px rgba(88,166,255,.12) }
+  a.stat::after {
+    content:"→"; position:absolute; right:14px; top:14px;
+    color:#58a6ff; font-size:14px; font-weight:700;
+    opacity:0; transition:opacity .15s, transform .15s;
+  }
+  a.stat:hover::after { opacity:1; transform:translateX(2px) }
+  .stat .lbl { font-size:11px; text-transform:uppercase; letter-spacing:.6px;
+              color:#8b949e; font-weight:600 }
+  .stat .val { font-size:30px; font-weight:700; margin-top:4px }
+  .stat.pass .val { color:#3fb950 }
+  .stat.fail .val { color:#f85149 }
+  .stat.warn .val { color:#d29922 }
+  .stat.ok .val   { color:#3fb950 }
+  .stat.total .val{ color:#58a6ff }
+  h2 { font-size:18px; margin:32px 0 16px; padding-bottom:10px;
+        border-bottom:1px solid #30363d }
+  .primary-cta {
+    display:block; padding:24px 30px; background:#1f6feb;
+    border-radius:10px; color:#fff; text-decoration:none; font-size:16px;
+    font-weight:600; margin-bottom:36px; transition:background .15s;
+  }
+  .primary-cta:hover { background:#388bfd }
+  .primary-cta .cta-sub { font-size:12px; font-weight:400; opacity:.9;
+                          margin-top:4px }
+  .agent-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:14px;
+  }
+  .agent-card {
+    background:#161b22; border:1px solid #30363d; border-radius:8px;
+    padding:20px; text-decoration:none; color:#e6edf3; display:block;
+    transition:transform .12s,border-color .12s,background .12s;
+  }
+  .agent-card:hover { border-color:#58a6ff; background:#1c2333; transform:translateY(-2px) }
+  .agent-card.disabled { opacity:.55; cursor:not-allowed }
+  .agent-card .emoji { font-size:28px; margin-bottom:8px }
+  .agent-card .lbl   { font-weight:600; font-size:14px; margin-bottom:4px }
+  .agent-card .cta   { font-size:12px; color:#58a6ff }
+  .agent-card .cta.muted { color:#8b949e }
+  .history-table {
+    width:100%; border-collapse:collapse; background:#161b22;
+    border-radius:8px; overflow:hidden;
+  }
+  .history-table th, .history-table td {
+    padding:11px 18px; text-align:left; border-bottom:1px solid #30363d;
+    font-size:13px;
+  }
+  .history-table th { background:#0d1117; font-size:11px;
+                       text-transform:uppercase; letter-spacing:.5px;
+                       color:#8b949e }
+  .history-table tr:last-child td { border-bottom:none }
+  .history-table tr:hover td { background:#1c2333 }
+  .history-table a { color:#58a6ff; text-decoration:none }
+  .history-table a:hover { text-decoration:underline }
+  .footer { margin-top:44px; padding:24px 20px; text-align:center;
+             color:#8b949e; font-size:12px; border-top:1px solid #30363d }
+  .footer .contact-card {
+    display:inline-flex; flex-direction:column; align-items:center;
+    gap:6px; padding:18px 28px; margin:14px auto 0;
+    background:#161b22; border:1px solid #30363d; border-radius:10px;
+  }
+  .footer .contact-card .name  { font-weight:700; font-size:15px; color:#e6edf3 }
+  .footer .contact-card .title { font-size:12px; color:#8b949e }
+  .footer .contact-card .links a {
+    display:inline-block; color:#58a6ff; text-decoration:none;
+    font-size:12px; padding:5px 14px; margin-top:8px;
+    border:1px solid #30363d; border-radius:6px; background:#0d1117;
+    transition:background .15s, border-color .15s;
+  }
+  .footer .contact-card .links a:hover {
+    background:#1c2333; border-color:#58a6ff;
+  }
+
+  /* Responsive — tablet + mobile breakpoints */
+  @media (max-width:768px) {
+    .hero { padding:30px 18px }
+    .hero h1 { font-size:24px }
+    .hero .meta { flex-direction:column; gap:8px; font-size:12px }
+    .wrap { padding:18px 14px }
+    .stats { grid-template-columns:repeat(2,1fr); gap:8px }
+    .stat { padding:14px }
+    .stat .val { font-size:22px }
+    h2 { font-size:16px }
+    .agent-grid { grid-template-columns:1fr; gap:10px }
+    .agent-card { padding:14px }
+    .primary-cta { padding:16px 18px; font-size:14px }
+    .trend-summary { grid-template-columns:repeat(2,1fr); gap:10px }
+    .trend-value { font-size:18px }
+    .history-table th, .history-table td { padding:8px 12px; font-size:11px }
+  }
+  @media (max-width:480px) {
+    .stats { grid-template-columns:1fr; gap:6px }
+    .hero h1 { font-size:20px }
+    .footer .contact-card { padding:14px 18px }
+  }
+  /* Trend chart */
+  .trend-card { background:#161b22; border:1px solid #30363d; border-radius:8px;
+                padding:18px 22px; margin:24px 0 }
+  .trend-summary { display:grid;
+                   grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));
+                   gap:16px; margin-bottom:14px }
+  .trend-label { font-size:11px; color:#8b949e; text-transform:uppercase;
+                 letter-spacing:.5px }
+  .trend-value { font-size:24px; font-weight:700; margin-top:2px }
+  .trend-svg   { width:100%; height:120px; display:block }
+  .trend-alerts{ margin-top:14px; padding:12px 16px;
+                 background:#2d1b1b; border-left:3px solid #f85149;
+                 border-radius:6px }
+  .trend-alerts-title { font-weight:700; color:#f85149; margin-bottom:6px;
+                        font-size:13px }
+  .trend-alerts ul { margin:0; padding-left:18px; color:#e6edf3; font-size:12px }
+  .trend-alerts li { margin:3px 0 }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h1>🤖 Mehad Autonomous QA Report</h1>
+    <div class="sub">22 AI agents · 171 tests · auto-generated bug tickets · zero API cost</div>
+    <div class="meta">
+      <span><b>Run:</b> #1</span>
+      <span><b>Commit:</b> <a href="https://github.com/rakibsanto/raad-ai-automation/commit/e7d70055c47895dfc5cd4700993fe862251a8831">e7d7005</a></span>
+      <span><b>Target:</b> https://dev.prowhats.com/en</span>
+      <span><b>Generated:</b> 2026-05-17 05:56:21</span>
+      <span><a href="https://github.com/rakibsanto/raad-ai-automation/actions/runs/25982055974">View CI run on GitHub →</a></span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="stats"><a class="stat pass" href="report.html#passed"><div class="lbl">Passed</div><div class="val">63</div></a><a class="stat fail" href="report.html#failed"><div class="lbl">Failed</div><div class="val">108</div></a><a class="stat total" href="report.html#all-tests"><div class="lbl">Total Tests</div><div class="val">171</div></a><a class="stat warn" href="report.html#tests"><div class="lbl">Pass Rate</div><div class="val">36.8%</div></a><a class="stat fail" href="report.html#bugs"><div class="lbl">Bug Tickets</div><div class="val">108</div></a><a class="stat total" href="report.html#summary-table"><div class="lbl">Sources</div><div class="val">15</div></a></div>
+
+  <a class="primary-cta" href="report.html">
+    📊 View the full master bug report →
+    <div class="cta-sub">Every test, every bug, with screenshots and friendly explanations</div>
+  </a>
+
+  
+<h2>📊 Trend (1 run(s))</h2>
+<div class="trend-card">
+  <div class="trend-summary">
+    <div>
+      <div class="trend-label">Latest pass rate</div>
+      <div class="trend-value" style="color:#f85149">36.8%</div>
+    </div>
+    <div>
+      <div class="trend-label">Latest run</div>
+      <div class="trend-value">#1</div>
+    </div>
+    <div>
+      <div class="trend-label">Total failures</div>
+      <div class="trend-value">108</div>
+    </div>
+    <div>
+      <div class="trend-label">Bug tickets</div>
+      <div class="trend-value">108</div>
+    </div>
+  </div>
+  <svg viewBox="0 0 720 110" class="trend-svg" preserveAspectRatio="none">
+    <line x1="24" y1="27.1" x2="696" y2="27.1" stroke="#30363d" stroke-dasharray="2,2"/>
+    <line x1="24" y1="55.0"  x2="696" y2="55.0" stroke="#30363d" stroke-dasharray="2,2"/>
+    <text x="20" y="31.1" fill="#8b949e" font-size="10" text-anchor="end">100%</text>
+    <text x="20" y="59.0" fill="#8b949e" font-size="10" text-anchor="end">50%</text>
+    <text x="20" y="88" fill="#8b949e" font-size="10" text-anchor="end">0%</text>
+    <path d="M 24 55.0 L 696 55.0" fill="none" stroke="#58a6ff" stroke-width="2"/>
+    <circle cx="360.0" cy="55.0" r="4" fill="#3fb950"/>
+  </svg>
+  
+</div>
+
+  <h2>📂 Per-Agent Reports</h2>
+  <p style="color:#8b949e;font-size:13px;margin:0 0 16px">
+    Each QA agent produces its own pytest-html report. Click a card to see
+    just that agent's results.
+  </p>
+  <div class="agent-grid"><a class="agent-card" href="agents/qa01-functional.html"><div class="emoji">🧪</div><div class="lbl">QA-01 Functional</div><div class="cta">View report →</div></a><a class="agent-card" href="agents/qa02-edge.html"><div class="emoji">🔍</div><div class="lbl">QA-02 Edge Cases</div><div class="cta">View report →</div></a><div class="agent-card disabled" title="Report not generated this run"><div class="emoji">🔒</div><div class="lbl">QA-03 Security</div><div class="cta muted">No data</div></div><div class="agent-card disabled" title="Report not generated this run"><div class="emoji">⚡</div><div class="lbl">QA-04 Performance</div><div class="cta muted">No data</div></div><div class="agent-card disabled" title="Report not generated this run"><div class="emoji">🧠</div><div class="lbl">QA-05 Hallucination/Data</div><div class="cta muted">No data</div></div><a class="agent-card" href="agents/qa06-api.html"><div class="emoji">🌐</div><div class="lbl">QA-06 API & Network</div><div class="cta">View report →</div></a><a class="agent-card" href="agents/qa07-accessibility.html"><div class="emoji">♿</div><div class="lbl">QA-07 Accessibility</div><div class="cta">View report →</div></a><a class="agent-card" href="agents/qa08-mobile.html"><div class="emoji">📱</div><div class="lbl">QA-08 Mobile / Viewport</div><div class="cta">View report →</div></a><a class="agent-card" href="agents/qa09-seo.html"><div class="emoji">🔎</div><div class="lbl">QA-09 SEO & Meta</div><div class="cta">View report →</div></a><a class="agent-card" href="agents/qa10-i18n.html"><div class="emoji">🌏</div><div class="lbl">QA-10 i18n & RTL</div><div class="cta">View report →</div></a><a class="agent-card" href="agents/qa11-visual.html"><div class="emoji">🎨</div><div class="lbl">QA-11 Visual Regression</div><div class="cta">View report →</div></a><a class="agent-card" href="agents/qa12-js-errors.html"><div class="emoji">🐞</div><div class="lbl">QA-12 JS Error Sweeper</div><div class="cta">View report →</div></a><a class="agent-card" href="agents/qa13-security-headers.html"><div class="emoji">🛡️</div><div class="lbl">QA-13 Security Headers</div><div class="cta">View report →</div></a><a class="agent-card" href="agents/qa14-cookies.html"><div class="emoji">🍪</div><div class="lbl">QA-14 Cookie Security</div><div class="cta">View report →</div></a><a class="agent-card" href="agents/qa15-owasp.html"><div class="emoji">🎯</div><div class="lbl">QA-15 OWASP Surface</div><div class="cta">View report →</div></a><a class="agent-card" href="agents/qa16-lighthouse.html"><div class="emoji">📊</div><div class="lbl">QA-16 Core Web Vitals</div><div class="cta">View report →</div></a><a class="agent-card" href="agents/qa17-memory.html"><div class="emoji">💧</div><div class="lbl">QA-17 Memory Leak</div><div class="cta">View report →</div></a><a class="agent-card" href="agents/qa18-network.html"><div class="emoji">📡</div><div class="lbl">QA-18 Network Resilience</div><div class="cta">View report →</div></a><a class="agent-card" href="agents/qa19-exploratory.html"><div class="emoji">🤖</div><div class="lbl">QA-19 Autonomous Explorer</div><div class="cta">View report →</div></a><a class="agent-card" href="agents/qa20-fuzzing.html"><div class="emoji">🎲</div><div class="lbl">QA-20 Property-Based Fuzz</div><div class="cta">View report →</div></a><a class="agent-card" href="agents/qa22-vision.html"><div class="emoji">👁️</div><div class="lbl">QA-22 Vision-LLM UI Review</div><div class="cta">View report →</div></a><div class="agent-card disabled" title="Report not generated this run"><div class="emoji">🛠️</div><div class="lbl">AI Test Agent (auto-gen)</div><div class="cta muted">No data</div></div></div>
+
+  <h2>🕐 History</h2>
+  <p style="color:#8b949e;font-size:13px;margin:0 0 16px">
+    Past runs are archived — click to compare against earlier baselines.
+  </p>
+  <table class="history-table"><thead><tr><th>Run</th><th>Date &amp; Time</th><th>Report</th></tr></thead><tbody><tr><td>Run #1</td><td><span style="color:#8b949e;font-size:12px">May 17, 2026 05:56 AM</span></td><td><a href="history/run-1.html">View report</a></td></tr></tbody></table>
+
+  <div class="footer">
+    <div style="margin-bottom:6px">Built by Mejbaur Bahar Fagun</div>
+    <div class="contact-card">
+      <div class="name">Mejbaur Bahar Fagun</div>
+      <div class="title">Senior Software Engineer QA (IV) · Markopolo.ai</div>
+      <div class="links"><a href="https://www.linkedin.com/in/mejbaur/" target="_blank" rel="noopener">💼 LinkedIn</a></div>
+    </div>
+  </div>
+
+</div>
+
+</body></html>
