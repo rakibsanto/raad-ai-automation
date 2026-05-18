@@ -9,6 +9,16 @@
       "total": 171,
       "bugs": 109,
       "pass_rate": "36.3%"
+    },
+    {
+      "run_number": 6,
+      "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/26031028442",
+      "timestamp": "2026-05-18T17:23:36.806703Z",
+      "passed": 62,
+      "failed": 109,
+      "total": 171,
+      "bugs": 109,
+      "pass_rate": "36.3%"
     }
   ],
   "fingerprints": {
