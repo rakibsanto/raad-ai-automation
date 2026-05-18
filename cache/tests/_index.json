@@ -1,6 +1,8 @@
 {
-  "generated_at": "2026-05-17T18:26:52.687310",
+  "generated_at": "2026-05-18T11:32:43.390669",
   "base_url": "https://dev.prowhats.com/en",
-  "slugs": [],
-  "count": 0
+  "slugs": [
+    "login"
+  ],
+  "count": 1
 }
