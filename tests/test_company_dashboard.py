@@ -21,7 +21,7 @@ OWNER_EMAIL    = os.getenv("OWNER_EMAIL",    "saidurdev@gmail.com")
 OWNER_PASSWORD = os.getenv("OWNER_PASSWORD", "saidurdev@gmail.com")
 ADMIN_EMAIL    = os.getenv("ADMIN_EMAIL",    "rakibsanto1998@gmail.com")
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "111111")
-AGENT_EMAIL    = os.getenv("AGENT_EMAIL",    "gelaraj910@hilostar.com")
+AGENT_EMAIL    = os.getenv("AGENT_EMAIL",    "rakibsanto.cse@gmail.com")
 AGENT_PASSWORD = os.getenv("AGENT_PASSWORD", "111111")
 
 

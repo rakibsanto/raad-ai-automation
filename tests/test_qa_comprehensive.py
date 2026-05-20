@@ -139,7 +139,7 @@ class TestQA01Functional:
         """Homepage must load at the Raad /en URL without redirect loop."""
         page.goto(BASE_URL)
         page.wait_for_load_state(LOAD_STATE)
-        assert "raadedu.com" in page.url, f"Wrong domain loaded: {page.url}"
+        assert "prowhats.com" in page.url, f"Wrong domain loaded: {page.url}"
         assert page.url.startswith("http"), f"Non-HTTP URL: {page.url}"
 
     def test_qa01_page_title_contains_raad(self, page: Page):
@@ -686,7 +686,7 @@ class TestQA01Functional:
         ar_url = BASE_URL.replace("/en", "/ar")
         page.goto(ar_url)
         page.wait_for_load_state(LOAD_STATE)
-        assert "raadedu.com" in page.url, f"Wrong domain: {page.url}"
+        assert "prowhats.com" in page.url, f"Wrong domain: {page.url}"
         assert "/ar" in page.url, f"Did not stay in /ar locale: {page.url}"
 
     def test_qa01_footer_privacy_policy_link_works(self, page: Page):
@@ -960,7 +960,7 @@ class TestQA02EdgeCaseBoundary:
         page.wait_for_load_state(LOAD_STATE)
         page.go_back()
         page.wait_for_load_state(LOAD_STATE)
-        assert "raadedu.com/en" in page.url or page.url.endswith("/en"), (
+        assert "prowhats.com/en" in page.url or page.url.endswith("/en"), (
             f"Browser Back did not return to homepage: {page.url}")
 
 
@@ -1147,7 +1147,7 @@ class TestQA03Security:
 
         # Filter out known external tracking that may 404
         real_404 = [u for u in not_found
-                    if "raadedu.com" in u or "cdn" in u]
+                    if "prowhats.com" in u or "cdn" in u]
         assert real_404 == [], (
             f"404 resources on homepage:\n" + "\n".join(real_404[:5]))
 
@@ -1434,7 +1434,7 @@ class TestQA04PerformanceAndJSErrors:
                 .filter(img => img.src
                     && !img.src.startsWith('data:')
                     && img.naturalWidth === 0
-                    && img.src.includes('raadedu.com'))
+                    && img.src.includes('prowhats.com'))
                 .map(img => img.src)
                 .slice(0, 5);
         }""")
@@ -1757,7 +1757,7 @@ class TestQA05HallucinationDataIntegrity:
             pass
 
         # Back on EN — no phantom modal, no crash
-        assert "raadedu.com/en" in page.url or page.url.endswith("/en"), (
+        assert "prowhats.com/en" in page.url or page.url.endswith("/en"), (
             f"After EN→AR→EN round-trip, URL is: {page.url}")
         assert "500" not in page.title(), "Page crashed after language round-trip"
 

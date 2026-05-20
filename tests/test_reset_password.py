@@ -5,7 +5,7 @@ BASE_URL = os.getenv("BASE_URL", "https://dev.prowhats.com/en")
 def test_reset_password_page_loads(page: Page):
     page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
     page.wait_for_load_state("domcontentloaded")
-    assert "raadedu.com" in page.url or page.url.startswith(BASE_URL)
+    assert "prowhats.com" in page.url or page.url.startswith(BASE_URL)
 
 def test_reset_password_flow_1_successful_password_reset_full_journey_(page: Page):
     page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)

@@ -1,10 +1,11 @@
 {
-  "generated_at": "2026-05-18T22:43:17.439414",
+  "generated_at": "2026-05-20T13:00:14.263133",
   "base_url": "https://dev.prowhats.com/en",
   "slugs": [
+    "company_broadcast",
     "company_dashboard",
     "contact",
     "login"
   ],
-  "count": 3
+  "count": 4
 }
