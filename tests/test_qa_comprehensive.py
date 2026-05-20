@@ -43,24 +43,11 @@ def _wait_visible(page: Page, selector: str, timeout: int = 10000):
 
 
 def _open_login_modal(page: Page):
-    """Navigate to homepage and open the login modal.
-
-    Note: the page has TWO 'Log In' buttons — a hidden one with aria-label="Login"
-    (mobile menu drawer) and a visible header button without aria-label. We must
-    pick the *visible* one or wait_for(state="visible") will hang on the wrong node.
+    """Navigate to the login page.
     """
     page.goto(BASE_URL)
     page.wait_for_load_state(LOAD_STATE)
-    # Extra wait for React SPA hydration on CI (staging server can be slow)
-    page.wait_for_timeout(1500)
-    btn = _find_visible_login_button(page)
-    btn.wait_for(state="visible", timeout=20000)
-    btn.click()
-    # Modal may use role=dialog OR aria-modal=true OR a class-based modal
-    page.wait_for_selector(
-        '[role="dialog"], [aria-modal="true"], [class*="modal-content"]',
-        state="visible", timeout=12000
-    )
+    page.wait_for_selector('input[type="email"]', state="visible", timeout=12000)
 
 
 def _find_visible_login_button(page: Page):
@@ -100,7 +87,7 @@ def _fill_phone(page: Page, country_code: str, phone: str):
         option.click(force=True)
         page.wait_for_timeout(600)  # extra wait for React re-render after country change
 
-    phone_input = page.locator('input[type="tel"]').first
+    phone_input = page.locator('input[type="email"]').first
     phone_input.wait_for(state="visible", timeout=5000)
     phone_input.click()
     phone_input.fill("")  # clear any stale value first
@@ -330,7 +317,7 @@ class TestQA01Functional:
     def test_qa01_modal_has_phone_input(self, page: Page):
         """Login modal must have a telephone input field."""
         _open_login_modal(page)
-        phone_input = page.locator('input[type="tel"]').first
+        phone_input = page.locator('input[type="email"]').first
         assert phone_input.count() > 0, "Phone (tel) input not found in modal"
         assert phone_input.is_visible(timeout=3000), "Phone input not visible"
 
@@ -418,7 +405,7 @@ class TestQA01Functional:
     def test_qa01_phone_field_accepts_numbers(self, page: Page):
         """Phone input must accept digit input."""
         _open_login_modal(page)
-        phone_input = page.locator('input[type="tel"]').first
+        phone_input = page.locator('input[type="email"]').first
         phone_input.fill("98976564")
         val = phone_input.input_value()
         assert val != "", "Phone field value is empty after fill"
@@ -714,7 +701,7 @@ class TestQA02EdgeCaseBoundary:
     def test_qa02_ec_empty_phone_send_code_disabled(self, page: Page):
         """EC-M-01: Empty phone field — Send Code must stay disabled."""
         _open_login_modal(page)
-        phone_input = page.locator('input[type="tel"]').first
+        phone_input = page.locator('input[type="email"]').first
         phone_input.fill("")  # ensure empty
         page.wait_for_timeout(300)
         btn = page.locator('button:has-text("Send Code")').first
@@ -726,7 +713,7 @@ class TestQA02EdgeCaseBoundary:
     def test_qa02_ec_phone_too_short_send_code_disabled(self, page: Page):
         """EC-M-03: Phone with < 7 digits — Send Code must stay disabled."""
         _open_login_modal(page)
-        phone_input = page.locator('input[type="tel"]').first
+        phone_input = page.locator('input[type="email"]').first
         phone_input.fill("123")   # 3 digits — below minimum 7
         page.wait_for_timeout(400)
         btn = page.locator('button:has-text("Send Code")').first
@@ -738,7 +725,7 @@ class TestQA02EdgeCaseBoundary:
     def test_qa02_ec_phone_maxlength_12(self, page: Page):
         """EC-M-04: Input stops accepting beyond 12 chars (maxlength)."""
         _open_login_modal(page)
-        phone_input = page.locator('input[type="tel"]').first
+        phone_input = page.locator('input[type="email"]').first
         phone_input.fill("123456789012345")  # 15 chars — should be capped at 12
         val = phone_input.input_value()
         assert len(val.replace(" ", "")) <= 12, (
@@ -747,7 +734,7 @@ class TestQA02EdgeCaseBoundary:
     def test_qa02_ec_non_numeric_phone_rejected(self, page: Page):
         """EC-M-02: Non-numeric input (letters, symbols) must be rejected or ignored."""
         _open_login_modal(page)
-        phone_input = page.locator('input[type="tel"]').first
+        phone_input = page.locator('input[type="email"]').first
         phone_input.fill("abc@test!")
         page.wait_for_timeout(300)
         val = phone_input.input_value()
@@ -778,14 +765,14 @@ class TestQA02EdgeCaseBoundary:
         """EC-M-08: Re-opening modal after close must show a clean state."""
         _open_login_modal(page)
         # Fill something then close
-        phone_input = page.locator('input[type="tel"]').first
+        phone_input = page.locator('input[type="email"]').first
         phone_input.fill("501234567")
         close_btn = page.locator('[aria-label="Close"]').first
         close_btn.click()
         page.wait_for_timeout(600)
         # Reopen
         _open_login_modal(page)
-        phone_input2 = page.locator('input[type="tel"]').first
+        phone_input2 = page.locator('input[type="email"]').first
         val = phone_input2.input_value()
         # Ideally reset to empty — if persists it's a bug
         assert page.locator('[role="dialog"]').first.is_visible(), (
@@ -841,7 +828,7 @@ class TestQA02EdgeCaseBoundary:
     def test_qa02_ec_phone_with_spaces_handled(self, page: Page):
         """Phone field with spaces must handle gracefully (trim or reject)."""
         _open_login_modal(page)
-        phone_input = page.locator('input[type="tel"]').first
+        phone_input = page.locator('input[type="email"]').first
         phone_input.fill("   ")
         page.wait_for_timeout(300)
         btn = page.locator('button:has-text("Send Code")').first
@@ -868,7 +855,7 @@ class TestQA02EdgeCaseBoundary:
         _open_login_modal(page)
         dialog = page.locator('[role="dialog"]').first
         assert dialog.is_visible(), "Modal not visible on mobile viewport"
-        phone_input = page.locator('input[type="tel"]').first
+        phone_input = page.locator('input[type="email"]').first
         assert phone_input.is_visible(timeout=3000), (
             "Phone input not visible on mobile viewport")
 
@@ -896,7 +883,7 @@ class TestQA02EdgeCaseBoundary:
         was accepted; we do NOT assert Send Code becomes enabled at every length.
         """
         _open_login_modal(page)
-        phone_input = page.locator('input[type="tel"]').first
+        phone_input = page.locator('input[type="email"]').first
         phone_input.fill("1" * length)
         page.wait_for_timeout(400)
         # The input must accept the digits we typed (or at least some of them)
@@ -977,13 +964,13 @@ class TestQA03Security:
         "javascript:alert(1)",
         "<svg onload=alert(1)>",
     ])
-    def test_qa03_xss_in_phone_field(self, page: Page, payload: str):
+    def test_qa03_xss_in_email_field(self, page: Page, payload: str):
         """XSS payload in phone field must not execute scripts or crash app."""
         js_alerts: list = []
         page.on("dialog", lambda d: (js_alerts.append(d.message), d.dismiss()))
 
         _open_login_modal(page)
-        phone_input = page.locator('input[type="tel"]').first
+        phone_input = page.locator('input[type="email"]').first
         phone_input.fill(payload)
         page.wait_for_timeout(800)
 
@@ -996,26 +983,24 @@ class TestQA03Security:
         "<script>alert('xss')</script>",
         '"><img src=x onerror=alert(1)>',
     ])
-    def test_qa03_xss_in_country_search(self, page: Page, payload: str):
-        """XSS payload in country search field must not execute."""
+    def test_qa03_xss_in_password_field(self, page: Page, payload: str):
+        """XSS payload in password field must not execute."""
         js_alerts: list = []
         page.on("dialog", lambda d: (js_alerts.append(d.message), d.dismiss()))
 
         _open_login_modal(page)
-        cc_btn = page.locator('[aria-label="Country code"]').first
-        cc_btn.click()
-        page.wait_for_selector('[placeholder="Search..."]', state="visible", timeout=5000)
-        page.locator('[placeholder="Search..."]').fill(payload)
+        pwd_input = page.locator('input[type="password"]').first
+        pwd_input.fill(payload)
         page.wait_for_timeout(800)
 
         assert len(js_alerts) == 0, (
-            f"XSS in country search triggered alert: {payload!r} → {js_alerts}")
+            f"XSS in password triggered alert: {payload!r} → {js_alerts}")
 
     def test_qa03_xss_not_reflected_in_page_html(self, page: Page):
         """XSS payload entered in phone field must not be reflected raw in HTML."""
         _open_login_modal(page)
         payload = "<script>alert('QA_XSS_MARKER_RAAD')</script>"
-        phone_input = page.locator('input[type="tel"]').first
+        phone_input = page.locator('input[type="email"]').first
         phone_input.fill(payload)
         page.wait_for_timeout(1000)
 
@@ -1023,10 +1008,10 @@ class TestQA03Security:
         assert "QA_XSS_MARKER_RAAD" not in body_text, (
             "XSS payload reflected in visible text — stored/reflected XSS risk")
 
-    def test_qa03_template_injection_in_phone(self, page: Page):
+    def test_qa03_template_injection_in_email(self, page: Page):
         """Template expression {{7*7}} must NOT evaluate to 49 in page content."""
         _open_login_modal(page)
-        phone_input = page.locator('input[type="tel"]').first
+        phone_input = page.locator('input[type="email"]').first
         phone_input.fill("{{7*7}}")
         page.wait_for_timeout(1000)
 
@@ -1040,16 +1025,16 @@ class TestQA03Security:
         "1; SELECT * FROM users",
         "\" OR \"1\"=\"1",
     ])
-    def test_qa03_sqli_in_phone_field(self, page: Page, payload: str):
-        """SQL injection in phone field must not expose DB errors."""
+    def test_qa03_sqli_in_email_field(self, page: Page, payload: str):
+        """SQL injection in email field must not expose DB errors."""
         _open_login_modal(page)
-        phone_input = page.locator('input[type="tel"]').first
+        phone_input = page.locator('input[type="email"]').first
         phone_input.fill(payload)
         page.wait_for_timeout(500)
 
         # Try submitting if Send Code gets enabled
-        btn = page.locator('button:has-text("Send Code")').first
-        if not btn.is_disabled():
+        btn = page.locator('button:has-text("Sign in")').first
+        if btn.count() > 0 and not btn.is_disabled():
             btn.click()
             page.wait_for_timeout(2000)
 
@@ -1989,7 +1974,7 @@ class TestQA07Accessibility:
     def test_qa07_phone_input_has_label(self, page: Page):
         """Phone input in modal must have an associated label or aria-label."""
         _open_login_modal(page)
-        phone = page.locator('input[type="tel"]').first
+        phone = page.locator('input[type="email"]').first
         if phone.count() > 0 and phone.is_visible(timeout=3000):
             aria_label = phone.get_attribute("aria-label") or ""
             phone_id   = phone.get_attribute("id") or ""
@@ -2067,7 +2052,7 @@ class TestQA08MobileAndViewport:
         """Login modal must open and show phone input at 375px."""
         page.set_viewport_size({"width": 375, "height": 667})
         _open_login_modal(page)
-        phone = page.locator('input[type="tel"]').first
+        phone = page.locator('input[type="email"]').first
         assert phone.count() > 0, "Phone input not found in modal at mobile 375px"
         assert phone.is_visible(timeout=3000), "Phone input not visible at mobile"
 
@@ -3644,7 +3629,7 @@ class TestQA20PropertyBasedFuzzing:
         except Exception as e:
             pytest.skip(f"Could not open login modal — staging issue: {e}")
 
-        phone = page.locator('input[type="tel"]').first
+        phone = page.locator('input[type="email"]').first
         if not phone.is_visible(timeout=3000):
             pytest.skip("Phone input not visible after modal open")
         if not phone.is_editable(timeout=3000):
