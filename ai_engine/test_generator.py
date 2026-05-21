@@ -61,7 +61,7 @@ def _rules(spec: "ParsedSpec") -> str:
     return f"""
 PLAYWRIGHT PYTHON STRICT RULES (violating ANY rule = test cannot run):
 - Output ONLY def test_...() function bodies + their decorators. NO imports. NO module code.
-- Signature MUST be: def test_NAME(page: Page): OR def test_NAME(page: Page, param):
+- Signature MUST be: def test_NAME(page: Page, ...): (You can add more parameters for pytest.mark.parametrize)
 - Navigation: page.goto(URL, wait_until="domcontentloaded", timeout=15000)
   NEVER use page.wait_for_load_state("networkidle") — SPAs never reach networkidle.
 - Selector priority: get_by_role > get_by_label > get_by_placeholder > locator('input[type=...]')
@@ -800,7 +800,7 @@ Write PERFORMANCE tests checking Core Web Vitals and load times.
    assert not failed, f"Server errors: {{failed}}"
 
 6. test_web_vitals_lcp_reasonable:
-   lcp = page.evaluate("() => new Promise(resolve => {{ const po = new PerformanceObserver(list => {{ const e = list.getEntries(); resolve(e.length ? e[e.length-1].startTime : 0); }}); po.observe({{type:'largest-contentful-paint', buffered:true}}); setTimeout(() => resolve(0), 2000); }})")
+   lcp = page.evaluate("() => new Promise(resolve => {{ try {{ const po = new PerformanceObserver(list => {{ const e = list.getEntries(); resolve(e.length ? e[e.length-1].startTime : 0); }}); po.observe({{type:'largest-contentful-paint', buffered:true}}); }} catch(e) {{ resolve(0); }} setTimeout(() => resolve(0), 2000); }})")
    # LCP should be under 4 seconds (Good: <2.5s, Needs Improvement: <4s)
    if lcp > 0:
        assert lcp < 4000, f"LCP too slow: {{lcp:.0f}}ms (limit: 4000ms)"

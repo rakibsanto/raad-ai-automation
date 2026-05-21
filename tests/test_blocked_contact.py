@@ -75,7 +75,10 @@ def _assert_blocked_contacts_access(page: Page, email: str, password: str):
 def test_unauthenticated_user_redirects_to_login(page: Page):
     """Without login no one can visit this page."""
     page.goto(BLOCKED_CONTACTS_URL, wait_until="domcontentloaded", timeout=20000)
-    page.wait_for_timeout(2000)
+    try:
+        page.wait_for_url("**/login", timeout=6000)
+    except Exception:
+        pass
     assert "login" in page.url or "login" in page.content().lower(), \
         "Unauthenticated access to blocked contacts should redirect to login"
 
@@ -176,3 +179,4 @@ def test_search_by_customer_name_functional(page: Page):
         page.wait_for_timeout(2000)
         
     assert "500" not in page.title(), "Searching caused a server error"
+
