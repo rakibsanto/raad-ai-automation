@@ -5,7 +5,9 @@
     "company_broadcast",
     "company_dashboard",
     "contact",
-    "login"
+    "login",
+    "blocked_contact",
+    "manage_group"
   ],
-  "count": 4
+  "count": 6
 }

@@ -93,7 +93,7 @@ def log(msg=""):
 # ── Config ────────────────────────────────────────────────────────────────────
 BASE_URL         = os.getenv("BASE_URL",  "https://beta-stg.fagun.ai")
 AI_MODEL         = os.getenv("AI_MODEL",  "qwen2.5-coder:1.5b")
-AI_TIMEOUT       = int(os.getenv("AI_TIMEOUT", "90"))    # seconds per ollama call
+AI_TIMEOUT       = int(os.getenv("AI_TIMEOUT", "180"))   # seconds per ollama call
 BROWSER_USE_ON   = os.getenv("BROWSER_USE_ENABLED", "false").lower() == "true"
 BROWSER_USE_MDL  = os.getenv("BROWSER_USE_MODEL", "qwen2.5:7b")
 SPECS_DIR        = Path("specs")
@@ -101,7 +101,7 @@ TESTS_DIR        = Path("tests")
 REPORTS_DIR      = Path("reports")
 SHOTS_DIR        = Path("reports/screenshots")
 MAX_FIX_RETRIES  = int(os.getenv("MAX_FIX_RETRIES", "3"))
-_MAX_TIMEOUTS    = 1   # blacklist a model after this many timeouts per session
+_MAX_TIMEOUTS    = 5   # blacklist a model after this many timeouts per session
 
 # Spec files to skip — these are templates/docs, not real test specs
 _SKIP_SPECS = {"TEMPLATE.md", "README.md", "EXAMPLE.md"}
@@ -115,7 +115,7 @@ _SKIP_SPECS = {"TEMPLATE.md", "README.md", "EXAMPLE.md"}
 MODEL_CHAIN = [
     # Tier 1 — large code-specialist models (best quality)
     ("qwen2.5-coder:7b",      4096, 0.05, 120),
-    (AI_MODEL,                4096, 0.05, 120),   # whatever AI_MODEL is set to
+    (AI_MODEL,                4096, 0.05, AI_TIMEOUT),   # whatever AI_MODEL is set to
     ("deepseek-coder:6.7b",   4096, 0.05, 120),
     ("codellama:7b",          3500, 0.08, 120),
     # Tier 2 — large general models (good fallback for non-code tasks)

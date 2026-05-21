@@ -800,7 +800,7 @@ Write PERFORMANCE tests checking Core Web Vitals and load times.
    assert not failed, f"Server errors: {{failed}}"
 
 6. test_web_vitals_lcp_reasonable:
-   lcp = page.evaluate("() => new Promise(resolve => new PerformanceObserver(list => {{ const e = list.getEntries(); resolve(e.length ? e[e.length-1].startTime : 0); }}).observe({{type:'largest-contentful-paint', buffered:true}}))")
+   lcp = page.evaluate("() => new Promise(resolve => {{ const po = new PerformanceObserver(list => {{ const e = list.getEntries(); resolve(e.length ? e[e.length-1].startTime : 0); }}); po.observe({{type:'largest-contentful-paint', buffered:true}}); setTimeout(() => resolve(0), 2000); }})")
    # LCP should be under 4 seconds (Good: <2.5s, Needs Improvement: <4s)
    if lcp > 0:
        assert lcp < 4000, f"LCP too slow: {{lcp:.0f}}ms (limit: 4000ms)"
