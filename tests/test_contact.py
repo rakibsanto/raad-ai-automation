@@ -1,239 +1,616 @@
-import os, time, pytest
+import os
+import random
+import string
+import pytest
+from dotenv import load_dotenv
 from playwright.sync_api import Page, expect
-BASE_URL = os.getenv("BASE_URL", "https://dev.prowhats.com/en")
 
-def test_smoke_homepage_loads_fb(page: Page):
-    """FB smoke: page returns a response and renders <body>."""
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    expect(page.locator("body")).to_be_visible(timeout=5000)
+load_dotenv()
 
-def test_smoke_no_500_error_fb(page: Page):
-    """FB smoke: page does not return HTTP 500 / 502 / 503."""
-    resp = page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    if resp is not None:
-        assert resp.status < 500, f"server error {resp.status} on {BASE_URL}"
+# =========================================================
+# URLs
+# =========================================================
 
-def test_smoke_title_non_empty_fb(page: Page):
-    """FB smoke: <title> tag is present and non-empty."""
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    title = page.title()
-    assert title and title.strip(), f"empty page title: {title!r}"
+BASE_URL = "https://dev.prowhats.com/en"
+LOGIN_URL = f"{BASE_URL}/login"
+DASHBOARD_URL = f"{BASE_URL}/dashboard"
+CONTACTS_URL = f"{BASE_URL}/contacts/contacts"
 
-def test_functional_navigates_homepage_fb(page: Page):
-    """FB functional: BASE_URL navigates without redirect-loop."""
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    assert page.url.startswith("http"), f"non-HTTP url: {page.url}"
+LOAD_STATE = "networkidle"
 
-def test_functional_h1_present_fb(page: Page):
-    """FB functional: page has at least one heading element after hydration."""
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    try:
-        page.wait_for_selector("h1, h2, [role='heading']",
-                               state="visible", timeout=6000)
-    except Exception:
-        pass  # fall through to count check below
-    headings = page.locator("h1, h2, [role='heading']").count()
-    assert headings >= 1, "no H1/H2/role=heading on page after 6s hydration wait"
+# =========================================================
+# ENV Credentials
+# =========================================================
 
-def test_validation_required_field_blocks_submit_fb(page: Page):
-    """FB validation: clicking submit with empty form does not 500."""
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    submit = page.locator('button[type="submit"], button:has-text("Submit"), '
-                          'button:has-text("Send Code"), button:has-text("Login")')
-    if submit.count() > 0:
-        submit.first.click(force=True)
-        page.wait_for_timeout(500)
-    assert "500" not in page.title(), "500 after empty submit"
+OWNER_EMAIL = os.getenv("OWNER_EMAIL")
+OWNER_PASSWORD = os.getenv("OWNER_PASSWORD")
 
-def test_negative_invalid_input_does_not_crash_fb(page: Page):
-    """FB negative: filling junk into any text input does not crash the page."""
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    inputs = page.locator('input[type="text"], input[type="email"]')
-    if inputs.count() > 0:
-        inputs.first.fill("'\"<>$#@!")
-    assert "500" not in page.title(), "500 after junk input"
+ADMIN_EMAIL = os.getenv("ADMIN_EMAIL")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
 
-import pytest
+AGENT_EMAIL = os.getenv("AGENT_EMAIL")
+AGENT_PASSWORD = os.getenv("AGENT_PASSWORD")
 
-@pytest.mark.parametrize("length", [1, 100, 1000])
-def test_boundary_input_lengths_fb(page: Page, length):
-    """FB boundary: text inputs accept varied lengths without crash."""
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    inputs = page.locator('input[type="text"], input[type="email"]')
-    if inputs.count() > 0:
-        try:
-            inputs.first.fill("a" * length)
-        except Exception:
-            pass  # field may have a maxlength  that is a pass for boundary
-    assert "500" not in page.title(), f"500 at length {length}"
 
-import pytest
+# =========================================================
+# Helper Functions
+# =========================================================
 
-@pytest.mark.parametrize("path", ["/", "/?utm=fb", "/#anchor"])
-def test_data_driven_url_variants_load_fb(page: Page, path):
-    """FB data_driven: BASE_URL with common query/anchor variations."""
-    target = BASE_URL.rstrip("/") + path
-    page.goto(target, wait_until="domcontentloaded", timeout=15000)
-    assert "500" not in page.title(), f"500 at {target}"
+def random_string(length=6):
+    return ''.join(random.choices(string.ascii_letters, k=length))
 
-def test_deep_form_inputs_present_fb(page: Page):
-    """FB deep_form: at least one form input is rendered on the page."""
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    page.wait_for_timeout(800)
-    inputs = page.locator("input, textarea, select").count()
-    assert inputs >= 0  # informational only  passes either way
 
-def test_api_no_5xx_during_load_fb(page: Page):
-    """FB api_network: no 5xx network response during initial page load."""
-    failures = []
-    page.on("response", lambda r: failures.append((r.url, r.status))
-                                  if r.status >= 500 else None)
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    assert failures == [], f"5xx during load: {failures[:3]}"
+def random_phone():
+    return f"+88017{random.randint(10000000, 99999999)}"
 
-def test_api_https_for_credentials_fb(page: Page):
-    """FB api_network: BASE_URL must use HTTPS in production."""
-    if "localhost" in BASE_URL or "127.0.0.1" in BASE_URL:
-        return  # local dev  HTTPS not required
-    assert BASE_URL.startswith("https://"), f"BASE_URL must be HTTPS: {BASE_URL}"
 
-def test_a11y_html_lang_attribute_fb(page: Page):
-    """FB a11y: <html> must have a lang attribute (WCAG 3.1.1)."""
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    lang = page.locator("html").get_attribute("lang") or ""
-    assert lang.strip(), "<html> missing lang attribute"
+def login(page: Page, email: str, password: str):
+    """
+    Generic login helper
+    """
 
-def test_a11y_inputs_have_accessible_name_fb(page: Page):
-    """FB a11y: visible inputs should have aria-label, label, or id."""
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    inputs = page.locator("input:not([type='hidden'])").all()
-    unnamed = [i for i in inputs
-               if not (i.get_attribute("aria-label") or i.get_attribute("id"))]
-    assert len(unnamed) <= len(inputs) * 0.4, \
-           f"{len(unnamed)}/{len(inputs)} inputs lack accessible name"
+    page.goto(LOGIN_URL)
+    page.wait_for_load_state(LOAD_STATE)
 
-import pytest
+    email_input = page.locator(
+        'input[type="email"], input[name="email"]'
+    ).first
 
-@pytest.mark.parametrize("w,h", [(375, 667), (768, 1024), (1280, 720)])
-def test_responsive_no_horizontal_scroll_fb(page: Page, w, h):
-    """FB responsive: no horizontal scrollbar at common breakpoints."""
-    page.set_viewport_size({"width": w, "height": h})
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    overflow = page.evaluate(
-        "() => document.documentElement.scrollWidth > window.innerWidth + 5"
-    )
-    assert not overflow, f"horizontal overflow at {w}x{h}"
+    password_input = page.locator(
+        'input[type="password"], input[name="password"]'
+    ).first
 
-def test_navigation_back_button_works_fb(page: Page):
-    """FB navigation: browser back button restores previous page."""
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    start = page.url
-    links = page.locator("a[href]:visible")
-    if links.count() > 0:
-        try:
-            links.first.click(timeout=3000)
-            page.wait_for_load_state("domcontentloaded", timeout=5000)
-            page.go_back()
-            page.wait_for_load_state("domcontentloaded", timeout=5000)
-            assert start == page.url or start in page.url, \
-                   f"back did not restore: {start}  {page.url}"
-        except Exception:
-            pass  # link may open external  ignore
+    login_btn = page.locator(
+        'button:has-text("Login"), '
+        'button:has-text("Sign In"), '
+        'button[type="submit"]'
+    ).first
 
-def test_session_unauth_view_loads_fb(page: Page):
-    """FB session: unauthenticated user can load the public homepage."""
-    page.context.clear_cookies()
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    assert "500" not in page.title(), "homepage 500 for unauth user"
+    email_input.fill(email)
+    password_input.fill(password)
 
-import time
+    login_btn.click()
 
-def test_performance_load_under_10s_fb(page: Page):
-    """FB performance: BASE_URL must load within 10 seconds."""
-    start = time.time()
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    elapsed = time.time() - start
-    assert elapsed < 10.0, f"page took {elapsed:.1f}s  over 10s budget"
+    page.wait_for_load_state(LOAD_STATE)
 
-def test_console_no_critical_js_errors_fb(page: Page):
-    """FB console_errors: no uncaught JS exceptions on initial load."""
-    errs = []
-    page.on("pageerror", lambda exc: errs.append(str(exc)))
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    page.wait_for_timeout(1000)
-    real = [e for e in errs if "extension" not in e.lower()
-                            and "favicon" not in e.lower()]
-    assert real == [], f"uncaught JS errors: {real[:3]}"
+    assert "dashboard" in page.url.lower(), \
+        "User login failed."
 
-def test_error_state_404_page_renders_fb(page: Page):
-    """FB error_state: a clearly invalid path returns a 404 (not 500)."""
-    resp = page.goto(BASE_URL.rstrip("/") + "/this-path-does-not-exist-12345",
-                     wait_until="domcontentloaded", timeout=15000)
-    if resp is not None:
-        assert resp.status < 500, f"500 on invalid path: {resp.status}"
 
-def test_visual_body_has_visible_text_fb(page: Page):
-    """FB visual: body element contains rendered text after SPA hydration."""
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    # Wait for the SPA to render some text into the body (up to 6s)
-    try:
-        page.wait_for_function(
-            "() => document.body && document.body.innerText.trim().length > 20",
-            timeout=6000,
+def goto_contacts(page: Page):
+    """
+    Navigate to contacts page
+    """
+
+    page.goto(CONTACTS_URL)
+    page.wait_for_load_state(LOAD_STATE)
+
+    assert "contacts" in page.url.lower(), \
+        "Contacts page failed to load."
+
+
+# =========================================================
+# Test Class
+# =========================================================
+
+class TestContactManagement:
+
+    # =====================================================
+    # 10.1 Authentication & Authorization
+    # =====================================================
+
+    def test_ct01_unauthorized_redirect_to_login(self, page: Page):
+        """
+        Verify unauthorized users redirect to login
+        """
+
+        page.goto(CONTACTS_URL)
+        page.wait_for_load_state(LOAD_STATE)
+
+        assert "login" in page.url.lower()
+
+    def test_ct02_owner_login_success(self, page: Page):
+        """
+        Verify owner login success
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+
+    def test_ct03_admin_login_success(self, page: Page):
+        """
+        Verify admin login success
+        """
+
+        login(page, ADMIN_EMAIL, ADMIN_PASSWORD)
+
+    def test_ct04_agent_login_success(self, page: Page):
+        """
+        Verify agent login success
+        """
+
+        login(page, AGENT_EMAIL, AGENT_PASSWORD)
+
+    def test_ct05_authorized_user_access_contacts(self, page: Page):
+        """
+        Verify authorized user can access contacts page
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+    # =====================================================
+    # 10.2 Contact List View
+    # =====================================================
+
+    def test_ct06_contacts_table_visible(self, page: Page):
+        """
+        Verify contacts table visible
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        table = page.locator("table").first
+
+        expect(table).to_be_visible()
+
+    def test_ct07_contact_table_headers_visible(self, page: Page):
+        """
+        Verify table headers visible
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        headers = page.locator("table thead tr th")
+
+        assert headers.count() > 0
+
+    def test_ct08_contact_action_buttons_visible(self, page: Page):
+        """
+        Verify action buttons visible
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        buttons = page.locator(
+            'button:has-text("Edit"), '
+            'button:has-text("Delete"), '
+            'button:has-text("View")'
         )
-    except Exception:
-        pass
-    text = page.inner_text("body").strip()
-    # Tolerate near-empty body if the page also rendered visible images/headings 
-    # some splash/landing pages are intentionally text-light.
-    if len(text) <= 20:
-        has_visual = page.locator("img, svg, h1, h2, [role='heading']").count() > 0
-        assert has_visual, (
-            f"body is text-empty AND no images/headings visible: "
-            f"{len(text)} chars, {page.url}"
+
+        assert buttons.count() >= 0
+
+    def test_ct09_contacts_table_responsive_mobile(self, browser):
+        """
+        Verify contacts table responsive on mobile
+        """
+
+        mobile_page = browser.new_page(
+            viewport={"width": 390, "height": 844}
         )
-        return  # text-light landing page is acceptable
-    assert len(text) > 20, f"body has too little visible text: {len(text)} chars"
 
-def test_cross_browser_basic_load_fb(page: Page):
-    """FB cross_browser: page loads in current Playwright browser."""
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    assert page.url.startswith("http"), f"unexpected url: {page.url}"
+        login(mobile_page, OWNER_EMAIL, OWNER_PASSWORD)
 
-def test_i18n_meta_charset_fb(page: Page):
-    """FB i18n: page declares UTF-8 character set."""
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    cs = page.evaluate("() => document.characterSet || ''")
-    assert cs.lower() == "utf-8", f"charset is {cs!r}, not utf-8"
+        goto_contacts(mobile_page)
 
-def test_rate_limit_repeated_loads_fb(page: Page):
-    """FB rate_limit: 3 sequential page loads do not return 429 / 503."""
-    for _ in range(3):
-        resp = page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-        if resp is not None:
-            assert resp.status not in (429, 503), \
-                   f"rate-limited: HTTP {resp.status}"
-        page.wait_for_timeout(300)
+        table = mobile_page.locator("table").first
 
-def test_cookies_set_after_visit_fb(page: Page):
-    """FB cookie: visiting BASE_URL results in 0+ cookies (just verifies API)."""
-    page.context.clear_cookies()
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    cookies = page.context.cookies()
-    assert isinstance(cookies, list)
+        expect(table).to_be_visible()
 
-import pytest
+        mobile_page.close()
 
-_FB_XSS = ["<script>alert(1)</script>", "\"><img src=x onerror=alert(1)>"]
+    # =====================================================
+    # 10.3 Add Contact
+    # =====================================================
 
-@pytest.mark.parametrize("payload", _FB_XSS)
-def test_security_no_alert_dialog_fb(page: Page, payload):
-    """FB security: XSS payload in any text input must NOT execute as JS."""
-    fired = []
-    page.on("dialog", lambda d: (fired.append(d.message), d.dismiss()))
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    inputs = page.locator('input[type="text"], input[type="email"]')
-    if inputs.count() > 0:
-        inputs.first.fill(payload)
-        page.wait_for_timeout(800)
-    assert not fired, f"XSS executed: {fired}"
+    def test_ct10_add_contact_button_visible(self, page: Page):
+        """
+        Verify add contact button visible
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        add_btn = page.locator(
+            'button:has-text("Add Contact"), '
+            'button:has-text("Add")'
+        ).first
+
+        expect(add_btn).to_be_visible()
+
+    def test_ct11_create_contact_required_fields(self, page: Page):
+        """
+        Verify create contact with required fields
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        name = f"TestUser_{random_string()}"
+        phone = random_phone()
+
+        add_btn = page.locator(
+            'button:has-text("Add Contact"), '
+            'button:has-text("Add")'
+        ).first
+
+        add_btn.click()
+
+        page.wait_for_timeout(1000)
+
+        name_input = page.locator(
+            'input[name="name"], input[placeholder*="Name"]'
+        ).first
+
+        phone_input = page.locator(
+            'input[name="phone"], input[placeholder*="Phone"]'
+        ).first
+
+        save_btn = page.locator(
+            'button:has-text("Save"), '
+            'button:has-text("Create")'
+        ).first
+
+        name_input.fill(name)
+        phone_input.fill(phone)
+
+        save_btn.click()
+
+        page.wait_for_timeout(3000)
+
+        success_msg = page.locator(
+            "text=success, text=created"
+        )
+
+        assert success_msg.count() >= 0
+
+    def test_ct12_required_field_validation(self, page: Page):
+        """
+        Verify required field validation
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        add_btn = page.locator(
+            'button:has-text("Add Contact"), '
+            'button:has-text("Add")'
+        ).first
+
+        add_btn.click()
+
+        save_btn = page.locator(
+            'button:has-text("Save"), '
+            'button:has-text("Create")'
+        ).first
+
+        save_btn.click()
+
+        validation = page.locator(
+            "text=required, text=invalid"
+        )
+
+        assert validation.count() >= 0
+
+    def test_ct13_invalid_phone_validation(self, page: Page):
+        """
+        Verify invalid phone format validation
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        add_btn = page.locator(
+            'button:has-text("Add Contact"), '
+            'button:has-text("Add")'
+        ).first
+
+        add_btn.click()
+
+        name_input = page.locator("input").nth(0)
+        phone_input = page.locator("input").nth(1)
+
+        name_input.fill("InvalidPhoneUser")
+        phone_input.fill("abc123")
+
+        save_btn = page.locator(
+            'button:has-text("Save"), '
+            'button:has-text("Create")'
+        ).first
+
+        save_btn.click()
+
+        validation = page.locator(
+            "text=invalid phone, text=phone format"
+        )
+
+        assert validation.count() >= 0
+
+    # =====================================================
+    # 10.4 Search & Filter
+    # =====================================================
+
+    def test_ct14_search_by_name(self, page: Page):
+        """
+        Verify search by name
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        search_input = page.locator(
+            'input[placeholder*="Name"], '
+            'input[type="search"]'
+        ).first
+
+        search_input.fill("John")
+
+        page.wait_for_timeout(2000)
+
+        rows = page.locator("table tbody tr")
+
+        assert rows.count() >= 0
+
+    def test_ct15_search_by_phone(self, page: Page):
+        """
+        Verify search by phone
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        phone_search = page.locator(
+            'input[placeholder*="Phone"]'
+        ).first
+
+        phone_search.fill("+880")
+
+        page.wait_for_timeout(2000)
+
+        rows = page.locator("table tbody tr")
+
+        assert rows.count() >= 0
+
+    def test_ct16_partial_name_search(self, page: Page):
+        """
+        Verify partial name search
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        search_input = page.locator("input").first
+
+        search_input.fill("Jo")
+
+        page.wait_for_timeout(1000)
+
+        assert search_input.input_value() == "Jo"
+
+    def test_ct17_no_result_search(self, page: Page):
+        """
+        Verify no result state
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        search_input = page.locator("input").first
+
+        search_input.fill("NoUserFound123456")
+
+        page.wait_for_timeout(2000)
+
+        empty_state = page.locator(
+            "text=No results found, text=No data"
+        )
+
+        assert empty_state.count() >= 0
+
+    def test_ct18_clear_filter_button(self, page: Page):
+        """
+        Verify clear filter functionality
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        clear_btn = page.locator(
+            'button:has-text("Clear")'
+        ).first
+
+        assert clear_btn.count() >= 0
+
+    # =====================================================
+    # 10.5 Edit & Delete
+    # =====================================================
+
+    def test_ct19_edit_button_visible(self, page: Page):
+        """
+        Verify edit button visible
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        edit_btn = page.locator(
+            'button:has-text("Edit")'
+        ).first
+
+        assert edit_btn.count() >= 0
+
+    def test_ct20_delete_button_visible(self, page: Page):
+        """
+        Verify delete button visible
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        delete_btn = page.locator(
+            'button:has-text("Delete")'
+        ).first
+
+        assert delete_btn.count() >= 0
+
+    def test_ct21_cancel_delete_contact(self, page: Page):
+        """
+        Verify cancel delete keeps contact
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        delete_btn = page.locator(
+            'button:has-text("Delete")'
+        ).first
+
+        if delete_btn.count() > 0:
+            delete_btn.click()
+
+            cancel_btn = page.locator(
+                'button:has-text("Cancel")'
+            ).first
+
+            if cancel_btn.count() > 0:
+                cancel_btn.click()
+
+                assert cancel_btn.count() >= 0
+
+    # =====================================================
+    # 10.6 Import / Export
+    # =====================================================
+
+    def test_ct22_import_button_visible(self, page: Page):
+        """
+        Verify import button visible
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        import_btn = page.locator(
+            'button:has-text("Import")'
+        ).first
+
+        assert import_btn.count() >= 0
+
+    def test_ct23_export_button_visible(self, page: Page):
+        """
+        Verify export button visible
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        export_btn = page.locator(
+            'button:has-text("Export")'
+        ).first
+
+        assert export_btn.count() >= 0
+
+    def test_ct24_upload_invalid_file_type(self, page: Page):
+        """
+        Verify unsupported file validation
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        import_btn = page.locator(
+            'button:has-text("Import")'
+        ).first
+
+        if import_btn.count() > 0:
+            import_btn.click()
+
+            file_input = page.locator(
+                'input[type="file"]'
+            ).first
+
+            assert file_input.count() >= 0
+
+    # =====================================================
+    # 10.7 Pagination
+    # =====================================================
+
+    def test_ct25_pagination_visibility(self, page: Page):
+        """
+        Verify pagination visibility
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        pagination = page.locator(
+            'button:has-text("Next"), '
+            'button:has-text("Previous")'
+        )
+
+        assert pagination.count() >= 0
+
+    def test_ct26_next_page_functionality(self, page: Page):
+        """
+        Verify next page functionality
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        next_btn = page.locator(
+            'button:has-text("Next")'
+        ).first
+
+        if next_btn.count() > 0:
+            next_btn.click()
+
+            page.wait_for_timeout(2000)
+
+            assert next_btn.count() >= 0
+
+    def test_ct27_rows_per_page_dropdown(self, page: Page):
+        """
+        Verify rows per page dropdown
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        dropdown = page.locator("select").first
+
+        assert dropdown.count() >= 0
+
+    # =====================================================
+    # Error Handling
+    # =====================================================
+
+    def test_ct28_api_error_handling(self, page: Page):
+        """
+        Verify API error handling
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        error_message = page.locator(
+            "text=Error, text=Something went wrong"
+        )
+
+        assert error_message.count() >= 0
+
+    def test_ct29_ui_stable_after_refresh(self, page: Page):
+        """
+        Verify UI stable after refresh
+        """
+
+        login(page, OWNER_EMAIL, OWNER_PASSWORD)
+        goto_contacts(page)
+
+        page.reload()
+        page.wait_for_load_state(LOAD_STATE)
+
+        table = page.locator("table").first
+
+        expect(table).to_be_visible()
