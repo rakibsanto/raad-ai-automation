@@ -346,7 +346,11 @@ def route_after_validate(state: SpecState) -> str:
 def route_after_run(state: SpecState) -> str:
     results  = state.get("test_results", {})
     attempts = state.get("fix_attempts", 0)
-    if results.get("failed", 0) > 0 and attempts < MAX_FIX_RETRIES:
+    from_cache = state.get("from_cache", False)
+    
+    # DO NOT heal tests that were loaded from cache. If a cached test fails,
+    # it indicates a real application bug, and shouldn't trigger an AI code-rewrite.
+    if results.get("failed", 0) > 0 and attempts < MAX_FIX_RETRIES and not from_cache:
         return "heal_tests"
     return "save_memory"
 

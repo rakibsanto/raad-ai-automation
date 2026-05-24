@@ -1998,7 +1998,9 @@ class AutonomousTestAgent:
         # 6. Self-heal — try SURGICAL selector fix first (cheap, persistent),
         # then fall back to full-file regen if the failure isn't selector-shaped
         # or surgical fix didn't resolve all failures.
-        if results["failed"] > 0:
+        from_cache = any(k in type_log for k in ("cached_from_prior_run", "disk_fallback", "manual_override"))
+        
+        if results["failed"] > 0 and not from_cache:
             log(f"\n  [REFLECT] {results['failed']} failure(s) — self-healing...")
 
             # 6a. Surgical path — selector failures only. Extract broken
