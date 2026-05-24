@@ -29,7 +29,9 @@ def validate_syntax(code: str) -> tuple[bool, str]:
 
 
 def has_test_functions(code: str) -> tuple[bool, str]:
-    funcs = re.findall(r"^def (test_\w+)\s*\(", code, re.MULTILINE)
+    # Match BOTH module-level (^def test_) and class-method-level (    def test_)
+    # Using \bdef instead of ^def so indented class methods are also detected.
+    funcs = re.findall(r"\bdef (test_\w+)\s*\(", code)
     if not funcs:
         return False, "No test_ functions found"
     return True, f"{len(funcs)} test function(s)"
