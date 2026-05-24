@@ -32,9 +32,9 @@
     "test_cookies_set_after_visit_fb",
     "test_security_no_alert_dialog_fb"
   ],
-  "passed": 31,
-  "failed": 2,
+  "passed": 32,
+  "failed": 1,
   "total": 34,
-  "saved_at": "2026-05-24T12:46:40",
+  "saved_at": "2026-05-24T16:09:00",
   "base_url": "https://dev.prowhats.com/en"
 }
