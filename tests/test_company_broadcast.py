@@ -1,18 +1,42 @@
-import os, time, pytest, datetime, re
+import os, time, pytest
+from playwright.sync_api import Page, expect
+BASE_URL = os.getenv("BASE_URL", "https://dev.prowhats.com/en")
+
+import datetime
+import re
+from dotenv import load_dotenv
 from playwright.sync_api import Page, expect
 
+# ── Load Environment Variables ────────────────────────────────────────────────
+load_dotenv()
+
+required_env_vars = [
+    "OWNER_EMAIL",
+    "OWNER_PASSWORD",
+    "ADMIN_EMAIL",
+    "ADMIN_PASSWORD",
+    "AGENT_EMAIL",
+    "AGENT_PASSWORD",
+]
+
+for var in required_env_vars:
+    if not os.getenv(var):
+        raise ValueError(f"Missing required environment variable: {var}")
+
 # ── Environment ────────────────────────────────────────────────────────────────
-BASE_URL      = os.getenv("BASE_URL",      "https://dev.prowhats.com/en")
-LOGIN_URL     = os.getenv("LOGIN_URL",     "https://dev.prowhats.com/en/login")
+BASE_URL = os.getenv("BASE_URL", "https://dev.prowhats.com/en")
+LOGIN_URL = os.getenv("LOGIN_URL", "https://dev.prowhats.com/en/login")
 BROADCAST_URL = os.getenv("BROADCAST_URL", "https://dev.prowhats.com/en/broadcast")
 CREATE_BROADCAST_URL = f"{BASE_URL}/broadcast/create"
 
-OWNER_EMAIL    = os.getenv("OWNER_EMAIL",    "saidurdev@gmail.com")
-OWNER_PASSWORD = os.getenv("OWNER_PASSWORD", "saidurdev@gmail.com")
-ADMIN_EMAIL    = os.getenv("ADMIN_EMAIL",    "rakibsanto1998@gmail.com")
-ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "111111")
-AGENT_EMAIL    = os.getenv("AGENT_EMAIL",    "rakibsanto.cse@gmail.com")
-AGENT_PASSWORD = os.getenv("AGENT_PASSWORD", "111111")
+OWNER_EMAIL = os.getenv("OWNER_EMAIL")
+OWNER_PASSWORD = os.getenv("OWNER_PASSWORD")
+
+ADMIN_EMAIL = os.getenv("ADMIN_EMAIL")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
+
+AGENT_EMAIL = os.getenv("AGENT_EMAIL")
+AGENT_PASSWORD = os.getenv("AGENT_PASSWORD")
 
 NAV = 'wait_until="domcontentloaded", timeout=20000'
 

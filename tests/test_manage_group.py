@@ -1,5 +1,6 @@
 import os, time, pytest
 from playwright.sync_api import Page, expect
+BASE_URL = os.getenv("BASE_URL", "https://dev.prowhats.com/en")
 
 """
 Manage Group Tests — based on specs/manage_group.md and the ProWhats dev environment
