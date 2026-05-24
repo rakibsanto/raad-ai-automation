@@ -1934,6 +1934,22 @@ class AutonomousTestAgent:
             log(f"  [CACHE-HIT] {name}: reusing {cached.get('test_count', 0)} "
                 f"tests from {cached.get('saved_at','prior run')} "
                 f"(spec hash unchanged)")
+        elif disk_code and disk_code.count("def test_") > 0:
+            # ── Disk-fallback: spec changed but a valid test file already exists on
+            # disk. Use it instead of spending 20-100+ min on AI regeneration.
+            # The cache will be reseeded at the end of the run when tests pass.
+            # Run `python reseed_cache.py` to permanently sync cache ↔ disk.
+            n_disk = disk_code.count("def test_")
+            log(f"  [DISK-FALLBACK] {name}: spec changed but {n_disk} tests already "
+                f"exist on disk → skipping AI regen (run reseed_cache.py to silence)")
+            code = disk_code
+            type_log = {
+                "disk_fallback": {
+                    "test_count": n_disk,
+                    "tests":      re.findall(r"def (test_\w+)", disk_code),
+                    "test_data":  ["(disk fallback — spec modified since last cache)"]
+                }
+            }
         else:
             # 3. Generate (no cache hit OR spec changed)
             log("\n  [THINK] Generating tests (22 types)...")

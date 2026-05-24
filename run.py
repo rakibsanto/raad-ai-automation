@@ -7,9 +7,13 @@ Always opens a real browser window so you SEE what's happening.
 Usage:
     python run.py            # demo: TestQA01Functional with visible browser (~3 min)
     python run.py --ai       # full AI Test Agent v5 — auto-generates from md specs
+    python run.py --fast     # FASTEST: skip AI, run existing tests + generate report
     python run.py --all      # every QA agent — full suite, ~30 min
     python run.py --headless # same as default but no visible browser
     python run.py --url X    # override BASE_URL (default: dev.prowhats.com/en)
+
+Note: Run `python reseed_cache.py` after editing a spec to sync the cache
+      so --ai skips AI generation and uses your existing test files.
 """
 
 from __future__ import annotations
@@ -39,6 +43,8 @@ def parse_args(argv: list[str]) -> dict:
     for a in argv:
         if a == "--ai":
             out["mode"] = "ai"
+        elif a == "--fast":
+            out["mode"] = "fast"
         elif a == "--all":
             out["mode"] = "all"
         elif a == "--headless":
@@ -96,6 +102,63 @@ def run_demo(env: dict) -> int:
     return subprocess.call(cmd, env=env)
 
 
+def run_fast(env: dict) -> int:
+    """FAST MODE: skip all AI generation, run existing test files directly,
+    then call the AI agent's reporter to generate bug-report.html.
+    Typical runtime: 5-20 minutes (pure pytest, no AI calls)."""
+    import glob, json, os
+    from pathlib import Path
+    print("=" * 64)
+    print("FAST MODE — existing tests only, no AI generation")
+    print(f"Target: {env.get('BASE_URL')}")
+    print("=" * 64)
+    test_files = sorted(glob.glob("tests/test_*.py"))
+    if not test_files:
+        print("[ERROR] No test files found in tests/")
+        return 1
+    print(f"Found {len(test_files)} test file(s):")
+    for f in test_files:
+        print(f"  {f}")
+    print()
+    
+    Path("reports").mkdir(exist_ok=True)
+    specs_tested = []
+    
+    for f in test_files:
+        spec_name = Path(f).stem.replace("test_", "")
+        specs_tested.append(spec_name)
+        result_json = f"reports/result_test_{spec_name}.json"
+        
+        cmd = [sys.executable, "-m", "pytest", f,
+            "-v", "--tb=short", "--no-header",
+            "--browser=chromium",
+            "--json-report", f"--json-report-file={result_json}",
+            "--timeout=60",
+        ]
+        if env.get("HEADED") == "1":
+            cmd.append("--headed")
+        subprocess.call(cmd, env=env)
+    
+    # Write summary.json so consolidate_reports knows what to process
+    summary_path = Path("reports/summary.json")
+    summary = {}
+    if summary_path.exists():
+        try:
+            summary = json.loads(summary_path.read_text())
+        except Exception:
+            pass
+    summary["specs_tested"] = specs_tested
+    summary["base_url"] = env.get("BASE_URL", "https://dev.prowhats.com/en")
+    summary_path.write_text(json.dumps(summary))
+    
+    # Generate HTML report
+    print("\n" + "=" * 64)
+    print("Generating bug-report.html from latest results...")
+    gen_cmd = [sys.executable, "scripts/consolidate_reports.py"]
+    rc = subprocess.call(gen_cmd, env=env)
+    return rc
+
+
 def run_ai(env: dict) -> int:
     """AI Test Agent v5: auto-generates tests for every spec, runs them.
     The agent itself spawns Playwright; the HEADED env var makes the
@@ -147,6 +210,8 @@ def main(argv: list[str]) -> int:
 
     if args["mode"] == "ai":
         return run_ai(env)
+    if args["mode"] == "fast":
+        return run_fast(env)
     if args["mode"] == "all":
         return run_all(env)
     return run_demo(env)
