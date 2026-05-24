@@ -797,23 +797,20 @@ def main():
     print(f"[CONSOLIDATE] ✅ Master report → {out}")
     print(f"[CONSOLIDATE] ✅ Summary       → {cons_path}")
 
-    # Generate ONE custom-styled per-agent report per source. Each renders
-    # with the same Raad UI but contains only that agent's data — replaces
-    # the default pytest-html reports that don't match our design.
-    # NOTE: per-agent reports get deployed to /agents/<name>.html on gh-pages,
-    # so their 'Back to Dashboard' link must use '../index.html' (not just
-    # 'index.html' which would 404 from /agents/).
-    print("[CONSOLIDATE] Generating per-agent reports …")
-    for src_name in list(all_results.keys()):
-        single_dict = {src_name: all_results[src_name]}
-        agent_filename = f"agent-{src_name}.html"
-        try:
-            generate_report(single_dict, base_url, model, agent_filename,
-                            base_path_prefix="../")
-            r = all_results[src_name]
-            print(f"  ✅ agent-{src_name}.html ({r.get('passed',0)}P/{r.get('failed',0)}F)")
-        except Exception as e:
-            print(f"  ❌ agent-{src_name}.html: {e}")
+    # Per-agent individual HTML reports are DISABLED — all results are shown
+    # in the master bug-report.html above. Remove the comment below if you
+    # ever need to re-enable split per-agent HTML files.
+    #
+    # for src_name in list(all_results.keys()):
+    #     single_dict = {src_name: all_results[src_name]}
+    #     agent_filename = f"agent-{src_name}.html"
+    #     try:
+    #         generate_report(single_dict, base_url, model, agent_filename,
+    #                         base_path_prefix="../")
+    #         r = all_results[src_name]
+    #         print(f"  ✅ agent-{src_name}.html ({r.get('passed',0)}P/{r.get('failed',0)}F)")
+    #     except Exception as e:
+    #         print(f"  ❌ agent-{src_name}.html: {e}")
 
 
 if __name__ == "__main__":
