@@ -559,12 +559,25 @@ def build_consolidated_results(base_url: str) -> dict:
     all_results: dict = {}
 
     # ── 1. AI agent results (agent.py / langgraph) ────────────────────────────
+    # Build the full list of specs to process:
+    # (a) from summary.json (AI agent / fast mode)
+    # (b) from test_data_log.json
+    # (c) auto-discover every result_test_*.json file on disk
     summary  = _load(REPORTS_DIR / "summary.json")
     data_log = _load(REPORTS_DIR / "test_data_log.json")
-    ai_specs = summary.get("specs_tested",
-                           list(data_log.get("specs", {}).keys()))
+    ai_specs_from_summary = summary.get("specs_tested",
+                                        list(data_log.get("specs", {}).keys()))
 
-    for spec_name in ai_specs:
+    # Auto-discover all result_test_*.json files so no file is ever missed
+    discovered_specs: list[str] = list(ai_specs_from_summary)  # start with known
+    for result_file in sorted(REPORTS_DIR.glob("result_test_*.json")):
+        stem = result_file.stem  # e.g. "result_test_file_manager"
+        spec_name = stem.replace("result_test_", "", 1)  # e.g. "file_manager"
+        if spec_name not in discovered_specs:
+            print(f"  [AUTO-DISCOVER] Found unregistered result file: {result_file.name}")
+            discovered_specs.append(spec_name)
+
+    for spec_name in discovered_specs:
         for stem in (f"result_test_{spec_name.replace('-','_')}",
                      f"result_{spec_name.replace('-','_')}"):
             p = REPORTS_DIR / f"{stem}.json"
@@ -574,6 +587,9 @@ def build_consolidated_results(base_url: str) -> dict:
                 passed = s.get("passed", 0)
                 failed = s.get("failed", 0) + s.get("error", 0)
                 total  = s.get("total",  passed + failed)
+                if total == 0:
+                    # Skip empty result files
+                    break
                 prefix = f"BUG-{spec_name[:4].upper()}"
                 all_results[spec_name] = {
                     "status":       "passed" if failed == 0 and total > 0 else "failed",
@@ -587,6 +603,52 @@ def build_consolidated_results(base_url: str) -> dict:
                     "source":       stem + ".json",
                 }
                 break
+
+    # ── 1b. Fallback: load result_all_tests.json if it covers specs not yet loaded
+    # This catches runs where all tests were executed together in one pytest call
+    all_tests_path = REPORTS_DIR / "result_all_tests.json"
+    if all_tests_path.exists() and all_tests_path.stat().st_size > 100:
+        all_tests_data = _load(all_tests_path)
+        # Group tests by their source file so we can extract per-file results
+        file_tests: dict[str, list] = {}
+        for t in all_tests_data.get("tests", []):
+            nodeid = t.get("nodeid", "")
+            # Extract the test file name, e.g. "tests/test_users.py::..."
+            parts = nodeid.split("::")
+            if not parts:
+                continue
+            test_file = parts[0]  # e.g. "tests/test_users.py"
+            file_tests.setdefault(test_file, []).append(t)
+
+        for test_file, tests in file_tests.items():
+            # Derive spec_name from the filename, e.g. "tests/test_users.py" → "users"
+            import re as _re
+            fname = Path(test_file).stem  # "test_users"
+            spec_name = _re.sub(r'^test_', '', fname)  # "users"
+            if spec_name in all_results:
+                # Already loaded from a dedicated result_test_*.json — skip
+                continue
+            # Build a minimal pytest-json-report-compatible dict for this file
+            sub_data = {"tests": tests}
+            p_count = sum(1 for t in tests if t.get("outcome") == "passed")
+            f_count = sum(1 for t in tests if t.get("outcome") in ("failed", "error"))
+            total   = p_count + f_count
+            if total == 0:
+                continue
+            prefix = f"BUG-{spec_name[:4].upper()}"
+            print(f"  [ALL-TESTS-JSON] Loading {spec_name} ({p_count}P/{f_count}F) "
+                  f"from result_all_tests.json")
+            all_results[spec_name] = {
+                "status":       "passed" if f_count == 0 else "failed",
+                "passed":       p_count,
+                "failed":       f_count,
+                "total":        total,
+                "bugs":         _bugs_from_pytest_json(sub_data, prefix, base_url),
+                "passed_tests": _passed_from_pytest_json(sub_data),
+                "gaps":         "",
+                "group":        "AI Agent",
+                "source":       "result_all_tests.json",
+            }
 
     # ── 2. Hand-crafted QA agent results ─────────────────────────────────────
     qa_groups = {

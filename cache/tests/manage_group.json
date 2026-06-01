@@ -13,9 +13,9 @@
     "test_search_table_by_group_name",
     "test_pagination_and_customer_count_visibility"
   ],
-  "passed": 5,
+  "passed": 7,
   "failed": 0,
   "total": 8,
-  "saved_at": "2026-05-24T16:09:00",
+  "saved_at": "2026-06-01T11:14:42",
   "base_url": "https://dev.prowhats.com/en"
 }

@@ -123,9 +123,10 @@ def run_fast(env: dict) -> int:
     
     Path("reports").mkdir(exist_ok=True)
     specs_tested = []
+    files_with_results = []
     
     for f in test_files:
-        spec_name = Path(f).stem.replace("test_", "")
+        spec_name = Path(f).stem.replace("test_", "", 1)
         specs_tested.append(spec_name)
         result_json = f"reports/result_test_{spec_name}.json"
         
@@ -137,9 +138,17 @@ def run_fast(env: dict) -> int:
         ]
         if env.get("HEADED") == "1":
             cmd.append("--headed")
-        subprocess.call(cmd, env=env)
+        rc_file = subprocess.call(cmd, env=env)
+        # Track which files successfully produced result JSONs
+        if Path(result_json).exists():
+            files_with_results.append(spec_name)
+        print(f"  → {spec_name}: {'✓ result saved' if Path(result_json).exists() else '✗ no result file'}")
     
-    # Write summary.json so consolidate_reports knows what to process
+    print(f"\n[FAST] {len(files_with_results)}/{len(specs_tested)} files produced result JSONs")
+    
+    # Write summary.json so consolidate_reports knows what to process.
+    # IMPORTANT: Always write ALL discovered test files into specs_tested so
+    # consolidate_reports.py includes every file in the HTML report.
     summary_path = Path("reports/summary.json")
     summary = {}
     if summary_path.exists():
@@ -147,9 +156,18 @@ def run_fast(env: dict) -> int:
             summary = json.loads(summary_path.read_text())
         except Exception:
             pass
-    summary["specs_tested"] = specs_tested
+    # Merge: keep any existing specs that may have been added by prior AI runs,
+    # then add ALL files discovered in this run.
+    existing = summary.get("specs_tested", [])
+    merged = list(existing)
+    for s in specs_tested:
+        if s not in merged:
+            merged.append(s)
+    summary["specs_tested"] = merged
     summary["base_url"] = env.get("BASE_URL", "https://dev.prowhats.com/en")
-    summary_path.write_text(json.dumps(summary))
+    summary_path.write_text(json.dumps(summary, indent=2))
+    print(f"[FAST] Wrote {len(merged)} spec(s) to summary.json: "
+          f"{', '.join(merged)}")
     
     # Generate HTML report
     print("\n" + "=" * 64)

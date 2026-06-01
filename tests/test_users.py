@@ -1,3 +1,7 @@
+import os, time, pytest
+from playwright.sync_api import Page, expect
+BASE_URL = os.getenv("BASE_URL", "https://dev.prowhats.com/en")
+
 # test_users.py
 
 import os
