@@ -1,14 +1,15 @@
 {
-  "generated_at": "2026-05-24T16:09:00",
+  "generated_at": "2026-06-01T11:26:11.035635",
   "base_url": "https://dev.prowhats.com/en",
   "slugs": [
     "blocked_contact",
     "company_broadcast",
     "company_dashboard",
     "contact",
+    "file_manager",
     "login",
     "manage_group",
     "whatsapp"
   ],
-  "count": 7
+  "count": 8
 }

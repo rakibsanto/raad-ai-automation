@@ -43,9 +43,9 @@
     "test_dashboard_title_not_empty",
     "test_logout_clears_session"
   ],
-  "passed": 26,
-  "failed": 6,
+  "passed": 29,
+  "failed": 7,
   "total": 38,
-  "saved_at": "2026-05-24T16:09:00",
+  "saved_at": "2026-06-01T10:49:06",
   "base_url": "https://dev.prowhats.com/en"
 }
