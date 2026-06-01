@@ -446,6 +446,18 @@ jobs:
             --json-report --json-report-file=reports/qa02_edge_results.json \
             -p no:cacheprovider 2>&1 | tee reports/qa02-edge.txt
 
+      - name: Run Standalone Tests
+        continue-on-error: true
+        run: |
+          BASE_URL=${{ env.BASE_URL }} python3 -m pytest \
+            tests/ \
+            --ignore=tests/test_qa_comprehensive.py \
+            --timeout=60 --timeout-method=thread \
+            --tb=short -v -p no:warnings \
+            --html=reports/standalone-tests.html --self-contained-html \
+            --json-report --json-report-file=reports/result_all_tests.json \
+            -p no:cacheprovider 2>&1 | tee reports/standalone-tests.txt
+
       - name: Write QA Agent 1 Summary
         if: always()
         run: |
@@ -455,8 +467,9 @@ jobs:
           echo "|-------|--------|" >> "$GITHUB_STEP_SUMMARY"
           echo "| QA-01 Functional | qa01-functional.html |" >> "$GITHUB_STEP_SUMMARY"
           echo "| QA-02 Edge Cases | qa02-edge.html |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Standalone Tests | standalone-tests.html |" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          for f in reports/qa01-functional.txt reports/qa02-edge.txt; do
+          for f in reports/qa01-functional.txt reports/qa02-edge.txt reports/standalone-tests.txt; do
             [ -f "$f" ] && grep -E "^(PASSED|FAILED|ERROR|tests ran|passed|failed)" "$f" | tail -5 >> "$GITHUB_STEP_SUMMARY" || true
           done
 
@@ -468,6 +481,8 @@ jobs:
           path: |
             reports/qa01*
             reports/qa02*
+            reports/standalone-tests*
+            reports/result_all_tests.json
             reports/screenshots/
             reports/videos/
             !reports/videos/page@*.webm

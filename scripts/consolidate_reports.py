@@ -607,6 +607,12 @@ def build_consolidated_results(base_url: str) -> dict:
     # ── 1b. Fallback: load result_all_tests.json if it covers specs not yet loaded
     # This catches runs where all tests were executed together in one pytest call
     all_tests_path = REPORTS_DIR / "result_all_tests.json"
+    if not all_tests_path.exists():
+        # Search recursively in case it was downloaded into an artifact subdir
+        found = list(REPORTS_DIR.rglob("result_all_tests.json"))
+        if found:
+            all_tests_path = found[0]
+            
     if all_tests_path.exists() and all_tests_path.stat().st_size > 100:
         all_tests_data = _load(all_tests_path)
         # Group tests by their source file so we can extract per-file results
