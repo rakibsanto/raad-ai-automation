@@ -85,7 +85,10 @@ jobs:
 
       # ── 5. Ollama ─────────────────────────────────────────────────────────
       - name: Install Ollama
-        run: curl -fsSL https://ollama.com/install.sh | sh
+        run: |
+          curl -fsSL https://ollama.com/install.sh -o install.sh
+          sed -i 's/if curl --fail --silent --head --location.*/if true; then/g' install.sh
+          sh install.sh
 
       # ── 6. Cache Ollama models ────────────────────────────────────────────
       - name: Cache Ollama models
@@ -709,7 +712,10 @@ jobs:
       - name: Install Playwright Chromium
         run: playwright install chromium --with-deps
       - name: Install Ollama
-        run: curl -fsSL https://ollama.com/install.sh | sh
+        run: |
+          curl -fsSL https://ollama.com/install.sh -o install.sh
+          sed -i 's/if curl --fail --silent --head --location.*/if true; then/g' install.sh
+          sh install.sh
       - name: Cache Ollama models
         uses: actions/cache@v4
         with:
@@ -1312,7 +1318,10 @@ jobs:
         run: playwright install chromium --with-deps
       - name: Install Ollama (only if vision QA enabled)
         if: env.ENABLE_VISION_QA == 'true'
-        run: curl -fsSL https://ollama.com/install.sh | sh
+        run: |
+          curl -fsSL https://ollama.com/install.sh -o install.sh
+          sed -i 's/if curl --fail --silent --head --location.*/if true; then/g' install.sh
+          sh install.sh
       - name: Pull vision model (only if enabled)
         if: env.ENABLE_VISION_QA == 'true'
         timeout-minutes: 15
