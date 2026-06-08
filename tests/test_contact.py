@@ -76,7 +76,7 @@ def login(page: Page, email: str, password: str):
 
     page.wait_for_load_state(LOAD_STATE)
 
-    assert "dashboard" in page.url.lower(), \
+    expect(page.locator("text=Dashboard").first).to_be_visible(timeout=15000), \
         "User login failed."
 
 

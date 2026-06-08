@@ -5,7 +5,7 @@ BASE_URL = os.getenv("BASE_URL", "https://dev.prowhats.com/en")
 def test_smoke_page_accessible(page: Page):
     """Smoke: page responds and main form visible."""
     page.goto(BASE_URL, timeout=10000)
-    assert page.locator("form, main, [role='main']").is_visible(), "Page structure broken"
+    expect(page.locator("form, main, [role='main']").first).to_be_visible(timeout=15000)
 
 def test_smoke_form_interactive(page: Page):
     """Smoke: can type in form fields."""
@@ -21,9 +21,8 @@ def test_smoke_submit_button_clickable(page: Page):
     This smoke test only verifies the button EXISTS and is visible.
     """
     page.goto(BASE_URL, wait_until="domcontentloaded", timeout=15000)
-    btn = page.locator('button[type="submit"]')
-    assert btn.count() > 0, "No submit button found on page"
-    assert btn.first.is_visible(), "Submit button is hidden"
+    btn = page.locator('button[type="submit"]').first
+    expect(btn).to_be_visible(timeout=15000)
 
 def test_smoke_no_500_error(page: Page):
     """Smoke: page does not return a server error (5xx).

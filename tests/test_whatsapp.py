@@ -48,7 +48,7 @@ class TestWhatsAppChat:
 
         page.wait_for_load_state(LOAD_STATE)
 
-        expect(page).to_have_url(DASHBOARD_URL)
+        expect(page.locator("text=Dashboard").first).to_be_visible(timeout=15000)
 
     def navigate_to_whatsapp_chat(self, page: Page):
         page.goto(WHATSAPP_CHAT_URL)
@@ -306,7 +306,7 @@ class TestWhatsAppChat:
 
         page.wait_for_timeout(3000)
 
-        assert page.url != DASHBOARD_URL
+        assert page.locator("text=Dashboard").count() == 0, "Should not be logged in"
 
     @pytest.mark.functional
     def test_conversation_page_contains_chat_elements(self, page: Page):

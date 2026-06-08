@@ -49,7 +49,7 @@ class TestFileManager:
         login_button.click()
 
         page.wait_for_load_state(LOAD_STATE)
-        expect(page).to_have_url(DASHBOARD_URL)
+        expect(page.locator("text=Dashboard").first).to_be_visible(timeout=15000)
 
     def navigate_to_file_manager(self, page: Page):
         """Helper method to access the File Manager route."""

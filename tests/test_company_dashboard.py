@@ -68,7 +68,7 @@ def _login(page: Page, email: str, password: str) -> bool:
 
 
    # Check if we landed on the dashboard
-   return "dashboard" in page.url or "dashboard" in page.title().lower()
+   return page.locator("text=Dashboard").first.is_visible()
 
 
 
@@ -106,8 +106,7 @@ def test_owner_can_login_and_reach_dashboard(page: Page):
    success = _login(page, OWNER_EMAIL, OWNER_PASSWORD)
    if not success:
        page.goto(DASHBOARD_URL, wait_until="domcontentloaded", timeout=20000)
-   assert "dashboard" in page.url or page.locator("main, [role='main']").count() > 0, \
-       f"Owner did not reach dashboard. Current URL: {page.url}"
+   expect(page.locator("text=Dashboard").first).to_be_visible(timeout=15000)
 
 
 
@@ -117,8 +116,7 @@ def test_admin_can_login_and_reach_dashboard(page: Page):
    success = _login(page, ADMIN_EMAIL, ADMIN_PASSWORD)
    if not success:
        page.goto(DASHBOARD_URL, wait_until="domcontentloaded", timeout=20000)
-   assert "dashboard" in page.url or page.locator("main, [role='main']").count() > 0, \
-       f"Admin did not reach dashboard. Current URL: {page.url}"
+   expect(page.locator("text=Dashboard").first).to_be_visible(timeout=15000)
 
 
 
@@ -128,8 +126,7 @@ def test_agent_can_login_and_reach_dashboard(page: Page):
    success = _login(page, AGENT_EMAIL, AGENT_PASSWORD)
    if not success:
        page.goto(DASHBOARD_URL, wait_until="domcontentloaded", timeout=20000)
-   assert "dashboard" in page.url or page.locator("main, [role='main']").count() > 0, \
-       f"Agent did not reach dashboard. Current URL: {page.url}"
+   expect(page.locator("text=Dashboard").first).to_be_visible(timeout=15000)
 
 
 

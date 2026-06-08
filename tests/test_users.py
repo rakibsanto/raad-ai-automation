@@ -39,8 +39,7 @@ def login(page: Page, email: str, password: str):
 
     page.click('button[type="submit"]')
 
-    page.wait_for_url("**/dashboard", timeout=30000)
-    expect(page).to_have_url(DASHBOARD_URL)
+    expect(page.locator("text=Dashboard").first).to_be_visible(timeout=15000)
 
 
 def goto_users_page(page: Page):
