@@ -1393,9 +1393,7 @@ jobs:
         continue-on-error: true
         with:
           name: full-reports-${{ github.run_number }}
-          path: |
-            reports/
-            !reports/videos/page@*.webm
+          path: reports/
       - name: Download QA Agent 1 artifacts
         uses: actions/download-artifact@v5
         continue-on-error: true
@@ -1551,7 +1549,7 @@ jobs:
           if-no-files-found: warn
 
       # ── Build the GitHub Pages site (master + agents + history) ─────────
-      # Lives at https://mejbaur-markopolo.github.io/Markopolo-Automation-Testing/
+      # Lives at https://rakibsanto.github.io/raad-ai-automation/
       # Pages source must be set to "gh-pages" branch (one-time setting).
       - name: Build GitHub Pages site
         if: always() && github.ref == 'refs/heads/main'
