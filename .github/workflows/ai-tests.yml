@@ -85,7 +85,7 @@ jobs:
 
       # ── 5. Ollama ─────────────────────────────────────────────────────────
       - name: Install Ollama
-        run: curl -fsSL https://ollama.ai/install.sh | sh
+        run: curl -fsSL https://ollama.com/install.sh | sh
 
       # ── 6. Cache Ollama models ────────────────────────────────────────────
       - name: Cache Ollama models
@@ -689,7 +689,7 @@ jobs:
   qa-agent-5-langgraph:
     name: "QA Agent 5 — LangGraph AI Orchestration"
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 180
     env:
       BASE_URL:            ${{ github.event.inputs.base_url || 'https://dev.prowhats.com/en' }}
       AI_MODEL:            ${{ github.event.inputs.ai_model || 'qwen2.5-coder:7b' }}
@@ -709,7 +709,7 @@ jobs:
       - name: Install Playwright Chromium
         run: playwright install chromium --with-deps
       - name: Install Ollama
-        run: curl -fsSL https://ollama.ai/install.sh | sh
+        run: curl -fsSL https://ollama.com/install.sh | sh
       - name: Cache Ollama models
         uses: actions/cache@v4
         with:
@@ -1312,7 +1312,7 @@ jobs:
         run: playwright install chromium --with-deps
       - name: Install Ollama (only if vision QA enabled)
         if: env.ENABLE_VISION_QA == 'true'
-        run: curl -fsSL https://ollama.ai/install.sh | sh
+        run: curl -fsSL https://ollama.com/install.sh | sh
       - name: Pull vision model (only if enabled)
         if: env.ENABLE_VISION_QA == 'true'
         timeout-minutes: 15
