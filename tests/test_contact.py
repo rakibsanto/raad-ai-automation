@@ -17,7 +17,7 @@ load_dotenv()
 BASE_URL = "https://dev.prowhats.com/en"
 LOGIN_URL = f"{BASE_URL}/login"
 DASHBOARD_URL = f"{BASE_URL}/dashboard"
-CONTACTS_URL = f"{BASE_URL}/contacts/contacts"
+CONTACTS_URL = f"{BASE_URL}/contacts"
 
 LOAD_STATE = "networkidle"
 

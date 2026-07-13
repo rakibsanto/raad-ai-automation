@@ -13,7 +13,7 @@ https://dev.prowhats.com/en/login
 https://dev.prowhats.com/en/dashboard
 
 ## Contacts URL
-https://dev.prowhats.com/en/contacts/contacts
+https://dev.prowhats.com/en/contacts
 
 ---
 
@@ -43,7 +43,7 @@ Before accessing the Contact Management module, users must complete the login pr
    https://dev.prowhats.com/en/dashboard
 
 5. From the dashboard, navigate to:
-   https://dev.prowhats.com/en/contacts/contacts
+   https://dev.prowhats.com/en/contacts
 
 6. The contacts page should load successfully.
 

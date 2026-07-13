@@ -13,7 +13,7 @@
 | **Base URL** | `https://dev.prowhats.com/en` |
 | **Login URL** | `https://dev.prowhats.com/en/login` |
 | **Dashboard URL** | `https://dev.prowhats.com/en/dashboard` |
-| **WhatsApp Chat URL** | `https://dev.prowhats.com/en/contacts/whatsapp-chat` |
+| **WhatsApp Chat URL** | `https://dev.prowhats.com/en/whatsapp-chat` |
 
 ### 2.2 System Roles
 - **Company Owner**
@@ -37,7 +37,7 @@
 2. Enter valid credentials (e.g., Company Owner or Admin credentials).
 3. Click on the **Login** button.
 4. Upon successful authentication, the system redirects the user to the Dashboard URL: `https://dev.prowhats.com/en/dashboard`.
-5. Navigate manually or via menu to the WhatsApp Chat URL: `https://dev.prowhats.com/en/contacts/whatsapp-chat`.
+5. Navigate manually or via menu to the WhatsApp Chat URL: `https://dev.prowhats.com/en/whatsapp-chat`.
 
 ### 3.2 Default Page Loading Behavior
 When the WhatsApp Chat page initializes, the system enforces the following default state:

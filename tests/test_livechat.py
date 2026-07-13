@@ -20,7 +20,7 @@ for var in required_env_vars:
 BASE_URL = "https://dev.prowhats.com/en"
 LOGIN_URL = "https://dev.prowhats.com/en/login"
 DASHBOARD_URL = "https://dev.prowhats.com/en/dashboard"
-LIVE_CHAT_URL = "https://dev.prowhats.com/en/contacts/live-chat"
+LIVE_CHAT_URL = "https://dev.prowhats.com/en/live-chat"
 
 OWNER_EMAIL = os.getenv("OWNER_EMAIL")
 OWNER_PASSWORD = os.getenv("OWNER_PASSWORD")

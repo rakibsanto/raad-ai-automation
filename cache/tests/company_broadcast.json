@@ -24,9 +24,9 @@
     "test_search_non_existing_broadcast",
     "test_status_filter_no_results"
   ],
-  "passed": 16,
-  "failed": 3,
+  "passed": 6,
+  "failed": 0,
   "total": 19,
-  "saved_at": "2026-06-01T10:38:41",
+  "saved_at": "2026-07-13T14:43:06",
   "base_url": "https://dev.prowhats.com/en"
 }
