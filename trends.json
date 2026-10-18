@@ -1,16 +1,6 @@
 {
   "runs": [
     {
-      "run_number": 126,
-      "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/33243338938",
-      "timestamp": "2026-08-29T09:50:22.499917Z",
-      "passed": 34,
-      "failed": 65,
-      "total": 100,
-      "bugs": 65,
-      "pass_rate": "34.0%"
-    },
-    {
       "run_number": 127,
       "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/33299916139",
       "timestamp": "2026-08-30T09:15:22.706350Z",
@@ -499,6 +489,16 @@
       "total": 100,
       "bugs": 63,
       "pass_rate": "4.0%"
+    },
+    {
+      "run_number": 176,
+      "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/39105570732",
+      "timestamp": "2026-10-18T08:12:03.007228Z",
+      "passed": 35,
+      "failed": 65,
+      "total": 134,
+      "bugs": 65,
+      "pass_rate": "26.1%"
     }
   ],
   "fingerprints": {
@@ -580,7 +580,7 @@
     },
     "318b5b7cebe6": {
       "first_seen_run": 152,
-      "last_seen_run": 175,
+      "last_seen_run": 176,
       "runs_seen": [
         152,
         153,
@@ -604,7 +604,8 @@
         172,
         173,
         174,
-        175
+        175,
+        176
       ]
     },
     "df51c366515a": {
@@ -630,11 +631,12 @@
     },
     "52c7810d02ae": {
       "first_seen_run": 161,
-      "last_seen_run": 174,
+      "last_seen_run": 176,
       "runs_seen": [
         161,
         168,
-        174
+        174,
+        176
       ]
     },
     "86f505562024": {
@@ -664,7 +666,7 @@
     },
     "80cedf9a5a9c": {
       "first_seen_run": 169,
-      "last_seen_run": 175,
+      "last_seen_run": 176,
       "runs_seen": [
         169,
         170,
@@ -672,17 +674,19 @@
         172,
         173,
         174,
-        175
+        175,
+        176
       ]
     },
     "a57a01dee091": {
       "first_seen_run": 172,
-      "last_seen_run": 175,
+      "last_seen_run": 176,
       "runs_seen": [
         172,
         173,
         174,
-        175
+        175,
+        176
       ]
     },
     "e1d463ecf222": {
