@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Raad QA Bug Report — 2026-10-31 09:11:34</title>
+<title>Raad QA Bug Report — 2026-11-01 09:51:19</title>
 <style>
 /* ── Reset & base ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -590,7 +590,7 @@ tr:hover td{background:#1c2333}
       </div>
     </div>
     <div class="hdr-meta">
-      <div><b>Date:</b> 2026-10-31 09:11:34</div>
+      <div><b>Date:</b> 2026-11-01 09:51:19</div>
       <div><b>Target:</b> https://dev.prowhats.com/en</div>
       <div><b>AI Model:</b> qwen2.5-coder:7b (local · no API key)</div>
       <div><b>Browser:</b> Chromium (headless)</div>
@@ -604,11 +604,11 @@ tr:hover td{background:#1c2333}
 <!-- Stats — every card is clickable; jumps to a filtered section -->
 <div class="stats">
   <a href="#bugs"        class="stat critical" data-filter="bugs"     title="Show CRITICAL bug tickets"><div class="label">Critical</div><div class="val">0</div></a>
-  <a href="#bugs"        class="stat high"     data-filter="bugs"     title="Show HIGH bug tickets"><div class="label">High</div>    <div class="val">12</div></a>
+  <a href="#bugs"        class="stat high"     data-filter="bugs"     title="Show HIGH bug tickets"><div class="label">High</div>    <div class="val">14</div></a>
   <a href="#bugs"        class="stat medium"   data-filter="bugs"     title="Show MEDIUM bug tickets"><div class="label">Medium</div>  <div class="val">50</div></a>
   <a href="#bugs"        class="stat low"      data-filter="bugs"     title="Show LOW bug tickets"><div class="label">Low</div>     <div class="val">1</div></a>
-  <a href="#tests"       class="stat pass"     data-filter="passed"   title="Show only PASSED tests"><div class="label">Passed</div>  <div class="val">4</div></a>
-  <a href="#tests"       class="stat fail"     data-filter="failed"   title="Show only FAILED tests"><div class="label">Failed</div>  <div class="val">63</div></a>
+  <a href="#tests"       class="stat pass"     data-filter="passed"   title="Show only PASSED tests"><div class="label">Passed</div>  <div class="val">2</div></a>
+  <a href="#tests"       class="stat fail"     data-filter="failed"   title="Show only FAILED tests"><div class="label">Failed</div>  <div class="val">65</div></a>
   <a href="#tests"       class="stat total"    data-filter="all"      title="Show all tests"><div class="label">Total Tests</div><div class="val">100</div></a>
 </div>
 
@@ -623,7 +623,7 @@ tr:hover td{background:#1c2333}
   <div class="pstrip-item p1" onclick="applyBugFilter('P1')"
        title="P1 High · 2–3 working days · Expedite section">
     <div class="pstrip-label">P1 · High</div>
-    <div class="pstrip-val">12</div>
+    <div class="pstrip-val">14</div>
     <div class="pstrip-sla">⏱ 2–3 working days &nbsp;·&nbsp; 🎯 Expedite</div>
   </div>
   <div class="pstrip-item p2" onclick="applyBugFilter('P2')"
@@ -647,37 +647,37 @@ tr:hover td{background:#1c2333}
   <div class="sec-title" style="margin:24px 0 12px">
     🎯 Root-Cause Summary <span class="count">3 clusters</span>
   </div>
-  <div class="cluster-headline">63 bug ticket(s) → <strong>3 unique root cause(s)</strong></div>
+  <div class="cluster-headline">65 bug ticket(s) → <strong>3 unique root cause(s)</strong></div>
   <div class="cluster-list">
 <div class="cluster-row">
   <div class="cluster-meta">
     <span class="badge HIGH">HIGH</span>
     <span class="badge P1">P1</span>
     <span class="cluster-count">59× affected</span>
-    <span class="recurrence-badge">18× consecutive runs</span>
+    <span class="recurrence-badge">19× consecutive runs</span>
   </div>
   <div class="cluster-title">Uncategorized failure</div>
-  <div class="cluster-tickets"><a href="#BUG-BLOC-001" class="cluster-bug-link">BUG-BLOC-001</a> <a href="#BUG-BLOC-002" class="cluster-bug-link">BUG-BLOC-002</a> <a href="#BUG-BLOC-003" class="cluster-bug-link">BUG-BLOC-003</a> <a href="#BUG-BLOC-004" class="cluster-bug-link">BUG-BLOC-004</a> <a href="#BUG-BLOC-005" class="cluster-bug-link">BUG-BLOC-005</a> <a href="#BUG-BLOC-006" class="cluster-bug-link">BUG-BLOC-006</a> <a href="#BUG-BLOC-007" class="cluster-bug-link">BUG-BLOC-007</a> <a href="#BUG-BLOC-008" class="cluster-bug-link">BUG-BLOC-008</a> <a href="#BUG-BLOC-009" class="cluster-bug-link">BUG-BLOC-009</a> <a href="#BUG-BLOC-010" class="cluster-bug-link">BUG-BLOC-010</a> <a href="#BUG-BLOC-011" class="cluster-bug-link">BUG-BLOC-011</a> <a href="#BUG-BLOC-012" class="cluster-bug-link">BUG-BLOC-012</a> <a href="#BUG-BLOC-013" class="cluster-bug-link">BUG-BLOC-013</a> <a href="#BUG-BLOC-014" class="cluster-bug-link">BUG-BLOC-014</a> <a href="#BUG-BLOC-015" class="cluster-bug-link">BUG-BLOC-015</a> <a href="#BUG-BLOC-016" class="cluster-bug-link">BUG-BLOC-016</a> <a href="#BUG-BLOC-017" class="cluster-bug-link">BUG-BLOC-017</a> <a href="#BUG-BLOC-018" class="cluster-bug-link">BUG-BLOC-018</a> <a href="#BUG-BLOC-019" class="cluster-bug-link">BUG-BLOC-019</a> <a href="#BUG-BLOC-020" class="cluster-bug-link">BUG-BLOC-020</a> <a href="#BUG-BLOC-021" class="cluster-bug-link">BUG-BLOC-021</a> <a href="#BUG-BLOC-022" class="cluster-bug-link">BUG-BLOC-022</a> <a href="#BUG-BLOC-023" class="cluster-bug-link">BUG-BLOC-023</a> <a href="#BUG-BLOC-024" class="cluster-bug-link">BUG-BLOC-024</a> <a href="#BUG-BLOC-025" class="cluster-bug-link">BUG-BLOC-025</a> <a href="#BUG-BLOC-026" class="cluster-bug-link">BUG-BLOC-026</a> <a href="#BUG-BLOC-027" class="cluster-bug-link">BUG-BLOC-027</a> <a href="#BUG-BLOC-028" class="cluster-bug-link">BUG-BLOC-028</a> <a href="#BUG-BLOC-029" class="cluster-bug-link">BUG-BLOC-029</a> <a href="#BUG-BLOC-030" class="cluster-bug-link">BUG-BLOC-030</a> <a href="#BUG-BLOC-031" class="cluster-bug-link">BUG-BLOC-031</a> <a href="#BUG-CONT-001" class="cluster-bug-link">BUG-CONT-001</a> <a href="#BUG-CONT-002" class="cluster-bug-link">BUG-CONT-002</a> <a href="#BUG-CONT-003" class="cluster-bug-link">BUG-CONT-003</a> <a href="#BUG-CONT-004" class="cluster-bug-link">BUG-CONT-004</a> <a href="#BUG-CONT-005" class="cluster-bug-link">BUG-CONT-005</a> <a href="#BUG-CONT-006" class="cluster-bug-link">BUG-CONT-006</a> <a href="#BUG-CONT-007" class="cluster-bug-link">BUG-CONT-007</a> <a href="#BUG-CONT-008" class="cluster-bug-link">BUG-CONT-008</a> <a href="#BUG-CONT-009" class="cluster-bug-link">BUG-CONT-009</a> <a href="#BUG-CONT-010" class="cluster-bug-link">BUG-CONT-010</a> <a href="#BUG-CONT-011" class="cluster-bug-link">BUG-CONT-011</a> <a href="#BUG-CONT-012" class="cluster-bug-link">BUG-CONT-012</a> <a href="#BUG-CONT-013" class="cluster-bug-link">BUG-CONT-013</a> <a href="#BUG-CONT-014" class="cluster-bug-link">BUG-CONT-014</a> <a href="#BUG-CONT-015" class="cluster-bug-link">BUG-CONT-015</a> <a href="#BUG-CONT-016" class="cluster-bug-link">BUG-CONT-016</a> <a href="#BUG-CONT-017" class="cluster-bug-link">BUG-CONT-017</a> <a href="#BUG-CONT-018" class="cluster-bug-link">BUG-CONT-018</a> <a href="#BUG-CONT-019" class="cluster-bug-link">BUG-CONT-019</a> <a href="#BUG-CONT-020" class="cluster-bug-link">BUG-CONT-020</a> <a href="#BUG-CONT-021" class="cluster-bug-link">BUG-CONT-021</a> <a href="#BUG-CONT-022" class="cluster-bug-link">BUG-CONT-022</a> <a href="#BUG-CONT-023" class="cluster-bug-link">BUG-CONT-023</a> <a href="#BUG-CONT-024" class="cluster-bug-link">BUG-CONT-024</a> <a href="#BUG-CONT-025" class="cluster-bug-link">BUG-CONT-025</a> <a href="#BUG-CONT-026" class="cluster-bug-link">BUG-CONT-026</a> <a href="#BUG-CONT-027" class="cluster-bug-link">BUG-CONT-027</a> <a href="#BUG-CONT-028" class="cluster-bug-link">BUG-CONT-028</a></div>
+  <div class="cluster-tickets"><a href="#BUG-BLOC-002" class="cluster-bug-link">BUG-BLOC-002</a> <a href="#BUG-BLOC-003" class="cluster-bug-link">BUG-BLOC-003</a> <a href="#BUG-BLOC-004" class="cluster-bug-link">BUG-BLOC-004</a> <a href="#BUG-BLOC-005" class="cluster-bug-link">BUG-BLOC-005</a> <a href="#BUG-BLOC-006" class="cluster-bug-link">BUG-BLOC-006</a> <a href="#BUG-BLOC-007" class="cluster-bug-link">BUG-BLOC-007</a> <a href="#BUG-BLOC-008" class="cluster-bug-link">BUG-BLOC-008</a> <a href="#BUG-BLOC-009" class="cluster-bug-link">BUG-BLOC-009</a> <a href="#BUG-BLOC-010" class="cluster-bug-link">BUG-BLOC-010</a> <a href="#BUG-BLOC-011" class="cluster-bug-link">BUG-BLOC-011</a> <a href="#BUG-BLOC-012" class="cluster-bug-link">BUG-BLOC-012</a> <a href="#BUG-BLOC-013" class="cluster-bug-link">BUG-BLOC-013</a> <a href="#BUG-BLOC-014" class="cluster-bug-link">BUG-BLOC-014</a> <a href="#BUG-BLOC-015" class="cluster-bug-link">BUG-BLOC-015</a> <a href="#BUG-BLOC-016" class="cluster-bug-link">BUG-BLOC-016</a> <a href="#BUG-BLOC-017" class="cluster-bug-link">BUG-BLOC-017</a> <a href="#BUG-BLOC-018" class="cluster-bug-link">BUG-BLOC-018</a> <a href="#BUG-BLOC-019" class="cluster-bug-link">BUG-BLOC-019</a> <a href="#BUG-BLOC-020" class="cluster-bug-link">BUG-BLOC-020</a> <a href="#BUG-BLOC-021" class="cluster-bug-link">BUG-BLOC-021</a> <a href="#BUG-BLOC-022" class="cluster-bug-link">BUG-BLOC-022</a> <a href="#BUG-BLOC-023" class="cluster-bug-link">BUG-BLOC-023</a> <a href="#BUG-BLOC-024" class="cluster-bug-link">BUG-BLOC-024</a> <a href="#BUG-BLOC-025" class="cluster-bug-link">BUG-BLOC-025</a> <a href="#BUG-BLOC-026" class="cluster-bug-link">BUG-BLOC-026</a> <a href="#BUG-BLOC-027" class="cluster-bug-link">BUG-BLOC-027</a> <a href="#BUG-BLOC-028" class="cluster-bug-link">BUG-BLOC-028</a> <a href="#BUG-BLOC-029" class="cluster-bug-link">BUG-BLOC-029</a> <a href="#BUG-BLOC-030" class="cluster-bug-link">BUG-BLOC-030</a> <a href="#BUG-BLOC-032" class="cluster-bug-link">BUG-BLOC-032</a> <a href="#BUG-BLOC-033" class="cluster-bug-link">BUG-BLOC-033</a> <a href="#BUG-CONT-001" class="cluster-bug-link">BUG-CONT-001</a> <a href="#BUG-CONT-002" class="cluster-bug-link">BUG-CONT-002</a> <a href="#BUG-CONT-003" class="cluster-bug-link">BUG-CONT-003</a> <a href="#BUG-CONT-004" class="cluster-bug-link">BUG-CONT-004</a> <a href="#BUG-CONT-005" class="cluster-bug-link">BUG-CONT-005</a> <a href="#BUG-CONT-006" class="cluster-bug-link">BUG-CONT-006</a> <a href="#BUG-CONT-007" class="cluster-bug-link">BUG-CONT-007</a> <a href="#BUG-CONT-008" class="cluster-bug-link">BUG-CONT-008</a> <a href="#BUG-CONT-009" class="cluster-bug-link">BUG-CONT-009</a> <a href="#BUG-CONT-010" class="cluster-bug-link">BUG-CONT-010</a> <a href="#BUG-CONT-011" class="cluster-bug-link">BUG-CONT-011</a> <a href="#BUG-CONT-012" class="cluster-bug-link">BUG-CONT-012</a> <a href="#BUG-CONT-013" class="cluster-bug-link">BUG-CONT-013</a> <a href="#BUG-CONT-014" class="cluster-bug-link">BUG-CONT-014</a> <a href="#BUG-CONT-015" class="cluster-bug-link">BUG-CONT-015</a> <a href="#BUG-CONT-016" class="cluster-bug-link">BUG-CONT-016</a> <a href="#BUG-CONT-017" class="cluster-bug-link">BUG-CONT-017</a> <a href="#BUG-CONT-018" class="cluster-bug-link">BUG-CONT-018</a> <a href="#BUG-CONT-019" class="cluster-bug-link">BUG-CONT-019</a> <a href="#BUG-CONT-020" class="cluster-bug-link">BUG-CONT-020</a> <a href="#BUG-CONT-021" class="cluster-bug-link">BUG-CONT-021</a> <a href="#BUG-CONT-022" class="cluster-bug-link">BUG-CONT-022</a> <a href="#BUG-CONT-023" class="cluster-bug-link">BUG-CONT-023</a> <a href="#BUG-CONT-024" class="cluster-bug-link">BUG-CONT-024</a> <a href="#BUG-CONT-025" class="cluster-bug-link">BUG-CONT-025</a> <a href="#BUG-CONT-026" class="cluster-bug-link">BUG-CONT-026</a> <a href="#BUG-CONT-027" class="cluster-bug-link">BUG-CONT-027</a> <a href="#BUG-CONT-028" class="cluster-bug-link">BUG-CONT-028</a></div>
 </div>
 <div class="cluster-row">
   <div class="cluster-meta">
     <span class="badge HIGH">HIGH</span>
     <span class="badge P1">P1</span>
     <span class="cluster-count">3× affected</span>
-    <span class="recurrence-badge">21× consecutive runs</span>
+    <span class="recurrence-badge">30× consecutive runs</span>
   </div>
-  <div class="cluster-title">Uncategorized failure</div>
-  <div class="cluster-tickets"><a href="#BUG-COMP-002" class="cluster-bug-link">BUG-COMP-002</a> <a href="#BUG-COMP-003" class="cluster-bug-link">BUG-COMP-003</a> <a href="#BUG-COMP-004" class="cluster-bug-link">BUG-COMP-004</a></div>
+  <div class="cluster-title">Generic assertion failure</div>
+  <div class="cluster-tickets"><a href="#BUG-BLOC-001" class="cluster-bug-link">BUG-BLOC-001</a> <a href="#BUG-BLOC-031" class="cluster-bug-link">BUG-BLOC-031</a> <a href="#BUG-COMP-001" class="cluster-bug-link">BUG-COMP-001</a></div>
 </div>
 <div class="cluster-row">
   <div class="cluster-meta">
     <span class="badge HIGH">HIGH</span>
     <span class="badge P1">P1</span>
-    <span class="cluster-count">1× affected</span>
-    <span class="recurrence-badge">30× consecutive runs</span>
+    <span class="cluster-count">3× affected</span>
+    <span class="recurrence-badge">22× consecutive runs</span>
   </div>
-  <div class="cluster-title">Generic assertion failure</div>
-  <div class="cluster-tickets"><a href="#BUG-COMP-001" class="cluster-bug-link">BUG-COMP-001</a></div>
+  <div class="cluster-title">Uncategorized failure</div>
+  <div class="cluster-tickets"><a href="#BUG-COMP-002" class="cluster-bug-link">BUG-COMP-002</a> <a href="#BUG-COMP-003" class="cluster-bug-link">BUG-COMP-003</a> <a href="#BUG-COMP-004" class="cluster-bug-link">BUG-COMP-004</a></div>
 </div></div>
   <div class="cluster-help">
     Bugs sharing a root cause are grouped here so you fix one thing
@@ -816,22 +816,22 @@ tr:hover td{background:#1c2333}
 
 <!-- Bug Tickets -->
 <div class="sec-title" id="bugs">
-  Bug Tickets <span class="count">63</span>
+  Bug Tickets <span class="count">65</span>
 </div>
 
 <!-- Bug-tickets filters — by severity or by priority level -->
 <div class="filter-bar bug-filter-bar" id="bug-filter-bar">
   <span class="filter-lbl">Severity:</span>
-  <button class="fbtn active" data-bug-filter="all">All (63)</button>
+  <button class="fbtn active" data-bug-filter="all">All (65)</button>
   <button class="fbtn fbtn-critical" data-bug-filter="CRITICAL">Critical (0)</button>
-  <button class="fbtn fbtn-high"     data-bug-filter="HIGH">High (12)</button>
+  <button class="fbtn fbtn-high"     data-bug-filter="HIGH">High (14)</button>
   <button class="fbtn fbtn-medium"   data-bug-filter="MEDIUM">Medium (50)</button>
   <button class="fbtn fbtn-low"      data-bug-filter="LOW">Low (1)</button>
 </div>
 <div class="filter-bar" style="margin-top:6px">
   <span class="filter-lbl">Priority:</span>
   <button class="fbtn" data-bug-filter="P0" title="P0 Highest — 24h SLA — Expedite">P0 Highest (0)</button>
-  <button class="fbtn" data-bug-filter="P1" title="P1 High — 2-3 days — Expedite">P1 High (12)</button>
+  <button class="fbtn" data-bug-filter="P1" title="P1 High — 2-3 days — Expedite">P1 High (14)</button>
   <button class="fbtn" data-bug-filter="P2" title="P2 Medium — This sprint">P2 Medium (50)</button>
   <button class="fbtn" data-bug-filter="P3" title="P3 Low — Backlog">P3 Low (1)</button>
 </div>
@@ -847,12 +847,91 @@ tr:hover td{background:#1c2333}
         <span class="badge P1">P1</span>
         
       </div>
+      <div class="bug-title">Failed: Test bc01 unauthenticated redirect to login</div>
+      <div class="bug-meta">
+        <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
+        <span>🧪 <code>test_bc01_unauthenticated_redirect_to_login</code></span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.23s</span>
+        
+        
+      </div>
+    </div>
+  </div>
+  <div class="bug-body">
+    
+    
+<div class="info-block analysis" style="margin-bottom:16px">
+  <div class="ib-label">📋 What this test was checking</div>
+  <div>Verify unauthenticated users are redirected to login — verified against https://dev.prowhats.com/en.</div>
+</div>
+    
+    
+<div style="margin-bottom:16px">
+  <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;
+              color:var(--muted);margin-bottom:8px">Steps to Reproduce</div>
+  <ol class="steps"><li>Open a browser and go to https://dev.prowhats.com/en</li><li>Click the 'Log In' button in the page header</li><li>Observe the result: it does NOT match what the test expected (see Actual Behavior)</li></ol>
+</div>
+    
+<div class="two-col">
+  <div class="info-block expected">
+    <div class="ib-label">✓ What should happen</div>
+    <div>Verify unauthenticated users are redirected to login.</div>
+  </div>
+  <div class="info-block actual">
+    <div class="ib-label">✗ What actually happened</div>
+    <div>assert 'login' in 'https://dev.prowhats.com/en/contacts/blocked-contacts'</div>
+  </div>
+</div>
+    
+<div class="shot-wrap">
+  <div class="shot-label">Proof of Concept — Screenshot</div>
+  <div class="no-shot">No screenshot captured (test may have failed before page loaded)</div>
+</div>
+    
+    
+<button class="err-toggle" onclick="toggleErr('err-1')">
+  <span>▶ Show error details</span>
+  <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
+</button>
+<div class="err-body" id="err-1">
+  <pre style="margin-top:8px"><strong style="color:var(--c-critical)">E   AssertionError: assert 'login' in 'https://dev.prowhats.com/en/contacts/blocked-contacts'
+E    +  where 'https://dev.prowhats.com/en/contacts/blocked-contacts' = &lt;built-in method lower of str object at 0x7f5ab7ab5fb0&gt;()
+E    +    where &lt;built-in method lower of str object at 0x7f5ab7ab5fb0&gt; = 'https://dev.prowhats.com/en/contacts/blocked-contacts'.lower
+E    +      where 'https://dev.prowhats.com/en/contacts/blocked-contacts' = &lt;Page url='https://dev.prowhats.com/en/contacts/blocked-contacts</strong>
+
+tests/test_blocked_contact.py:98: in test_bc01_unauthenticated_redirect_to_login
+    assert &quot;login&quot; in page.url.lower()
+E   AssertionError: assert 'login' in 'https://dev.prowhats.com/en/contacts/blocked-contacts'
+E    +  where 'https://dev.prowhats.com/en/contacts/blocked-contacts' = &lt;built-in method lower of str object at 0x7f5ab7ab5fb0&gt;()
+E    +    where &lt;built-in method lower of str object at 0x7f5ab7ab5fb0&gt; = 'https://dev.prowhats.com/en/contacts/blocked-contacts'.lower
+E    +      where 'https://dev.prowhats.com/en/contacts/blocked-contacts' = &lt;Page url='https://dev.prowhats.com/en/contacts/blocked-contacts'&gt;.url</pre>
+</div>
+    
+    <div style="margin-top:16px"></div>
+    <div class="env-strip">
+      <span><b>Browser:</b> Chromium</span>
+      <span><b>Viewport:</b> 1280x720</span>
+      <span><b>Env:</b> Staging</span>
+      <span><b>Spec:</b> <a href="https://dev.prowhats.com/en" target="_blank">View page</a></span>
+    </div>
+  </div>
+</div>
+<div class="bug-card" id="BUG-BLOC-002" data-priority="P1">
+  <div class="bug-card-hdr">
+    <div>
+      <div class="left">
+        <span class="bug-id">BUG-BLOC-002</span>
+        <span class="badge HIGH">HIGH</span>
+        <span class="badge P1">P1</span>
+        
+      </div>
       <div class="bug-title">Failed: Test bc02 company owner login success</div>
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc02_company_owner_login_success</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.00s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -890,11 +969,11 @@ tr:hover td{background:#1c2333}
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-1')">
+<button class="err-toggle" onclick="toggleErr('err-2')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-1">
+<div class="err-body" id="err-2">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -921,11 +1000,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-002" data-priority="P1">
+<div class="bug-card" id="BUG-BLOC-003" data-priority="P1">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-002</span>
+        <span class="bug-id">BUG-BLOC-003</span>
         <span class="badge HIGH">HIGH</span>
         <span class="badge P1">P1</span>
         
@@ -934,8 +1013,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc03_admin_login_success</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.83s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -973,11 +1052,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-2')">
+<button class="err-toggle" onclick="toggleErr('err-3')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-2">
+<div class="err-body" id="err-3">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1004,11 +1083,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-003" data-priority="P1">
+<div class="bug-card" id="BUG-BLOC-004" data-priority="P1">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-003</span>
+        <span class="bug-id">BUG-BLOC-004</span>
         <span class="badge HIGH">HIGH</span>
         <span class="badge P1">P1</span>
         
@@ -1017,8 +1096,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc04_agent_login_success</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.01s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.18s</span>
         
         
       </div>
@@ -1056,11 +1135,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-3')">
+<button class="err-toggle" onclick="toggleErr('err-4')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-3">
+<div class="err-body" id="err-4">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1087,11 +1166,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-004" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-005" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-004</span>
+        <span class="bug-id">BUG-BLOC-005</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -1100,8 +1179,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc05_owner_can_access_blocked_contacts</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.03s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -1139,11 +1218,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-4')">
+<button class="err-toggle" onclick="toggleErr('err-5')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-4">
+<div class="err-body" id="err-5">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1170,11 +1249,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-005" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-006" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-005</span>
+        <span class="bug-id">BUG-BLOC-006</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -1183,8 +1262,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc06_admin_can_access_blocked_contacts</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.99s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -1222,11 +1301,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-5')">
+<button class="err-toggle" onclick="toggleErr('err-6')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-5">
+<div class="err-body" id="err-6">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1253,11 +1332,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-006" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-007" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-006</span>
+        <span class="bug-id">BUG-BLOC-007</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -1266,8 +1345,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc07_agent_can_access_blocked_contacts</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.86s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.18s</span>
         
         
       </div>
@@ -1305,11 +1384,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-6')">
+<button class="err-toggle" onclick="toggleErr('err-7')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-6">
+<div class="err-body" id="err-7">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1336,11 +1415,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-007" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-008" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-007</span>
+        <span class="bug-id">BUG-BLOC-008</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -1349,8 +1428,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc08_navigation_dashboard_to_blocked_contacts</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.00s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -1388,11 +1467,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-7')">
+<button class="err-toggle" onclick="toggleErr('err-8')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-7">
+<div class="err-body" id="err-8">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1419,11 +1498,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-008" data-priority="P1">
+<div class="bug-card" id="BUG-BLOC-009" data-priority="P1">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-008</span>
+        <span class="bug-id">BUG-BLOC-009</span>
         <span class="badge HIGH">HIGH</span>
         <span class="badge P1">P1</span>
         
@@ -1432,8 +1511,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc09_direct_url_access_after_login</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.99s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -1471,11 +1550,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-8')">
+<button class="err-toggle" onclick="toggleErr('err-9')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-8">
+<div class="err-body" id="err-9">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1502,11 +1581,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-009" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-010" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-009</span>
+        <span class="bug-id">BUG-BLOC-010</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -1515,8 +1594,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc10_browser_refresh_keeps_page_stable</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.96s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.18s</span>
         
         
       </div>
@@ -1554,11 +1633,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-9')">
+<button class="err-toggle" onclick="toggleErr('err-10')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-9">
+<div class="err-body" id="err-10">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1585,11 +1664,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-010" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-011" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-010</span>
+        <span class="bug-id">BUG-BLOC-011</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -1598,8 +1677,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc11_blocked_contacts_table_visible</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.01s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -1637,11 +1716,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-10')">
+<button class="err-toggle" onclick="toggleErr('err-11')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-10">
+<div class="err-body" id="err-11">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1668,11 +1747,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-011" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-012" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-011</span>
+        <span class="bug-id">BUG-BLOC-012</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -1681,8 +1760,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc12_blocked_contacts_table_headers_visible</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.84s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -1720,11 +1799,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-11')">
+<button class="err-toggle" onclick="toggleErr('err-12')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-11">
+<div class="err-body" id="err-12">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1751,11 +1830,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-012" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-013" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-012</span>
+        <span class="bug-id">BUG-BLOC-013</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -1764,8 +1843,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc13_blocked_contacts_data_loaded</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.86s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.18s</span>
         
         
       </div>
@@ -1803,11 +1882,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-12')">
+<button class="err-toggle" onclick="toggleErr('err-13')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-12">
+<div class="err-body" id="err-13">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1834,11 +1913,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-013" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-014" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-013</span>
+        <span class="bug-id">BUG-BLOC-014</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -1847,8 +1926,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc14_empty_state_visibility</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.97s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -1886,11 +1965,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-13')">
+<button class="err-toggle" onclick="toggleErr('err-14')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-13">
+<div class="err-body" id="err-14">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1917,11 +1996,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-014" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-015" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-014</span>
+        <span class="bug-id">BUG-BLOC-015</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -1930,8 +2009,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc15_block_button_visible</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.85s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -1969,11 +2048,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-14')">
+<button class="err-toggle" onclick="toggleErr('err-15')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-14">
+<div class="err-body" id="err-15">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2000,11 +2079,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-015" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-016" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-015</span>
+        <span class="bug-id">BUG-BLOC-016</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -2013,8 +2092,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc16_unblock_button_visible</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.81s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.18s</span>
         
         
       </div>
@@ -2052,11 +2131,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-15')">
+<button class="err-toggle" onclick="toggleErr('err-16')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-15">
+<div class="err-body" id="err-16">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2083,11 +2162,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-016" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-017" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-016</span>
+        <span class="bug-id">BUG-BLOC-017</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -2096,8 +2175,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc17_user_can_unblock_contact</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.02s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -2135,11 +2214,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-16')">
+<button class="err-toggle" onclick="toggleErr('err-17')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-16">
+<div class="err-body" id="err-17">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2166,11 +2245,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-017" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-018" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-017</span>
+        <span class="bug-id">BUG-BLOC-018</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -2179,8 +2258,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc18_user_can_block_contact</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.83s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -2218,11 +2297,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-17')">
+<button class="err-toggle" onclick="toggleErr('err-18')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-17">
+<div class="err-body" id="err-18">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2249,11 +2328,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-018" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-019" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-018</span>
+        <span class="bug-id">BUG-BLOC-019</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -2262,8 +2341,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc19_ui_updates_after_action</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.97s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.18s</span>
         
         
       </div>
@@ -2301,11 +2380,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-18')">
+<button class="err-toggle" onclick="toggleErr('err-19')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-18">
+<div class="err-body" id="err-19">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2332,11 +2411,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-019" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-020" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-019</span>
+        <span class="bug-id">BUG-BLOC-020</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -2345,8 +2424,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc20_search_input_visible</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.99s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -2384,11 +2463,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-19')">
+<button class="err-toggle" onclick="toggleErr('err-20')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-19">
+<div class="err-body" id="err-20">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2415,11 +2494,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-020" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-021" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-020</span>
+        <span class="bug-id">BUG-BLOC-021</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -2428,8 +2507,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc21_search_valid_customer_name</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.99s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -2473,11 +2552,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-20')">
+<button class="err-toggle" onclick="toggleErr('err-21')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-20">
+<div class="err-body" id="err-21">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2504,11 +2583,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-021" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-022" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-021</span>
+        <span class="bug-id">BUG-BLOC-022</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -2517,8 +2596,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc22_partial_name_search</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.99s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.18s</span>
         
         
       </div>
@@ -2562,11 +2641,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-21')">
+<button class="err-toggle" onclick="toggleErr('err-22')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-21">
+<div class="err-body" id="err-22">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2593,11 +2672,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-022" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-023" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-022</span>
+        <span class="bug-id">BUG-BLOC-023</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -2606,8 +2685,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc23_search_case_insensitive</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.00s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -2651,11 +2730,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-22')">
+<button class="err-toggle" onclick="toggleErr('err-23')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-22">
+<div class="err-body" id="err-23">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2682,11 +2761,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-023" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-024" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-023</span>
+        <span class="bug-id">BUG-BLOC-024</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -2695,8 +2774,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc24_search_trim_spaces</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.01s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -2740,11 +2819,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-23')">
+<button class="err-toggle" onclick="toggleErr('err-24')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-23">
+<div class="err-body" id="err-24">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2771,11 +2850,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-024" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-025" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-024</span>
+        <span class="bug-id">BUG-BLOC-025</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -2784,8 +2863,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc25_search_non_existing_name</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.84s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.18s</span>
         
         
       </div>
@@ -2829,11 +2908,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-24')">
+<button class="err-toggle" onclick="toggleErr('err-25')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-24">
+<div class="err-body" id="err-25">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2860,11 +2939,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-025" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-026" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-025</span>
+        <span class="bug-id">BUG-BLOC-026</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -2873,8 +2952,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc26_clear_search_restores_list</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.97s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -2918,11 +2997,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-25')">
+<button class="err-toggle" onclick="toggleErr('err-26')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-25">
+<div class="err-body" id="err-26">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2949,11 +3028,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-026" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-027" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-026</span>
+        <span class="bug-id">BUG-BLOC-027</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -2962,8 +3041,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc27_search_special_characters</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.00s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
         
         
       </div>
@@ -3007,11 +3086,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-26')">
+<button class="err-toggle" onclick="toggleErr('err-27')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-26">
+<div class="err-body" id="err-27">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3038,11 +3117,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-027" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-028" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-027</span>
+        <span class="bug-id">BUG-BLOC-028</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -3051,8 +3130,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc28_mobile_view_layout</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.86s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.21s</span>
         
         
       </div>
@@ -3090,11 +3169,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-27')">
+<button class="err-toggle" onclick="toggleErr('err-28')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-27">
+<div class="err-body" id="err-28">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3121,11 +3200,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-028" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-029" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-028</span>
+        <span class="bug-id">BUG-BLOC-029</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -3134,8 +3213,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc29_tablet_view_layout</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.01s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.21s</span>
         
         
       </div>
@@ -3173,11 +3252,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-28')">
+<button class="err-toggle" onclick="toggleErr('err-29')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-28">
+<div class="err-body" id="err-29">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3204,11 +3283,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-029" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-030" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-029</span>
+        <span class="bug-id">BUG-BLOC-030</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -3217,8 +3296,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc30_buttons_clickable_mobile</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.04s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.22s</span>
         
         
       </div>
@@ -3256,11 +3335,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-29')">
+<button class="err-toggle" onclick="toggleErr('err-30')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-29">
+<div class="err-body" id="err-30">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3287,11 +3366,90 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-030" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-031" data-priority="P1">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-030</span>
+        <span class="bug-id">BUG-BLOC-031</span>
+        <span class="badge HIGH">HIGH</span>
+        <span class="badge P1">P1</span>
+        
+      </div>
+      <div class="bug-title">Failed: Test bc31 unauthorized api redirects login</div>
+      <div class="bug-meta">
+        <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
+        <span>🧪 <code>test_bc31_unauthorized_api_redirects_login</code></span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.19s</span>
+        
+        
+      </div>
+    </div>
+  </div>
+  <div class="bug-body">
+    
+    
+<div class="info-block analysis" style="margin-bottom:16px">
+  <div class="ib-label">📋 What this test was checking</div>
+  <div>Verify unauthorized access redirects to login — verified against https://dev.prowhats.com/en.</div>
+</div>
+    
+    
+<div style="margin-bottom:16px">
+  <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;
+              color:var(--muted);margin-bottom:8px">Steps to Reproduce</div>
+  <ol class="steps"><li>Open a browser and go to https://dev.prowhats.com/en</li><li>Click the 'Log In' button in the page header</li><li>Observe the result: it does NOT match what the test expected (see Actual Behavior)</li></ol>
+</div>
+    
+<div class="two-col">
+  <div class="info-block expected">
+    <div class="ib-label">✓ What should happen</div>
+    <div>Verify unauthorized access redirects to login.</div>
+  </div>
+  <div class="info-block actual">
+    <div class="ib-label">✗ What actually happened</div>
+    <div>assert 'login' in 'https://dev.prowhats.com/en/contacts/blocked-contacts'</div>
+  </div>
+</div>
+    
+<div class="shot-wrap">
+  <div class="shot-label">Proof of Concept — Screenshot</div>
+  <div class="no-shot">No screenshot captured (test may have failed before page loaded)</div>
+</div>
+    
+    
+<button class="err-toggle" onclick="toggleErr('err-31')">
+  <span>▶ Show error details</span>
+  <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
+</button>
+<div class="err-body" id="err-31">
+  <pre style="margin-top:8px"><strong style="color:var(--c-critical)">E   AssertionError: assert 'login' in 'https://dev.prowhats.com/en/contacts/blocked-contacts'
+E    +  where 'https://dev.prowhats.com/en/contacts/blocked-contacts' = &lt;built-in method lower of str object at 0x7f5ab660bb70&gt;()
+E    +    where &lt;built-in method lower of str object at 0x7f5ab660bb70&gt; = 'https://dev.prowhats.com/en/contacts/blocked-contacts'.lower
+E    +      where 'https://dev.prowhats.com/en/contacts/blocked-contacts' = &lt;Page url='https://dev.prowhats.com/en/contacts/blocked-contacts</strong>
+
+tests/test_blocked_contact.py:570: in test_bc31_unauthorized_api_redirects_login
+    assert &quot;login&quot; in page.url.lower()
+E   AssertionError: assert 'login' in 'https://dev.prowhats.com/en/contacts/blocked-contacts'
+E    +  where 'https://dev.prowhats.com/en/contacts/blocked-contacts' = &lt;built-in method lower of str object at 0x7f5ab660bb70&gt;()
+E    +    where &lt;built-in method lower of str object at 0x7f5ab660bb70&gt; = 'https://dev.prowhats.com/en/contacts/blocked-contacts'.lower
+E    +      where 'https://dev.prowhats.com/en/contacts/blocked-contacts' = &lt;Page url='https://dev.prowhats.com/en/contacts/blocked-contacts'&gt;.url</pre>
+</div>
+    
+    <div style="margin-top:16px"></div>
+    <div class="env-strip">
+      <span><b>Browser:</b> Chromium</span>
+      <span><b>Viewport:</b> 1280x720</span>
+      <span><b>Env:</b> Staging</span>
+      <span><b>Spec:</b> <a href="https://dev.prowhats.com/en" target="_blank">View page</a></span>
+    </div>
+  </div>
+</div>
+<div class="bug-card" id="BUG-BLOC-032" data-priority="P2">
+  <div class="bug-card-hdr">
+    <div>
+      <div class="left">
+        <span class="bug-id">BUG-BLOC-032</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -3300,8 +3458,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc32_ui_stable_during_reload</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.07s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.18s</span>
         
         
       </div>
@@ -3339,11 +3497,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-30')">
+<button class="err-toggle" onclick="toggleErr('err-32')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-30">
+<div class="err-body" id="err-32">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3370,11 +3528,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     </div>
   </div>
 </div>
-<div class="bug-card" id="BUG-BLOC-031" data-priority="P2">
+<div class="bug-card" id="BUG-BLOC-033" data-priority="P2">
   <div class="bug-card-hdr">
     <div>
       <div class="left">
-        <span class="bug-id">BUG-BLOC-031</span>
+        <span class="bug-id">BUG-BLOC-033</span>
         <span class="badge MEDIUM">MEDIUM</span>
         <span class="badge P2">P2</span>
         
@@ -3383,8 +3541,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_bc33_user_friendly_error_handling</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.01s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 1.18s</span>
         
         
       </div>
@@ -3422,11 +3580,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-31')">
+<button class="err-toggle" onclick="toggleErr('err-33')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-31">
+<div class="err-body" id="err-33">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3466,8 +3624,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_login_page_loads</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 2.74s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 2.97s</span>
         
         
       </div>
@@ -3505,11 +3663,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-32')">
+<button class="err-toggle" onclick="toggleErr('err-34')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-32">
+<div class="err-body" id="err-34">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">E   AssertionError: Email field not found on login page
 E   assert 0 &gt; 0
 E    +  where 0 = count()
@@ -3545,8 +3703,8 @@ E    +    where count = &lt;Locator frame=&lt;Frame name= url='https://dev.prowh
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_owner_can_login_and_reach_dashboard</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 26.21s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 26.67s</span>
         
         
       </div>
@@ -3584,11 +3742,11 @@ E    +    where count = &lt;Locator frame=&lt;Frame name= url='https://dev.prowh
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-33')">
+<button class="err-toggle" onclick="toggleErr('err-35')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-33">
+<div class="err-body" id="err-35">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">E       - text: &quot;&amp;&quot;
 E       - link &quot;Privacy Policy&quot;:
 E         - /url: /en/privacy?from=welcome
@@ -3647,8 +3805,8 @@ E   - alert</pre>
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_admin_can_login_and_reach_dashboard</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 25.86s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 26.67s</span>
         
         
       </div>
@@ -3686,11 +3844,11 @@ E   - alert</pre>
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-34')">
+<button class="err-toggle" onclick="toggleErr('err-36')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-34">
+<div class="err-body" id="err-36">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">E       - text: &quot;&amp;&quot;
 E       - link &quot;Privacy Policy&quot;:
 E         - /url: /en/privacy?from=welcome
@@ -3749,8 +3907,8 @@ E   - alert</pre>
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_agent_can_login_and_reach_dashboard</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 26.20s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 26.21s</span>
         
         
       </div>
@@ -3788,11 +3946,11 @@ E   - alert</pre>
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-35')">
+<button class="err-toggle" onclick="toggleErr('err-37')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-35">
+<div class="err-body" id="err-37">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">E       - text: &quot;&amp;&quot;
 E       - link &quot;Privacy Policy&quot;:
 E         - /url: /en/privacy?from=welcome
@@ -3851,8 +4009,8 @@ E   - alert</pre>
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct02_owner_login_success</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.00s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.48s</span>
         
         
       </div>
@@ -3899,11 +4057,11 @@ E   - alert</pre>
   <div><a class="video-cta" href="videos-embed/test_ct02_owner_login_success.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-36')">
+<button class="err-toggle" onclick="toggleErr('err-38')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-36">
+<div class="err-body" id="err-38">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3943,8 +4101,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct03_admin_login_success</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.01s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.37s</span>
         
         
       </div>
@@ -3991,11 +4149,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct03_admin_login_success.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-37')">
+<button class="err-toggle" onclick="toggleErr('err-39')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-37">
+<div class="err-body" id="err-39">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4035,8 +4193,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct04_agent_login_success</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.87s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.55s</span>
         
         
       </div>
@@ -4083,11 +4241,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct04_agent_login_success.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-38')">
+<button class="err-toggle" onclick="toggleErr('err-40')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-38">
+<div class="err-body" id="err-40">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4127,8 +4285,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct05_authorized_user_access_contacts</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.98s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.47s</span>
         
         
       </div>
@@ -4175,11 +4333,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct05_authorized_user_access_contacts.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-39')">
+<button class="err-toggle" onclick="toggleErr('err-41')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-39">
+<div class="err-body" id="err-41">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4219,8 +4377,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct06_contacts_table_visible</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.02s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.66s</span>
         
         
       </div>
@@ -4267,11 +4425,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct06_contacts_table_visible.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-40')">
+<button class="err-toggle" onclick="toggleErr('err-42')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-40">
+<div class="err-body" id="err-42">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4311,8 +4469,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct07_contact_table_headers_visible</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.04s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.60s</span>
         
         
       </div>
@@ -4359,11 +4517,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct07_contact_table_headers_visible.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-41')">
+<button class="err-toggle" onclick="toggleErr('err-43')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-41">
+<div class="err-body" id="err-43">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4403,8 +4561,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct08_contact_action_buttons_visible</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.01s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.58s</span>
         
         
       </div>
@@ -4451,11 +4609,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct08_contact_action_buttons_visible.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-42')">
+<button class="err-toggle" onclick="toggleErr('err-44')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-42">
+<div class="err-body" id="err-44">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4495,8 +4653,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct09_contacts_table_responsive_mobile</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.87s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.41s</span>
         
         
       </div>
@@ -4534,11 +4692,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 </div>
     
     
-<button class="err-toggle" onclick="toggleErr('err-43')">
+<button class="err-toggle" onclick="toggleErr('err-45')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-43">
+<div class="err-body" id="err-45">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4578,8 +4736,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct10_add_contact_button_visible</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.86s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.32s</span>
         
         
       </div>
@@ -4626,11 +4784,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct10_add_contact_button_visible.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-44')">
+<button class="err-toggle" onclick="toggleErr('err-46')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-44">
+<div class="err-body" id="err-46">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4670,8 +4828,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct11_create_contact_required_fields</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.87s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.76s</span>
         
         
       </div>
@@ -4724,11 +4882,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct11_create_contact_required_fields.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-45')">
+<button class="err-toggle" onclick="toggleErr('err-47')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-45">
+<div class="err-body" id="err-47">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4768,8 +4926,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct12_required_field_validation</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.03s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.85s</span>
         
         
       </div>
@@ -4816,11 +4974,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct12_required_field_validation.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-46')">
+<button class="err-toggle" onclick="toggleErr('err-48')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-46">
+<div class="err-body" id="err-48">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4860,8 +5018,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct13_invalid_phone_validation</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.01s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.49s</span>
         
         
       </div>
@@ -4914,11 +5072,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct13_invalid_phone_validation.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-47')">
+<button class="err-toggle" onclick="toggleErr('err-49')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-47">
+<div class="err-body" id="err-49">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4958,8 +5116,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct14_search_by_name</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.86s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.35s</span>
         
         
       </div>
@@ -5012,11 +5170,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct14_search_by_name.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-48')">
+<button class="err-toggle" onclick="toggleErr('err-50')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-48">
+<div class="err-body" id="err-50">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5056,8 +5214,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct15_search_by_phone</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.02s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.48s</span>
         
         
       </div>
@@ -5110,11 +5268,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct15_search_by_phone.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-49')">
+<button class="err-toggle" onclick="toggleErr('err-51')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-49">
+<div class="err-body" id="err-51">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5154,8 +5312,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct16_partial_name_search</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.03s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.36s</span>
         
         
       </div>
@@ -5208,11 +5366,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct16_partial_name_search.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-50')">
+<button class="err-toggle" onclick="toggleErr('err-52')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-50">
+<div class="err-body" id="err-52">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5252,8 +5410,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct17_no_result_search</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.87s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.68s</span>
         
         
       </div>
@@ -5306,11 +5464,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct17_no_result_search.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-51')">
+<button class="err-toggle" onclick="toggleErr('err-53')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-51">
+<div class="err-body" id="err-53">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5350,8 +5508,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct18_clear_filter_button</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.02s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.26s</span>
         
         
       </div>
@@ -5398,11 +5556,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct18_clear_filter_button.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-52')">
+<button class="err-toggle" onclick="toggleErr('err-54')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-52">
+<div class="err-body" id="err-54">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5442,8 +5600,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct19_edit_button_visible</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.85s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.57s</span>
         
         
       </div>
@@ -5490,11 +5648,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct19_edit_button_visible.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-53')">
+<button class="err-toggle" onclick="toggleErr('err-55')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-53">
+<div class="err-body" id="err-55">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5534,8 +5692,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct20_delete_button_visible</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.07s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.26s</span>
         
         
       </div>
@@ -5582,11 +5740,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct20_delete_button_visible.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-54')">
+<button class="err-toggle" onclick="toggleErr('err-56')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-54">
+<div class="err-body" id="err-56">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5626,8 +5784,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct21_cancel_delete_contact</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.03s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.35s</span>
         
         
       </div>
@@ -5674,11 +5832,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct21_cancel_delete_contact.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-55')">
+<button class="err-toggle" onclick="toggleErr('err-57')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-55">
+<div class="err-body" id="err-57">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5718,8 +5876,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct22_import_button_visible</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.00s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.51s</span>
         
         
       </div>
@@ -5766,11 +5924,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct22_import_button_visible.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-56')">
+<button class="err-toggle" onclick="toggleErr('err-58')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-56">
+<div class="err-body" id="err-58">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5810,8 +5968,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct23_export_button_visible</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.89s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.81s</span>
         
         
       </div>
@@ -5858,11 +6016,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct23_export_button_visible.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-57')">
+<button class="err-toggle" onclick="toggleErr('err-59')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-57">
+<div class="err-body" id="err-59">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5902,8 +6060,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct24_upload_invalid_file_type</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.04s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.61s</span>
         
         
       </div>
@@ -5950,11 +6108,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct24_upload_invalid_file_type.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-58')">
+<button class="err-toggle" onclick="toggleErr('err-60')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-58">
+<div class="err-body" id="err-60">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5994,8 +6152,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct25_pagination_visibility</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.86s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.48s</span>
         
         
       </div>
@@ -6042,11 +6200,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct25_pagination_visibility.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-59')">
+<button class="err-toggle" onclick="toggleErr('err-61')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-59">
+<div class="err-body" id="err-61">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -6086,8 +6244,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct26_next_page_functionality</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.03s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.47s</span>
         
         
       </div>
@@ -6134,11 +6292,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct26_next_page_functionality.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-60')">
+<button class="err-toggle" onclick="toggleErr('err-62')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-60">
+<div class="err-body" id="err-62">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -6178,8 +6336,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct27_rows_per_page_dropdown</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.02s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.25s</span>
         
         
       </div>
@@ -6226,11 +6384,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct27_rows_per_page_dropdown.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-61')">
+<button class="err-toggle" onclick="toggleErr('err-63')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-61">
+<div class="err-body" id="err-63">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -6270,8 +6428,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct28_api_error_handling</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 4.00s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.25s</span>
         
         
       </div>
@@ -6318,11 +6476,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct28_api_error_handling.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-62')">
+<button class="err-toggle" onclick="toggleErr('err-64')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-62">
+<div class="err-body" id="err-64">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -6362,8 +6520,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       <div class="bug-meta">
         <span>🔗 <a href="https://dev.prowhats.com/en" target="_blank">https://dev.prowhats.com/en</a></span>
         <span>🧪 <code>test_ct29_ui_stable_after_refresh</code></span>
-        <span>🕐 2026-10-31 09:11:33</span>
-        <span>⏱ 3.88s</span>
+        <span>🕐 2026-11-01 09:51:19</span>
+        <span>⏱ 4.31s</span>
         
         
       </div>
@@ -6410,11 +6568,11 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
   <div><a class="video-cta" href="videos-embed/test_ct29_ui_stable_after_refresh.webm" download>⬇ Download .webm</a></div>
 </div>
     
-<button class="err-toggle" onclick="toggleErr('err-63')">
+<button class="err-toggle" onclick="toggleErr('err-65')">
   <span>▶ Show error details</span>
   <span style="font-size:11px;color:var(--muted)">AssertionError / Traceback</span>
 </button>
-<div class="err-body" id="err-63">
+<div class="err-body" id="err-65">
   <pre style="margin-top:8px"><strong style="color:var(--c-critical)">/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/playwright/_impl/_locator.py:228: in fill
     return await self._frame.fill(self._selector, strict=True, **params)
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -6455,10 +6613,10 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <tr>
       <td><strong>blocked_contact</strong></td>
       <td><span class="badge FAIL">FAILED</span></td>
-      <td style="color:var(--c-pass)">2</td>
-      <td style="color:var(--c-critical)">31</td>
+      <td style="color:var(--c-pass)">0</td>
+      <td style="color:var(--c-critical)">33</td>
       <td>33</td>
-      <td><a href="#BUG-BLOC-001" class="badge HIGH">BUG-BLOC-001</a> <a href="#BUG-BLOC-002" class="badge HIGH">BUG-BLOC-002</a> <a href="#BUG-BLOC-003" class="badge HIGH">BUG-BLOC-003</a> <a href="#BUG-BLOC-004" class="badge MEDIUM">BUG-BLOC-004</a> <a href="#BUG-BLOC-005" class="badge MEDIUM">BUG-BLOC-005</a> <a href="#BUG-BLOC-006" class="badge MEDIUM">BUG-BLOC-006</a> <a href="#BUG-BLOC-007" class="badge MEDIUM">BUG-BLOC-007</a> <a href="#BUG-BLOC-008" class="badge HIGH">BUG-BLOC-008</a> <a href="#BUG-BLOC-009" class="badge MEDIUM">BUG-BLOC-009</a> <a href="#BUG-BLOC-010" class="badge MEDIUM">BUG-BLOC-010</a> <a href="#BUG-BLOC-011" class="badge MEDIUM">BUG-BLOC-011</a> <a href="#BUG-BLOC-012" class="badge MEDIUM">BUG-BLOC-012</a> <a href="#BUG-BLOC-013" class="badge MEDIUM">BUG-BLOC-013</a> <a href="#BUG-BLOC-014" class="badge MEDIUM">BUG-BLOC-014</a> <a href="#BUG-BLOC-015" class="badge MEDIUM">BUG-BLOC-015</a> <a href="#BUG-BLOC-016" class="badge MEDIUM">BUG-BLOC-016</a> <a href="#BUG-BLOC-017" class="badge MEDIUM">BUG-BLOC-017</a> <a href="#BUG-BLOC-018" class="badge MEDIUM">BUG-BLOC-018</a> <a href="#BUG-BLOC-019" class="badge MEDIUM">BUG-BLOC-019</a> <a href="#BUG-BLOC-020" class="badge MEDIUM">BUG-BLOC-020</a> <a href="#BUG-BLOC-021" class="badge MEDIUM">BUG-BLOC-021</a> <a href="#BUG-BLOC-022" class="badge MEDIUM">BUG-BLOC-022</a> <a href="#BUG-BLOC-023" class="badge MEDIUM">BUG-BLOC-023</a> <a href="#BUG-BLOC-024" class="badge MEDIUM">BUG-BLOC-024</a> <a href="#BUG-BLOC-025" class="badge MEDIUM">BUG-BLOC-025</a> <a href="#BUG-BLOC-026" class="badge MEDIUM">BUG-BLOC-026</a> <a href="#BUG-BLOC-027" class="badge MEDIUM">BUG-BLOC-027</a> <a href="#BUG-BLOC-028" class="badge MEDIUM">BUG-BLOC-028</a> <a href="#BUG-BLOC-029" class="badge MEDIUM">BUG-BLOC-029</a> <a href="#BUG-BLOC-030" class="badge MEDIUM">BUG-BLOC-030</a> <a href="#BUG-BLOC-031" class="badge MEDIUM">BUG-BLOC-031</a></td>
+      <td><a href="#BUG-BLOC-001" class="badge HIGH">BUG-BLOC-001</a> <a href="#BUG-BLOC-002" class="badge HIGH">BUG-BLOC-002</a> <a href="#BUG-BLOC-003" class="badge HIGH">BUG-BLOC-003</a> <a href="#BUG-BLOC-004" class="badge HIGH">BUG-BLOC-004</a> <a href="#BUG-BLOC-005" class="badge MEDIUM">BUG-BLOC-005</a> <a href="#BUG-BLOC-006" class="badge MEDIUM">BUG-BLOC-006</a> <a href="#BUG-BLOC-007" class="badge MEDIUM">BUG-BLOC-007</a> <a href="#BUG-BLOC-008" class="badge MEDIUM">BUG-BLOC-008</a> <a href="#BUG-BLOC-009" class="badge HIGH">BUG-BLOC-009</a> <a href="#BUG-BLOC-010" class="badge MEDIUM">BUG-BLOC-010</a> <a href="#BUG-BLOC-011" class="badge MEDIUM">BUG-BLOC-011</a> <a href="#BUG-BLOC-012" class="badge MEDIUM">BUG-BLOC-012</a> <a href="#BUG-BLOC-013" class="badge MEDIUM">BUG-BLOC-013</a> <a href="#BUG-BLOC-014" class="badge MEDIUM">BUG-BLOC-014</a> <a href="#BUG-BLOC-015" class="badge MEDIUM">BUG-BLOC-015</a> <a href="#BUG-BLOC-016" class="badge MEDIUM">BUG-BLOC-016</a> <a href="#BUG-BLOC-017" class="badge MEDIUM">BUG-BLOC-017</a> <a href="#BUG-BLOC-018" class="badge MEDIUM">BUG-BLOC-018</a> <a href="#BUG-BLOC-019" class="badge MEDIUM">BUG-BLOC-019</a> <a href="#BUG-BLOC-020" class="badge MEDIUM">BUG-BLOC-020</a> <a href="#BUG-BLOC-021" class="badge MEDIUM">BUG-BLOC-021</a> <a href="#BUG-BLOC-022" class="badge MEDIUM">BUG-BLOC-022</a> <a href="#BUG-BLOC-023" class="badge MEDIUM">BUG-BLOC-023</a> <a href="#BUG-BLOC-024" class="badge MEDIUM">BUG-BLOC-024</a> <a href="#BUG-BLOC-025" class="badge MEDIUM">BUG-BLOC-025</a> <a href="#BUG-BLOC-026" class="badge MEDIUM">BUG-BLOC-026</a> <a href="#BUG-BLOC-027" class="badge MEDIUM">BUG-BLOC-027</a> <a href="#BUG-BLOC-028" class="badge MEDIUM">BUG-BLOC-028</a> <a href="#BUG-BLOC-029" class="badge MEDIUM">BUG-BLOC-029</a> <a href="#BUG-BLOC-030" class="badge MEDIUM">BUG-BLOC-030</a> <a href="#BUG-BLOC-031" class="badge HIGH">BUG-BLOC-031</a> <a href="#BUG-BLOC-032" class="badge MEDIUM">BUG-BLOC-032</a> <a href="#BUG-BLOC-033" class="badge MEDIUM">BUG-BLOC-033</a></td>
     </tr><tr>
       <td><strong>company_dashboard</strong></td>
       <td><span class="badge FAIL">FAILED</span></td>
@@ -6485,8 +6643,8 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 <div class="filter-bar test-filter-bar">
   <span class="filter-lbl">Show:</span>
   <button class="fbtn active" data-test-filter="all">All (100)</button>
-  <button class="fbtn fbtn-pass" data-test-filter="passed">✅ Passed (4)</button>
-  <button class="fbtn fbtn-fail" data-test-filter="failed">❌ Failed (63)</button>
+  <button class="fbtn fbtn-pass" data-test-filter="passed">✅ Passed (2)</button>
+  <button class="fbtn fbtn-fail" data-test-filter="failed">❌ Failed (65)</button>
   <input type="text" class="fbtn-search" placeholder="🔍 Search by test name..." data-search="">
   <button class="fbtn-action" data-action="expand-all">⬇ Expand all</button>
   <button class="fbtn-action" data-action="collapse-all">⬆ Collapse all</button>
@@ -6495,7 +6653,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
 
 <div class="spec-blk">
   <div class="spec-blk-hdr" onclick="toggleSpec('spec-detail-0')">
-    <span class="spec-blk-title">❌ <code>blocked_contact</code> — <span style='color:var(--c-pass)'>2 passed</span> · <span style='color:var(--c-critical)'>31 failed</span> · 33 total</span>
+    <span class="spec-blk-title">❌ <code>blocked_contact</code> — <span style='color:var(--c-pass)'>0 passed</span> · <span style='color:var(--c-critical)'>33 failed</span> · 33 total</span>
     <span class="spec-blk-toggle">▶ Show tests</span>
   </div>
   <div class="spec-blk-body" id="spec-detail-0">
@@ -6504,27 +6662,15 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
       data used, and (for failures) what went wrong in plain English.
     </div>
     
-<details class="trow pass">
+<details class="trow fail">
   <summary>
-    <span class="t-chip pass">✅ PASSED</span>
+    <span class="t-chip fail">❌ FAILED</span>
     <span class="trow-name">test_bc01_unauthenticated_redirect_to_login</span>
     
-    <span class="trow-dur">4.12s</span>
+    <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify unauthenticated users are redirected to login.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">4.12s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc01_unauthenticated_redirect_to_login</code></span></div>
-  </div>
-</details>
-
-<details class="trow pass">
-  <summary>
-    <span class="t-chip pass">✅ PASSED</span>
-    <span class="trow-name">test_bc31_unauthorized_api_redirects_login</span>
-    
-    <span class="trow-dur">4.09s</span>
-  </summary>
-  <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify unauthorized access redirects to login.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">4.09s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc31_unauthorized_api_redirects_login</code></span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify unauthenticated users are redirected to login.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc01_unauthenticated_redirect_to_login</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify unauthenticated users are redirected to login.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">assert 'login' in 'https://dev.prowhats.com/en/contacts/blocked-contacts'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-001">BUG-BLOC-001</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6536,7 +6682,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify Company Owner can log in successfully.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc02_company_owner_login_success</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify Company Owner can log in successfully.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-001">BUG-BLOC-001</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify Company Owner can log in successfully.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc02_company_owner_login_success</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify Company Owner can log in successfully.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-002">BUG-BLOC-002</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6548,7 +6694,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify Admin can log in successfully.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc03_admin_login_success</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify Admin can log in successfully.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-002">BUG-BLOC-002</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify Admin can log in successfully.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc03_admin_login_success</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify Admin can log in successfully.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-003">BUG-BLOC-003</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6560,7 +6706,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify Agent can log in successfully.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc04_agent_login_success</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify Agent can log in successfully.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-003">BUG-BLOC-003</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify Agent can log in successfully.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc04_agent_login_success</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify Agent can log in successfully.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-004">BUG-BLOC-004</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6572,7 +6718,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify owner can access blocked contacts page.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc05_owner_can_access_blocked_contacts</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify owner can access blocked contacts page.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-004">BUG-BLOC-004</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify owner can access blocked contacts page.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc05_owner_can_access_blocked_contacts</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify owner can access blocked contacts page.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-005">BUG-BLOC-005</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6584,7 +6730,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify admin can access blocked contacts page.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc06_admin_can_access_blocked_contacts</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify admin can access blocked contacts page.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-005">BUG-BLOC-005</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify admin can access blocked contacts page.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc06_admin_can_access_blocked_contacts</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify admin can access blocked contacts page.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-006">BUG-BLOC-006</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6596,7 +6742,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify agent can access blocked contacts page.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc07_agent_can_access_blocked_contacts</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify agent can access blocked contacts page.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-006">BUG-BLOC-006</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify agent can access blocked contacts page.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc07_agent_can_access_blocked_contacts</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify agent can access blocked contacts page.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-007">BUG-BLOC-007</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6608,7 +6754,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify user can navigate from dashboard to blocked contacts page.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc08_navigation_dashboard_to_blocked_contacts</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify user can navigate from dashboard to blocked contacts page.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-007">BUG-BLOC-007</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify user can navigate from dashboard to blocked contacts page.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc08_navigation_dashboard_to_blocked_contacts</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify user can navigate from dashboard to blocked contacts page.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-008">BUG-BLOC-008</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6620,7 +6766,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify direct URL access works after login.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc09_direct_url_access_after_login</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify direct URL access works after login.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-008">BUG-BLOC-008</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify direct URL access works after login.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc09_direct_url_access_after_login</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify direct URL access works after login.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-009">BUG-BLOC-009</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6632,7 +6778,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify browser refresh does not break page.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc10_browser_refresh_keeps_page_stable</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify browser refresh does not break page.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-009">BUG-BLOC-009</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify browser refresh does not break page.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc10_browser_refresh_keeps_page_stable</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify browser refresh does not break page.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-010">BUG-BLOC-010</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6644,7 +6790,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify blocked contacts table/list renders correctly.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc11_blocked_contacts_table_visible</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify blocked contacts table/list renders correctly.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-010">BUG-BLOC-010</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify blocked contacts table/list renders correctly.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc11_blocked_contacts_table_visible</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify blocked contacts table/list renders correctly.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-011">BUG-BLOC-011</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6656,7 +6802,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify table headers are visible.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc12_blocked_contacts_table_headers_visible</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify table headers are visible.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-011">BUG-BLOC-011</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify table headers are visible.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc12_blocked_contacts_table_headers_visible</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify table headers are visible.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-012">BUG-BLOC-012</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6668,7 +6814,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify blocked contacts data loads properly.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc13_blocked_contacts_data_loaded</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify blocked contacts data loads properly.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-012">BUG-BLOC-012</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify blocked contacts data loads properly.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc13_blocked_contacts_data_loaded</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify blocked contacts data loads properly.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-013">BUG-BLOC-013</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6680,7 +6826,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify empty state appears if no data exists.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc14_empty_state_visibility</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify empty state appears if no data exists.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-013">BUG-BLOC-013</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify empty state appears if no data exists.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc14_empty_state_visibility</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify empty state appears if no data exists.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-014">BUG-BLOC-014</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6692,7 +6838,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify block button/action is visible.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc15_block_button_visible</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify block button/action is visible.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-014">BUG-BLOC-014</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify block button/action is visible.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc15_block_button_visible</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify block button/action is visible.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-015">BUG-BLOC-015</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6704,7 +6850,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify unblock button/action is visible.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc16_unblock_button_visible</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify unblock button/action is visible.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-015">BUG-BLOC-015</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify unblock button/action is visible.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc16_unblock_button_visible</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify unblock button/action is visible.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-016">BUG-BLOC-016</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6716,7 +6862,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify user can unblock contact successfully.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc17_user_can_unblock_contact</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify user can unblock contact successfully.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-016">BUG-BLOC-016</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify user can unblock contact successfully.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc17_user_can_unblock_contact</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify user can unblock contact successfully.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-017">BUG-BLOC-017</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6728,7 +6874,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify user can block contact successfully.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc18_user_can_block_contact</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify user can block contact successfully.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-017">BUG-BLOC-017</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify user can block contact successfully.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc18_user_can_block_contact</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify user can block contact successfully.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-018">BUG-BLOC-018</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6740,7 +6886,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify UI updates after block/unblock action.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc19_ui_updates_after_action</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify UI updates after block/unblock action.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-018">BUG-BLOC-018</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify UI updates after block/unblock action.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc19_ui_updates_after_action</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify UI updates after block/unblock action.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-019">BUG-BLOC-019</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6752,7 +6898,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify search input field is visible.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc20_search_input_visible</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify search input field is visible.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-019">BUG-BLOC-019</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify search input field is visible.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc20_search_input_visible</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify search input field is visible.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-020">BUG-BLOC-020</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6764,7 +6910,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify valid search filters data.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">fill(&quot;John&quot;)</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc21_search_valid_customer_name</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify valid search filters data.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-020">BUG-BLOC-020</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify valid search filters data.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">fill(&quot;John&quot;)</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc21_search_valid_customer_name</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify valid search filters data.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-021">BUG-BLOC-021</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6776,7 +6922,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify partial name search works.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">fill(&quot;Jo&quot;)</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc22_partial_name_search</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify partial name search works.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-021">BUG-BLOC-021</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify partial name search works.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">fill(&quot;Jo&quot;)</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc22_partial_name_search</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify partial name search works.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-022">BUG-BLOC-022</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6788,7 +6934,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify search is case insensitive.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">fill(&quot;JOHN&quot;)</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc23_search_case_insensitive</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify search is case insensitive.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-022">BUG-BLOC-022</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify search is case insensitive.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">fill(&quot;JOHN&quot;)</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc23_search_case_insensitive</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify search is case insensitive.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-023">BUG-BLOC-023</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6800,7 +6946,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify search handles extra spaces properly.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">fill(&quot;   John   &quot;)</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc24_search_trim_spaces</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify search handles extra spaces properly.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-023">BUG-BLOC-023</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify search handles extra spaces properly.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">fill(&quot;   John   &quot;)</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc24_search_trim_spaces</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify search handles extra spaces properly.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-024">BUG-BLOC-024</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6812,7 +6958,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify invalid search shows empty state.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">fill(&quot;xyzinvaliduser123&quot;)</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc25_search_non_existing_name</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify invalid search shows empty state.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-024">BUG-BLOC-024</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify invalid search shows empty state.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">fill(&quot;xyzinvaliduser123&quot;)</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc25_search_non_existing_name</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify invalid search shows empty state.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-025">BUG-BLOC-025</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6824,7 +6970,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify clearing search restores list.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">fill(&quot;John&quot;)</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc26_clear_search_restores_list</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify clearing search restores list.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-025">BUG-BLOC-025</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify clearing search restores list.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">fill(&quot;John&quot;)</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc26_clear_search_restores_list</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify clearing search restores list.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-026">BUG-BLOC-026</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6836,7 +6982,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify special character search does not crash UI.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">fill(&quot;@#$%^&amp;*()&quot;)</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc27_search_special_characters</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify special character search does not crash UI.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-026">BUG-BLOC-026</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify special character search does not crash UI.</span></div><div class="td-row"><span class="td-lbl">Test data used:</span><span class="td-val td-data">fill(&quot;@#$%^&amp;*()&quot;)</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc27_search_special_characters</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify special character search does not crash UI.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-027">BUG-BLOC-027</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6848,7 +6994,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify page layout works on mobile devices.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc28_mobile_view_layout</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify page layout works on mobile devices.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-027">BUG-BLOC-027</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify page layout works on mobile devices.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc28_mobile_view_layout</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify page layout works on mobile devices.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-028">BUG-BLOC-028</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6860,7 +7006,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify page layout works on tablet devices.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc29_tablet_view_layout</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify page layout works on tablet devices.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-028">BUG-BLOC-028</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify page layout works on tablet devices.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc29_tablet_view_layout</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify page layout works on tablet devices.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-029">BUG-BLOC-029</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6872,7 +7018,19 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify buttons remain clickable on mobile devices.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc30_buttons_clickable_mobile</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify buttons remain clickable on mobile devices.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-029">BUG-BLOC-029</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify buttons remain clickable on mobile devices.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc30_buttons_clickable_mobile</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify buttons remain clickable on mobile devices.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-030">BUG-BLOC-030</a> — see full details below</span></div>
+  </div>
+</details>
+
+<details class="trow fail">
+  <summary>
+    <span class="t-chip fail">❌ FAILED</span>
+    <span class="trow-name">test_bc31_unauthorized_api_redirects_login</span>
+    
+    <span class="trow-dur">—</span>
+  </summary>
+  <div class="trow-details">
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify unauthorized access redirects to login.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc31_unauthorized_api_redirects_login</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify unauthorized access redirects to login.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">assert 'login' in 'https://dev.prowhats.com/en/contacts/blocked-contacts'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-031">BUG-BLOC-031</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6884,7 +7042,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify UI remains stable during reload.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc32_ui_stable_during_reload</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify UI remains stable during reload.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-030">BUG-BLOC-030</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify UI remains stable during reload.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc32_ui_stable_during_reload</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify UI remains stable during reload.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-032">BUG-BLOC-032</a> — see full details below</span></div>
   </div>
 </details>
 
@@ -6896,7 +7054,7 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="trow-dur">—</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify user-friendly error handling exists.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc33_user_friendly_error_handling</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify user-friendly error handling exists.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-031">BUG-BLOC-031</a> — see full details below</span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify user-friendly error handling exists.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">—</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_bc33_user_friendly_error_handling</code></span></div><div class="td-row"><span class="td-lbl exp">Expected:</span><span class="td-val">Verify user-friendly error handling exists.</span></div><div class="td-row"><span class="td-lbl act">What happened:</span><span class="td-val">TypeError: Frame.fill() missing 1 required positional argument: 'value'</span></div><div class="td-row"><span class="td-lbl">Bug ticket:</span><span class="td-val"><a href="#BUG-BLOC-033">BUG-BLOC-033</a> — see full details below</span></div>
   </div>
 </details>
   </div>
@@ -6917,10 +7075,10 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="t-chip pass">✅ PASSED</span>
     <span class="trow-name">test_unauthenticated_dashboard_redirects_to_login</span>
     
-    <span class="trow-dur">3.45s</span>
+    <span class="trow-dur">3.43s</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Direct access to dashboard URL without login must redirect to login.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">3.45s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_unauthenticated_dashboard_redirects_to_login</code></span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Direct access to dashboard URL without login must redirect to login.</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">3.43s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_unauthenticated_dashboard_redirects_to_login</code></span></div>
   </div>
 </details>
 
@@ -6989,10 +7147,10 @@ E   TypeError: Frame.fill() missing 1 required positional argument: 'value'</pre
     <span class="t-chip pass">✅ PASSED</span>
     <span class="trow-name">test_ct01_unauthorized_redirect_to_login</span>
     
-    <span class="trow-dur">4.37s</span>
+    <span class="trow-dur">4.98s</span>
   </summary>
   <div class="trow-details">
-    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify unauthorized users redirect to login</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">4.37s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_ct01_unauthorized_redirect_to_login</code></span></div>
+    <div class="td-row"><span class="td-lbl">What this test checks:</span><span class="td-val">Verify unauthorized users redirect to login</span></div><div class="td-row"><span class="td-lbl">Duration:</span><span class="td-val">4.98s</span></div><div class="td-row"><span class="td-lbl">Test function:</span><span class="td-val"><code>test_ct01_unauthorized_redirect_to_login</code></span></div>
   </div>
 </details>
 
