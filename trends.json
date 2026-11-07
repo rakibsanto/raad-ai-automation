@@ -1,16 +1,6 @@
 {
   "runs": [
     {
-      "run_number": 146,
-      "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/35317095813",
-      "timestamp": "2026-09-18T08:16:39.898816Z",
-      "passed": 6,
-      "failed": 62,
-      "total": 100,
-      "bugs": 62,
-      "pass_rate": "6.0%"
-    },
-    {
       "run_number": 147,
       "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/35427912335",
       "timestamp": "2026-09-19T08:14:47.392963Z",
@@ -499,6 +489,16 @@
       "total": 6,
       "bugs": 0,
       "pass_rate": "100.0%"
+    },
+    {
+      "run_number": 196,
+      "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/42354148736",
+      "timestamp": "2026-11-07T09:27:50.859710Z",
+      "passed": 1,
+      "failed": 37,
+      "total": 71,
+      "bugs": 37,
+      "pass_rate": "1.4%"
     }
   ],
   "fingerprints": {
@@ -580,9 +580,8 @@
     },
     "318b5b7cebe6": {
       "first_seen_run": 152,
-      "last_seen_run": 191,
+      "last_seen_run": 196,
       "runs_seen": [
-        161,
         162,
         163,
         164,
@@ -611,7 +610,8 @@
         188,
         189,
         190,
-        191
+        191,
+        196
       ]
     },
     "df51c366515a": {
@@ -744,6 +744,27 @@
       "last_seen_run": 181,
       "runs_seen": [
         181
+      ]
+    },
+    "9a2cecd541ce": {
+      "first_seen_run": 196,
+      "last_seen_run": 196,
+      "runs_seen": [
+        196
+      ]
+    },
+    "9f794e912528": {
+      "first_seen_run": 196,
+      "last_seen_run": 196,
+      "runs_seen": [
+        196
+      ]
+    },
+    "cfe81c7d84e4": {
+      "first_seen_run": 196,
+      "last_seen_run": 196,
+      "runs_seen": [
+        196
       ]
     }
   }
