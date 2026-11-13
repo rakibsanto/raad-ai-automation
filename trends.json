@@ -1,16 +1,6 @@
 {
   "runs": [
     {
-      "run_number": 152,
-      "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/35967481583",
-      "timestamp": "2026-09-24T08:22:57.441527Z",
-      "passed": 33,
-      "failed": 66,
-      "total": 100,
-      "bugs": 66,
-      "pass_rate": "33.0%"
-    },
-    {
       "run_number": 153,
       "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/36105357473",
       "timestamp": "2026-09-25T08:19:15.344035Z",
@@ -499,6 +489,16 @@
       "total": 100,
       "bugs": 66,
       "pass_rate": "1.0%"
+    },
+    {
+      "run_number": 202,
+      "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/43397434997",
+      "timestamp": "2026-11-13T10:38:11.002188Z",
+      "passed": 1,
+      "failed": 66,
+      "total": 100,
+      "bugs": 66,
+      "pass_rate": "1.0%"
     }
   ],
   "fingerprints": {
@@ -580,9 +580,8 @@
     },
     "318b5b7cebe6": {
       "first_seen_run": 152,
-      "last_seen_run": 201,
+      "last_seen_run": 202,
       "runs_seen": [
-        167,
         168,
         169,
         170,
@@ -611,7 +610,8 @@
         197,
         198,
         199,
-        201
+        201,
+        202
       ]
     },
     "df51c366515a": {
@@ -748,13 +748,14 @@
     },
     "9a2cecd541ce": {
       "first_seen_run": 196,
-      "last_seen_run": 201,
+      "last_seen_run": 202,
       "runs_seen": [
         196,
         197,
         198,
         199,
-        201
+        201,
+        202
       ]
     },
     "9f794e912528": {
@@ -777,20 +778,22 @@
     },
     "025a1c69eb8d": {
       "first_seen_run": 199,
-      "last_seen_run": 201,
+      "last_seen_run": 202,
       "runs_seen": [
         199,
         200,
-        201
+        201,
+        202
       ]
     },
     "3658cd500473": {
       "first_seen_run": 199,
-      "last_seen_run": 201,
+      "last_seen_run": 202,
       "runs_seen": [
         199,
         200,
-        201
+        201,
+        202
       ]
     },
     "a5fb68cd9244": {
