@@ -1,16 +1,6 @@
 {
   "runs": [
     {
-      "run_number": 153,
-      "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/36105357473",
-      "timestamp": "2026-09-25T08:19:15.344035Z",
-      "passed": 4,
-      "failed": 63,
-      "total": 100,
-      "bugs": 63,
-      "pass_rate": "4.0%"
-    },
-    {
       "run_number": 154,
       "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/36225293314",
       "timestamp": "2026-09-26T08:16:03.576765Z",
@@ -499,6 +489,16 @@
       "total": 100,
       "bugs": 66,
       "pass_rate": "1.0%"
+    },
+    {
+      "run_number": 203,
+      "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/43575837834",
+      "timestamp": "2026-11-14T09:45:36.827585Z",
+      "passed": 1,
+      "failed": 66,
+      "total": 100,
+      "bugs": 66,
+      "pass_rate": "1.0%"
     }
   ],
   "fingerprints": {
@@ -580,9 +580,8 @@
     },
     "318b5b7cebe6": {
       "first_seen_run": 152,
-      "last_seen_run": 202,
+      "last_seen_run": 203,
       "runs_seen": [
-        168,
         169,
         170,
         171,
@@ -611,7 +610,8 @@
         198,
         199,
         201,
-        202
+        202,
+        203
       ]
     },
     "df51c366515a": {
@@ -748,14 +748,15 @@
     },
     "9a2cecd541ce": {
       "first_seen_run": 196,
-      "last_seen_run": 202,
+      "last_seen_run": 203,
       "runs_seen": [
         196,
         197,
         198,
         199,
         201,
-        202
+        202,
+        203
       ]
     },
     "9f794e912528": {
@@ -778,22 +779,24 @@
     },
     "025a1c69eb8d": {
       "first_seen_run": 199,
-      "last_seen_run": 202,
+      "last_seen_run": 203,
       "runs_seen": [
         199,
         200,
         201,
-        202
+        202,
+        203
       ]
     },
     "3658cd500473": {
       "first_seen_run": 199,
-      "last_seen_run": 202,
+      "last_seen_run": 203,
       "runs_seen": [
         199,
         200,
         201,
-        202
+        202,
+        203
       ]
     },
     "a5fb68cd9244": {
