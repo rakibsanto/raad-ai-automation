@@ -491,14 +491,14 @@
       "pass_rate": "1.0%"
     },
     {
-      "run_number": 204,
-      "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/43695776598",
-      "timestamp": "2026-11-15T09:27:27.510730Z",
-      "passed": 6,
-      "failed": 0,
-      "total": 6,
-      "bugs": 0,
-      "pass_rate": "100.0%"
+      "run_number": 205,
+      "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/43834916132",
+      "timestamp": "2026-11-16T10:12:32.592880Z",
+      "passed": 5,
+      "failed": 59,
+      "total": 71,
+      "bugs": 59,
+      "pass_rate": "7.0%"
     }
   ],
   "fingerprints": {
@@ -580,9 +580,8 @@
     },
     "318b5b7cebe6": {
       "first_seen_run": 152,
-      "last_seen_run": 203,
+      "last_seen_run": 205,
       "runs_seen": [
-        169,
         170,
         171,
         172,
@@ -611,7 +610,8 @@
         199,
         201,
         202,
-        203
+        203,
+        205
       ]
     },
     "df51c366515a": {
@@ -790,13 +790,14 @@
     },
     "3658cd500473": {
       "first_seen_run": 199,
-      "last_seen_run": 203,
+      "last_seen_run": 205,
       "runs_seen": [
         199,
         200,
         201,
         202,
-        203
+        203,
+        205
       ]
     },
     "a5fb68cd9244": {
@@ -804,6 +805,41 @@
       "last_seen_run": 199,
       "runs_seen": [
         199
+      ]
+    },
+    "20d3e5e938dc": {
+      "first_seen_run": 205,
+      "last_seen_run": 205,
+      "runs_seen": [
+        205
+      ]
+    },
+    "b2e1c6bc3800": {
+      "first_seen_run": 205,
+      "last_seen_run": 205,
+      "runs_seen": [
+        205
+      ]
+    },
+    "002ff838fd90": {
+      "first_seen_run": 205,
+      "last_seen_run": 205,
+      "runs_seen": [
+        205
+      ]
+    },
+    "568622a541b1": {
+      "first_seen_run": 205,
+      "last_seen_run": 205,
+      "runs_seen": [
+        205
+      ]
+    },
+    "dceb561c8dfb": {
+      "first_seen_run": 205,
+      "last_seen_run": 205,
+      "runs_seen": [
+        205
       ]
     }
   }
