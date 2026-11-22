@@ -1,16 +1,6 @@
 {
   "runs": [
     {
-      "run_number": 160,
-      "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/36980627825",
-      "timestamp": "2026-10-02T09:09:03.341337Z",
-      "passed": 4,
-      "failed": 63,
-      "total": 100,
-      "bugs": 63,
-      "pass_rate": "4.0%"
-    },
-    {
       "run_number": 161,
       "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/37106339300",
       "timestamp": "2026-10-03T08:46:08.504701Z",
@@ -499,6 +489,16 @@
       "total": 100,
       "bugs": 88,
       "pass_rate": "5.0%"
+    },
+    {
+      "run_number": 211,
+      "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/45006344507",
+      "timestamp": "2026-11-22T10:37:22.207527Z",
+      "passed": 5,
+      "failed": 59,
+      "total": 71,
+      "bugs": 59,
+      "pass_rate": "7.0%"
     }
   ],
   "fingerprints": {
@@ -580,9 +580,8 @@
     },
     "318b5b7cebe6": {
       "first_seen_run": 152,
-      "last_seen_run": 210,
+      "last_seen_run": 211,
       "runs_seen": [
-        175,
         176,
         177,
         178,
@@ -611,7 +610,8 @@
         207,
         208,
         209,
-        210
+        210,
+        211
       ]
     },
     "df51c366515a": {
@@ -790,7 +790,7 @@
     },
     "3658cd500473": {
       "first_seen_run": 199,
-      "last_seen_run": 210,
+      "last_seen_run": 211,
       "runs_seen": [
         199,
         200,
@@ -802,7 +802,8 @@
         207,
         208,
         209,
-        210
+        210,
+        211
       ]
     },
     "a5fb68cd9244": {
@@ -814,58 +815,63 @@
     },
     "20d3e5e938dc": {
       "first_seen_run": 205,
-      "last_seen_run": 210,
+      "last_seen_run": 211,
       "runs_seen": [
         205,
         207,
         208,
         209,
-        210
+        210,
+        211
       ]
     },
     "b2e1c6bc3800": {
       "first_seen_run": 205,
-      "last_seen_run": 210,
+      "last_seen_run": 211,
       "runs_seen": [
         205,
         207,
         208,
         209,
-        210
+        210,
+        211
       ]
     },
     "002ff838fd90": {
       "first_seen_run": 205,
-      "last_seen_run": 210,
+      "last_seen_run": 211,
       "runs_seen": [
         205,
         207,
         208,
         209,
-        210
+        210,
+        211
       ]
     },
     "568622a541b1": {
       "first_seen_run": 205,
-      "last_seen_run": 210,
+      "last_seen_run": 211,
       "runs_seen": [
         205,
         206,
         207,
         208,
         209,
-        210
+        210,
+        211
       ]
     },
     "dceb561c8dfb": {
       "first_seen_run": 205,
-      "last_seen_run": 210,
+      "last_seen_run": 211,
       "runs_seen": [
         205,
         207,
         208,
         209,
-        210
+        210,
+        211
       ]
     }
   }
