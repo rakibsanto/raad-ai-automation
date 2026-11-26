@@ -1,16 +1,6 @@
 {
   "runs": [
     {
-      "run_number": 164,
-      "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/37436062914",
-      "timestamp": "2026-10-06T09:45:36.851908Z",
-      "passed": 4,
-      "failed": 63,
-      "total": 100,
-      "bugs": 63,
-      "pass_rate": "4.0%"
-    },
-    {
       "run_number": 165,
       "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/37591041530",
       "timestamp": "2026-10-07T09:21:38.233908Z",
@@ -499,6 +489,16 @@
       "total": 33,
       "bugs": 33,
       "pass_rate": "0.0%"
+    },
+    {
+      "run_number": 215,
+      "run_url": "https://github.com/rakibsanto/raad-ai-automation/actions/runs/45800151554",
+      "timestamp": "2026-11-26T11:04:08.552498Z",
+      "passed": 6,
+      "failed": 0,
+      "total": 6,
+      "bugs": 0,
+      "pass_rate": "100.0%"
     }
   ],
   "fingerprints": {
